@@ -1,0 +1,36 @@
+table, caption, th, td {
+
+    border: 2px solid rgb(155, 155, 155);
+      border-collapse: collapse;
+}
+
+caption, th, td {
+    
+    padding: 8px;
+    
+}
+    
+caption {
+    
+    background-color: lightgrey;
+    
+}
+    
+th {
+    
+    background-color: rgb(201, 201, 201);
+    
+}
+    
+td {
+    
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    
+}
+
+table   {
+    margin: auto;
+    box-shadow: lightgray 4px 4px 20px;
+}
+   

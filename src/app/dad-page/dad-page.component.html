@@ -1,0 +1,14 @@
+<div class="file-container" *ngIf="!file">
+
+    <input type="file"(change)="getFile($event)" class="file"/>
+</div>
+
+<div *ngIf="file">
+    File name: {{file.name}} <br />
+    <button (click)="file=undefined">clear file</button>
+</div> 
+<br />
+
+<button (click)="uploadFile()">
+     <input type="file"(change)="getFile($event)" class="file" accept=".csv"/>
+</button>
