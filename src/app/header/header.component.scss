@@ -1,6 +1,6 @@
 header {
     text-align: center;
-    background-color: #eee;
+    background: linear-gradient(90deg, #ada9a9, #709b70);
     margin-bottom: 20px;
     padding: 10px
 }
@@ -12,9 +12,22 @@ a {
     &:hover {
         text-decoration: underline;
     }
+    font-size: 25px;
+    color: white;
+    font-family: 'Helvetica';
+
+
 }
 
 .active {
-    color: #666;
+    color: rgb(255, 255, 255);
     text-decoration: underline;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: bold ;
+    font-family: 'Helvetica';
+    margin-bottom: 30px;
+    color: white;
 }

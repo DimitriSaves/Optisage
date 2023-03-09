@@ -1,0 +1,1999 @@
+MENU;CODINT_0;FONCTION;NUM
+Menu général;GENE;Menu général;1
+Traductions;ATRAD;Traductions;1
+Documentation;ATDOC;Traductions Documentation;2
+Fonctions;ATFCT;Fonctions;3
+Traduction menus locaux;ALOCTRAD;Traduction menus locaux;
+Traduction processus;APRTRAD;Traduction processus;
+Textes à traduire;ATXTTRAD;Textes à traduire;
+Traduction des libellés;FUNTRATXI;Traduction désignations;
+Traduction textes;GESATR;Traduction textes;
+Outils;ATTLS;Outils;3
+Export messages;AEXPATD;Export messages;
+Export textes;AEXPATR;Export textes;
+Génération textes;AGENREFAML;Génération textes;
+Génération réf. croisées;AGENREFTXT;Cas d'emploi;
+Import messages;AIMPATD;Import messages;
+Import textes;AIMPATR;Import textes;
+Génération des libellés;ALANG;Génération des libellés;
+Recherche texte;ARECTXTTRD;Recherche  message / texte;
+Textes-Aplstd non traduits;ATXNOTRANS;Textes-Aplstd non traduits;
+Exceptions (traduction);GESAEX;Exceptions (traduction);
+Traduction écrans;GESAMD;Traduction écrans;
+Traduction tables;GESATT;Traduction tables;
+Logiciel;ATPRD;Traductions Produit;2
+Extraction documentation;ADOCEXT;Extraction documentation;
+Import documentation;ADOCIMP;Import documentation;
+Plan de travail documentation;ADOCTRA;Plan de travail documentation;
+Développement;GDEV;Développement;1
+Synchronisation des textes;ATXTSRVSYNC;Synchronisation des textes;
+Utilitaires;GUTIL;Utilitaires superviseur;2
+Maintenances;UTI0;Maintenances;3
+En lignes;GMAINT;Maintenance des tables en lig.;
+En colonnes;GSTDCOL;Maintenance en colonnes;
+Vérifications;UTI1;Vérifications;3
+Analyse mémos;ANAMEMO;Analyse mémos;
+Vérification des sources;AVERIFSRC;Vérification des sources;
+Base de données;UTI1B;Vérifications -Base de données;4
+Etat des tables;ETAFIC;Etat des tables;
+Recherche index;SQLDICO;Recherche index;
+Processus;TRTPRO;Processus base de données;
+Propriétés;TRTPROP;Propriétés base de données;
+Statistiques;TRTSTA;Statistiques base de données;
+Données;UTI1D;Vérifications - Données;4
+Cohérences;UTIBASE;Vérification cohérence base;
+Dépendances;UTIDEP;Contrôle des dépendances;
+Surveillances;UTI1S;Vérifications - Surveillances;4
+Services;ADXD;Surveillance services;
+Utilisateurs;PSADX;Surveillance utilisateurs;
+Verrous;UTI1V;Vérifications - Verrous;4
+Traitements verrouillés;LCKSRC;Traitements verrouillés;
+Symboles verrouillés;VERSYMB;Symboles verrouillés;
+Dictionnaire;UTI2;Dictionnaire;3
+Mise à jour menus locaux;GENMENULOC;Mise à jour menus locaux;
+Génération transactions;GENMSKTRT;Génération transactions;
+Synchronisation des fenêtres;SYNCHDICO;Synchronisation des fenêtres;
+Archives;UTI2A;Archives;4
+Génération de l'archive;ARCHGENTRT;Génération archive traitements;
+Archive traitements;ARCHTRT;Archive traitements;
+Copies;UTI2C;Dictionnaire - Copies;4
+Dictionnaire;ACOPDIC;Copie dictionnaire;
+Copie élément client;ACOPELT;Copie élément client;
+Fichiers;ACOPFIC;Copie fichiers;
+Codes postaux;ACOPPOS;Copie codes postaux;
+Transactions;ACOPTRS;Copie transactions;
+Législations;ADOSCOPDAT;Copie de données;
+Etats;COPRPT;Copie états;
+Traitements;COPTRT;Copie traitements;
+Analyseurs de différences;UTI2D;Analyseurs de différences;4
+Objets;ACOMPOBJ;Différence d'objets;
+Arguments sous-programmes;ADIFSUB;Différence arguments sous-prog;
+Validations;UTI2V;Dictionnaire - Validations;4
+Recodification processus;ARECOPRO;Recodification processus;
+Profils fonction site;AVALAFC;Resynch. profils fonction site;
+Dictionnaire;VALDICO;Validation du dictionnaire;
+Menus;VALMENU;Validation des menus;
+Dossiers;UTI3;Dossiers;3
+Initialisation textes traduisibles;AINITEXTRA;Init textes traduisibles;
+MAJ des utilisateurs nommés;ARECAUO;MAJ des utilisateurs nommés;
+Changement de dossier;CHDOS;Changement de dossier;
+Création dossier historisé;CREHISTO;Création dossier historisé;
+Déverrouillage dossier;DEVERROU;Déverrouillage dossier;
+Import dossier;IMPDOS;Import dossier;
+Mode mono;MONO;Mode mono;
+Mode multi;MULTI;Mode multi;
+Remise à zéro dossier;RAZDOS;Remise à zéro dossier;
+Verrouillage dossier;VERROU;Verrouillage dossier;
+Recherches;UTI4;Recherches;3
+Icônes;AICONE;Affichage icônes;
+Menu;ARECHMEN;Recherche menu;
+Recherche rapide traitements;ARECSRC;Recherche rapide traitements;
+Texte (avancée);ASEAAPL;Recherche  message / texte;
+Code d'accès;RECHACC;Recherche code d'accès;
+Action;RECHACI;Recherche action;
+Code activité;RECHACT;Recherche code activité;
+Divers;RECHADC;Recherche sur type de donnée;
+Champ;RECHAMZ;Recherche champ;
+Message;RECHMESS;Recherche message;
+Texte;RECHTXT;Recherche texte;
+Type de données;RECHTYP;Recherche type de données;
+Extraction/Intégration;UTI5;Sauvegardes;3
+Extraction données;DOSEXTRA;Extraction données;
+Intégration données;DOSINTEG;Intégration données;
+Divers;UTI6;Divers;3
+Changement de clé en masse;ACHANGE;Changement de clé en masse;
+Copie valeurs paramètres;ACOPADO;Copie valeurs paramètres;
+Activation des liaisons;ACTIVLNK;Activation des liaisons;
+Suppressions;ADELETE;Suppressions;
+Trace pour le support;ALOGSUP;Trace pour le support;
+Gestion du portail;AMAINTPORT;Gestion du portail;
+Transactions système;AMIEXE;Transactions système;
+Envoi statistiques licence;AUSRSTA;Envoi statistiques licence;
+Conversion UTF8;CNVUTF8;Conversion UTF8;
+Exécution traitements;EXETRT;Exécution traitements;
+Mise à jour textes traduisibles;GENTXTTRA;Maj textes traduisibles;
+Paramétrage changement de clé;GESACG;Paramétrage changement de clé;
+Pool Java Bridge;GESAPB;Pool Java Bridge;
+Pool de services web;GESAPW;Pool de services web;
+Valeurs des compteurs;MODCPT;Valeurs des compteurs;
+Resynchronisation des liaisons;RECUPLNK;Resynchronisation des liaisons;
+Synchronisation des textes;SYNCHTXT;Synchronisation des textes;
+Ordres système;SYSTEME;Exécution d'un ordre système;
+Patchs;UTI7;Patchs;3
+Copie paramétrage;ACOPAPH;Copie paramétrage;
+Création de patchs;APATCH;Création de patchs;
+Création automatique de patchs;APATCHA;Création automatique de patchs;
+Modèle de paramétrage;GESAPH;Modèle de paramétrage;
+Consultation de patchs;GESAPT;Consultation de patchs;
+Intégration de patchs;PATCH;Intégration de patchs;
+Test de patchs;PATCHT;Test de patchs;
+Migration depuis 130;UTI8;Migration depuis 130;3
+Textes;RECTXTUTI;Textes;
+Pièces jointes et images;RECOBJTXT;Pièces jointes et images;
+Tables comptables;UTI9;Tables comptables;3
+Suppression comptes en masse;GACCDEL;Suppression comptes en masse;
+Duplication comptes en masse;GACCDUP;Duplication comptes en masse;
+Euro;EURO;Utilitaires EURO;3
+Safe X3 WAS;AYT;Safe X3 WAS;2
+Utilitaires;AYT1;Utilitaires;3
+Duplication de site web;AYTFCYCOP;Duplication de site web;
+Suppression site Web;AYTFCYDEL;Suppression site Web;
+Validation site Web;AYTFCYGEN;Validation site Web;
+Gestion design/archive;AYTFCYTAR;Gestion design/archive;
+Copie service web;AYTWSRGES;Copie service web;
+Cas d'emploi;CONSAYU;Cas d'emploi;
+Paramétrage avancé;GESAYU;Paramétrage avancé;
+Génération liste de valeurs;PRHBATCH;Génération liste de valeurs;
+Visualisation site web;VISUAYS;Visualisation site web;
+Fonctions;AYTF;Fonctions;3
+Document Html;GESAYY;Document Html;
+Formulaire;GESAYZ;Formulaire;
+Tokens;AYTK;Tokens;3
+Blocs;GESAYB;Blocs;
+Champs;GESAYF;Champs;
+Pages Web;GESAYG;Pages Web;
+Liens dynamiques;GESAYL;Liens dynamiques;
+Blocs conditionnés;GESAYW;Blocs conditionnés;
+Lien SAFE X3;AYTL;Lien SAFE X3;3
+Action Web;GESAYA;Action Web;
+Entité;GESAYE;Entité;
+Interface;GESAYI;Interface;
+Paramétrage;AYTP;Paramétrage;3
+Liste de valeurs;GESAYC;Liste de valeurs;
+Message Web;GESAYM;Message Web;
+Sites Web;AYTS;Sites Web;3
+Sélection site courant;AYTCHGFCYW;Sélection site courant;
+Profils site Web;GESAYD;Profils site Web;
+Sites Web;GESAYS;Sites Web;
+Tests;AYTT;Tests;3
+Test site Web;GESAYT;Test site Web;
+Dictionnaire données;GDON;Dictionnaire données;2
+Vues;GESAVW;Dictionnaire des vues;
+Classes;GSTR;Classes;3
+Synchronisation des liens;AGENASWLNK;Synchronisation des liens;
+Validation classes systèmes;AGENCLATECH;Validation classes systèmes;
+Migration objet;AMIGSYR;Migration objet;
+Classes;GESACLA;Classes;
+Représentations;GESASW;Représentations;
+Tables;GTAB;Dictionnaire données - Tables;3
+Eléments de dimensionnement;GESADM;Eléments de dimensionnement;
+Formules de dimensionnement;GESAFO;Formules de dimensionnement;
+Tables;GESATB;Dictionnaire des tables;
+Types de données;GESATY;Types de données;
+Menus locaux - Messages;TXT;Messages applicatif;
+Tables diverses;GTAD;Dictionnaire données -Tab.div.;3
+Données;GESADI;Tables diverses;
+Définition;GESADV;Définition tables diverses;
+Codification;GCOD;Codification;3
+Abréviations;GESAAB;Table des abréviations;
+Rubriques;GESACO;Codification des rubriques;
+Mémos;GESAMM;Mémos;
+Documentation;GDOC;Documentation;3
+Liens de documentation;GESADF;Liens de documentation;
+Documentation;GESADO;Documentation;
+Documentation sur champs;GESADZ;Documentation sur champs;
+Mots-clés d'aide;GESAMC;Mot-clé d'aide;
+Ouverture au paramétrage;GDOP;Dict.données -Ouvert.param.;3
+Variables de type compteur;GESACM;Compteurs;
+Constantes;GESACST;Constante;
+Contexte;GESACTX;Contexte;
+Codes activité;GESACV;Codes activité;
+Définition paramètres;GESADP;Définition paramètres;
+Variables globales;GESAGB;Variables globales;
+Historisation / Epuration;GESAHI;Historisation / Epuration;
+Content type;GESATYP;Content type;
+Contexte assistant de formules;GESAVR;Contexte assistant de formules;
+Modèles de données;GESAWM;Modèles de données;
+Portail interactif;GPORT;Portail interactif;2
+Création archive flash;ARCHFLASH;Création archive flash;
+Paramètres portail;GESAPP;Paramètres portail;
+Familles gadgets;GESATP;Familles gadgets;
+Dictionnaire scripts;GTRT;Dictionnaire scripts;2
+Consultations;GESACN;Consultations;
+Fonctions;GESAFC;Dictionnaire des fonctions;
+Transactions de mise à jour;GESAMI;Transactions système;
+Navigation;GESANG;Navigation;
+Objets;GESAOB;Objets de base;
+Etats;GESARP;Dictionnaire des états;
+Etats ZPL;GESARZ;Etats ZPL;
+Types de transactions;GESATN;Types de transactions;
+Fenêtres;GESAWI;Gestion des fenêtres;
+Actions;GTRA;Dictionnaire trait. - Actions;3
+Paramètres actions;GESAAR;Paramètres des actions;
+Actions;GESACT;Dictionnaire des actions;
+Ecrans;GTRE;Dictionnaire trait. - Ecrans;3
+Ecrans;GESAMK;Dictionnaire des écrans;
+Composants graphiques;GESASB;Composants graphiques;
+Composants écran;GESAUR;Composants écran;
+Scripts;GTRR;Dictionnaire trait. - Trait.;3
+Editeur scripts;ADOTRT;Editeur scripts;
+Dictionnaire scripts;GESADC;Dictionnaire scripts;
+Points d'entrée;GESAPE;Points d'entrée;
+Sous-programmes;GESASU;Sous-programmes;
+Services web;GESAWE;Services web;
+Tests unitaires;GUNIT;Tests unitaires;2
+Récupération données stables;ATSTREC;Récupération données stables;
+Sauvegarde données stables;ATSTSAV;Sauvegarde données stables;
+Données de base;MDBA;Données de base;1
+Contrôle de gestion;MCDBA;Contrôle de gestion;2
+Sections de valorisation;GESMWC;Sections de valorisation;
+Catégories frais généraux;GESONA;Catégories frais généraux;
+Codes frais généraux;GESOVE;Codes frais généraux;
+Configurateur;MCFGM;Configurateur;2
+Configurateur;FUNCFG;Configurateur;
+Automate configurateur;FUNCFGAUT;Automate configurateur;
+Purge des configurations;FUNCFGPUR;Purge des configurations;
+Sélections;FUNCFGS;Sélections;
+Historique des configurations;GESCFH;Historique des configurations;
+Tables diverses;FONADI;Tables diverses;2
+Affaires;MCTA;Affaires;2
+Catégories de tâches;GESCTA;Catégorie tâche;
+Nature de dépense;GESPJCC;Nature de dépense;
+Nomenclatures;MDBOM;Nomenclatures;2
+Impression nomenclatures;BOMPRN;Impression nomenclatures;
+Calcul besoin composants;BOMRET;Calcul besoin composants;
+Copie nomenclatures;COPYNOMEN;Copie nomenclatures;
+Nomenclatures commerciales;GESBODC;Nomenclatures commerciales;
+Nomenclatures production;GESBODP;Nomenclatures production;
+Nomenclatures sous-traitance;GESBODS;Nomenclatures sous-traitance;
+Alternatives nomenclature;GESTBO;Alternatives nomenclature;
+Nomenclatures multi niveaux;VISUBOMG;Nomenclatures multi niveaux;
+Recette;VISUBOMROU;Recette;
+Cas d'emploi;MCAS;Cas d'emploi;3
+Composants;CASNOMENP;Cas d'emploi composants;
+Services;CASNOMENS;Cas d'emploi services;
+Codes plus bas niveau;MDBLC;Codes plus bas niveau;3
+Consultation;CONSLLC;Consult codes plus bas niveau;
+Resynchronisation;SYNCLLC;Resynchro codes plus bas niv;
+Remplacement;MREMP;Remplacement;3
+Composants;REMPLCOMP;Remplacement composants;
+Services;REMPLSRV;Remplacement services;
+Suppression;MSUPP;Suppression;3
+Composants;SUPPRCOMP;Suppression composants;
+Services;SUPPRSRV;Suppression services;
+Tiers;MDBPR;Tiers;2
+Prestataires d'honoraires;GESPRV;Prestataires d'honoraires;
+Factors;GESFCT;Factors;
+Recherche Client;FUNCUSSEA;Recherche Client;
+Catégories clients;GESBCG;Catégorie client;
+Clients;GESBPC;Clients;
+Prospects;GESBPP;Prospects;
+Tiers;GESBPR;Tiers;
+Fournisseurs;GESBPS;Fournisseurs;
+Transporteurs;GESBPT;Transporteurs;
+Catégories fournisseurs;GESBSG;Catégorie fournisseur;
+Représentants;GESREP;Représentants;
+Leads;GESLDS;Leads;G
+Utilitaires;MDBPU;Utilitaires;3
+Revalidation ID TVA intracom;EVCBAT;Revalidation ID TVA intracom;
+Validation adresse;FUNADRVAL;Validation adresse;
+Contrôle tiers inter-site;FUNCTLBPR;Contrôle des tiers inter-site;
+Tables comptables;MDCPT;Tables comptables;2
+Exercices;GESFIY;Exercices;
+Périodes;GESPER;Périodes;
+Analytique;MDCAN;Analytique;3
+Unités d'œuvre;CCEUOM;Unités d'oeuvre sur sections;
+Groupes de répartitions;GESGSP;Groupes de répartitions;
+Codes interdiction;GESCAZ;Codes interdiction;
+Sections;GESCCE;Sections;
+Groupes de sections;GESCRY;Groupes de sections;
+Pyramides de sections;GESCYM;Pyramides analytiques sections;
+Répartitions a priori;GESDSP;Répartitions a priori;
+Générale;MDCGE;Générale;3
+Schémas de comptes;GESGDA;Schémas de comptes;
+Groupes de collectif;GESGSC;Groupes de collectif;
+Journaux comptables;GESJOU;Journaux comptables;
+Comptes;GESGAC;Comptes généraux;
+Groupes de comptes;GESGRY;Groupes de comptes;
+Pyramides de comptes;GESGYM;Pyramides de comptes;
+Mappage comptes inter-sociétés;GESTCI;Mappage comptes inter-sociétés;
+Articles;MDITM;Articles;2
+Articles - Dépôts;GESITW;Articles - Dépôts;
+Articles - Sites;GESITF;Articles - Sites;
+Catégories articles;GESITG;Catégorie article;
+Articles;GESITM;Articles;
+Articles - Coûts;MDITC;Articles - Coûts;
+Consultation coûts standards;FUNITC;Articles - Coûts;
+Coûts standards actualisés;GESICA;Coûts standards actualisés;
+Coûts standards budget;GESICB;Coûts standards budget;
+Coûts standards;GESICD;Coûts standards;
+Coûts standards simulés;GESICS;Coûts standards simulés;
+Utilitaires;MDITU;Utilitaires;3
+Création article-site;CREITFMA;Création article-site;
+Changement catégorie;FUNCHGITG;Changement catégorie;
+;ZPJAJITM;Ajout de pièces jointes;
+NULL;ZMAJARTEMB;MAJ articles embarqués;
+;ZPJRPLITM;Remplacement de pièces jointes;
+Tables tiers;MDRBP;Tables tiers;2
+Familles stat client;DIVTSC;Fam. stat. clients;
+Familles stat fournisseur;DIVTSS;Fam. stat. fournisseurs;
+Conditions de facturation;GESINVCND;Conditions de facturation;
+Mandats de prélèvement;GESMDT;Mandats;
+Modes de règlement;GESTAM;Modes de règlement;
+Escomptes/Agios;GESTDA;Escomptes/Agios;
+Modèles d'édition;GESTPM;Modèles d'édition;
+Conditions paiement;GESTPT;Conditions paiement;
+Règles d'arrondi;GESTRN;Arrondis;
+Périodes d'indisponibilité;GESTUV;Périodes d'indisponibilité;
+Clôture mandat;MDTCLS;Clôture mandat;
+Validation mandats;VALMDT;Validation mandats;
+Tables production;MDRGP;Tables production;2
+Rebuts;GESTSR;Rebuts;
+Gestion des habilitations;XX1JHGESHAB;Gestion des habilitations;
+Equipes;GESTEM;Equipes;
+Messages;GESTMS;Messages;
+Tables articles;MDRIT;Tables articles;2
+Emplacements;GESLOC;Emplacements;
+Types emplacements;GESTLO;Types emplacements;
+Coeff. stock sécurité;GESTSA;Coef stock sécurité;
+Dépôts;GESWRH;Dépôts;
+Familles stat. article;DIVTSI;Fam. stat. articles;
+Attributs lignes de produits;FUNTLPATT;Attributs lignes de produits;
+Saisonnalités;GESSES;Saisonnalités;
+Lignes de produits;GESTLP;Lignes de produits;
+Emballages;GESTPA;Emballages;
+Politiques de réapprovisionnement;GESTRP;Politiques de réapprovisionnement;
+Statuts stock;GESTST;Statuts stock;
+Fiches qualité;MMQLY;Fiches qualité;3
+Fiches techniques;GESQLC;Fiches techniques;
+Questions;GESQST;Questions;
+Réponses;GESTCT;Réponses;
+Tables logistiques;MDRLO;Tables logistiques;2
+Codes préparation;GESPCO;Codes préparation;
+Charges;GESFCS;Charges;
+Incoterms;GESICT;Incoterms;
+Structures de coûts;GESSTC;Structures de coûts;
+Frais d'approche - site;GESSTCITF;Frais d'approche - site;
+Modes livraison;GESTMD;Modes livraisons;
+Motifs;MOTIF;Motifs;3
+Solde;DIVCCL;Motifs solde;
+Avoirs;DIVAVO;Motifs avoirs;
+Retours;DIVRET;Motifs retours;
+Données Safe X3 WAS;MDWAS;Données Safe X3 WAS;2
+Utilisateurs Safe X3 WAS;GESTAU;Utilisateurs Safe X3 WAS;
+Panier d'achat;GESTBA;Panier d'achat;
+Articles Safe X3 WAS;GESTIT;Articles Safe X3 WAS;
+Note de transport;MTRSN;Note de transport;2
+Validation note de transport;FUNCFMTNH;Validation note de transport;
+Note de transport;GESTNH;Note de transport;
+Type note transport;GESTTN;Type note transport;
+Tables immobilisations;MDFAS;Tables immobilisations;2
+Eclatement - Clés ventilation;GESBRD;Eclatement - Clés ventilation;
+Coeff. et indices réévaluation;GESCOE;Coeff. et indices réévaluation;
+Familles immobilisation;GESFAM;Familles immobilisation;
+Définition des flux comptables;GESFLU;Définition des flux comptables;
+Associations - valeurs;GESRVA;Associations - valeurs;
+Secteurs d'activité;GESSEA;Secteurs d'activité;
+Relation client;MCAD;Administration;2
+Régénérations;MUTI;Régénérations;3
+Clients internes;FUNINTBPC;Migration en clients internes;
+Statistiques sur compétences;FUNPBLGEN;Régénération stats/compétences;
+Débits de points;FUNPITGEN;Régénération des points;
+Critères de ciblages;FUNMGGGEN;Régénération ciblage;F
+Action commerciale;MACA;Action commerciale;3
+Affectation secteurs marché;FUNMST6;Affectation secteurs marché;F
+Consultation des secteurs;FUNMST7;Consultation des secteurs;F
+Gestion des hors-secteurs;FUNMST8;Gestion des hors-secteurs;F
+Affectation piste;FUNSPT6;Affectation piste;F
+Correspondants;GESCOR;Correspondants;G
+Secteurs de marché;GESMST;Secteurs de marché;G
+Réservations de ressources;GESRRS;Réservations de ressources;G
+Ressources;GESRSE;Ressources;G
+Secteurs lead;GESSPT;Secteurs lead;G
+Marketing;MMKA;Marketing;3
+Articles concurrents;GESCCC;Articles concurrents;G
+Etat mailing;GESOMR;Etat mailing;G
+Déroulement scripts d'appel;GESSCP;Déroulement scripts d'appel;G
+Support client;MHDA;Support client;3
+Modèles de contrat de service;GESCOT;Modèles de contrat de service;
+Coupons de garantie;GESFLY;Coupons de garantie;
+Articles pour horodatage;GESHOI;Articles pour horodatage;
+Familles de compétences;GESPBL;Familles de compétences;
+Débits de points;GESPDB;Débits de points;
+Queues;GESQUE;Queues;
+Historique des indices;FUNCON6;Historique des indices;F
+Texte e-mails CRM;GESHTMMAI;Texte e-mails CRM;
+Tables communes;MDRCO;Tables communes;2
+Cours devises;COURDEV;Cours des devises;
+Banques (guichets);GESABN;Banques (guichets);
+Interlocuteurs;GESAIN;Interlocuteurs;
+Liens subdivisions;GESALB;Liens subdivisions;
+Subdivisions géographiques;GESATU;Subdivisions géographiques;
+Codes postaux;GESPOS;Codes postaux;
+Conversions d'unités;GESTCO;Conversions d'unités;
+Devises;GESTCU;Devises;
+Pays;GESTCY;Pays;
+Langues;GESTLA;Langues;
+Unités;GESTUN;Unités;
+Code fret de marchandises;GESFCC;Code fret de marchandises;
+Classe de fret;GESFRT;Classe de fret;
+Catégorie note;GESNTG;Catégories notes;
+Taxes;MTAXE;Taxes;3
+Régime de taxe du tiers;GESTVB;Régime de taxe du tiers;
+Détermination taxes;GESTVC;Détermination des taxes;
+Niveau de taxe;GESTVI;Niveau de taxe;
+Taux de taxe;GESTVT;Taxes;
+Tables comptabilité tiers;MDTRS;Tables comptabilité tiers;2
+Groupes de devises;GESGCU;Groupes de devises;
+Comptes en banque;GESBAN;Comptes en banque;
+Groupe bancaire;GESBGR;Groupe bancaire;
+Caisses;GESCAI;Caisses;
+Chèques;GESCHB;Chéquiers;
+Pools bancaires;GESPOO;Pools bancaires;
+Paramétrage;MENV;Paramétrage;1
+Relation client;MPRC;Menu Relation client;2
+Action commerciale;MPACA;Action commerciale;3
+Schémas horaires;GESDIHCRM;Schémas horaires;G
+Schémas hebdomadaires;GESTWDCRM;Schémas hebdomadaires;G
+Ciblage avancé;MPMKA;Ciblage;3
+Ciblages;FUNMGG;Ciblage marketing;F
+Exécutions groupées;FUNMGG4;Exécution ciblages marketing;F
+Critères de ciblage;GESFID;Critères de ciblage;G
+Supports de sélection;GESSSP;Supports de sélection;G
+Cibles;GESTGL;Dictionnaire des cibles;G
+Supports de présentation;GESTGP;Supports de présentation;G
+Marketing;MPMKG;Marketing;3
+Publipostages XML;GESMXL;Publipostages XML;G
+Synchronisation Outlook;MPSYN;Synchronisation Outlook;3
+Données synchronisation;FUNSYD;Données synchronisation;F
+Forçage synchronisation;FUNSYD6;Forçage synchronisation;F
+Gestion des anomalies;FUNSYL;Gestion des anomalies;F
+Paramètres de synchronisation;GESSYP;Paramètres de synchronisation;G
+Transactions de saisie;MPTRS;Transactions de saisie;3
+Parc client;GESCMA;Transaction parc client;
+Agenda support client;GESCMD;Transac. agenda support client;
+Interventions;GESCMI;Transaction intervention;
+Demandes de service;GESCMS;Transaction demande de service;
+Agenda action commerciale;GESCBA;Agenda action commerciale;G
+Support client;MPHDK;Support client;3
+Unités de temps;FUNUOT1;Paramétrage unités de temps;
+Escalades;GESPEC;Paramétrage des escalades;
+Achats;PAPUR;Achats;2
+Traduction textes;FUNTRAAXP;Textes à traduire;F
+Règles rapprochement;GESMAT;Règles rapprochement;G
+Eléments de facturation;GESPFI1;Eléments de facturation achats;G
+Paramètres agrégation comptable;GESSWA;Paramètres agrégation compta.;G
+Types de document;PAPTY;Types documents achats;3
+Types de facture;GESTPV2;Types facture fournisseur;G
+Types de retours;GESTPN;Types de retours;
+Tarifs;PAPUT;Achats Tarifs;3
+Activation;FUNPPCACT;Activation tarifs achats;F
+Paramétrage;GESPPC;Paramétrage tarifs achats;G
+Motifs;GESPPR;Motifs tarifs achats;G
+Structures;GESPRS;Structure tarifs achats;G
+Transactions de saisie;TRPUR;Transactions saisie achats;3
+Plan de travail;GESMDLA;Plan de travail;G
+Planning global;GESMGLA;Planning global;G
+Plan de regroupement;GESMRLA;Plan de regroupement;G
+Appels d'offres;GESPTA;Transaction appel d'offre;G
+Commandes;GESPTC;Transaction commande;G
+Demandes d'achat;GESPTD;Transaction demande d'achat;G
+Ordres de sous-traitance;GESPTE;Transaction ordre ss-traitance;G
+Factures/avoirs;GESPTF;Transaction fact./avoir achat;G
+Retours;GESPTN;Transaction retour fournisseur;G
+Réceptions;GESPTR;Transaction Réception;G
+Commandes ouvertes;GESPTT;Transaction commande ouverte;G
+Comptabilité;PACPT;Comptabilité;2
+Classes de comptes;GESCLS;Classes de comptes;
+Types de pièces;GESGTE;Types de pièces;
+Interface comptabilité;PAINT;Interface comptabilité;3
+Comparaison pièces automatiques;CMPGAU;Comparaison pièces auto;
+Codes comptables;GESCAC;Codes comptables;
+Sections par défaut;GESCDE;Section par défaut;
+Pièces automatiques;GESGAU;Pièces automatiques;
+Groupes pièces automatiques;GESGRA;Groupe pièces automatiques;
+Paramètres des variables;GESGVA;Paramètres des variables;
+Variables pièces automatiques;GESGVG;Variables pièces automatiques;
+Tâches comptables;GESBTC;Tâches comptables;
+Lignes des codes comptables;GESCCL;Lignes des codes comptables;
+Transactions saisie code compta;GESGCO;Transaction saisie code compta;
+Resynchronisation Législation;UTILEG;Resynchronisation Législation;
+Formules par législation;GESTFOLEG;Formules par législation;
+Budgets;PACPA;Budgets;
+Budgets;GESBUP;Paramétrage budgets;
+Versions de budgets;GESBUV;Versions de budgets;
+Répartitions temporelles;GESDTP;Répartitions temporelles;
+Transactions saisie budgets;GESTBU;Transactions de budgets;
+Formulaires comptables;PACPG;Formulaires comptables;
+Ecritures calculées;GESCLC;Ecritures calculées;
+Extraction compte contrepartie;GESCSF;Extraction compte contrepartie;
+Répartitions a posteriori;GESDAD;Répartitions a posteriori;
+Abonnements;GESGAF;Abonnements;
+Déversements;GESPDM;Paramétrage déversement;
+Tableaux de bord;GESTXS;Paramétrage tableaux de bord;
+Gestion des livrables;MEADL;Gestion des livrables;2
+Kits de paramétrage;GESADLK;Kits de paramétrage;
+Livrables;GESADLV;Livrable;
+Structure générale;MEGEN;Structure générale;2
+Intersociétés;FUNBCH;Paramétrage inter-sociétés;
+Axes par défaut;GESCDI;Axes par défaut;
+Plan comptable;GESCOA;Plan comptable;
+Axes;GESDIE;Axes;
+Modèles comptables;GESGCM;Modèles comptables;
+Référentiels;GESLED;Référentiels;
+Groupes de sites/sociétés;GESAGF;Groupes de sites;
+Sociétés;GESCPY;Sociétés;
+Sites;GESFCY;Sites;
+Destinations;MEIMP;Destination/Impression;2
+Destinations par utilisateur;GESAIA;Destinations par utilisateur;
+Destinations;GESAIM;Destinations;
+Règles d'archivage;GESARC;Règles d'archivage;
+Paramètres d'archivage;GESARE;Paramètres d'archivage;
+Valeurs par défaut;GESARV;Valeurs par défaut;
+Code impression;GESARX;Code impression;
+Paramètres généraux;MEPGE;Paramètres généraux;2
+Valeurs paramètres;ADPVAL;Valeurs paramètres;
+Menus locaux;COMBOS;Menus locaux;
+Tables de contrôles;GESACL;Tables de contrôles;
+Jeux de valeurs;GESADG;Jeux de valeurs;
+Dossiers;GESADS;Dossiers;
+Propriétés objets sous-menu fichier;GESAOP;Propriétés objets;
+Styles de présentation;GESASY;Styles de présentation;
+Ecrans de consultation;GESGTC;Ecrans de consultation;
+Formules;GESTFO;Formules;
+Compteurs;MEPGC;Paramètres généraux-Compteurs;3
+Structures;GESANM;Compteurs document;
+Affectation;GESTCA;Affectation des compteurs;
+Tables diverses;MEPGD;Paramètres généraux-Tables div;3
+Personnalisation;ADILNG;Perso tables diverses;
+Données;GESADI2;Tables diverses - Données;
+Personnalisation;MPERS;Personnalisation;3
+Vocabulaire;AVOCAB;Personnalisation vocabulaire;
+Objets;GESAOC;Personnalisation objets;
+Ecrans;MPERE;Personnalisation écrans;4
+Affectation style conditionnel;APRSMSK;Affectation style conditionnel;
+Affectation codes d'accès;CODACC;Affectation codes d'accès;
+Affectation contrôles;CODCTL;Affectation tables contrôle;
+Styles conditionnels;GESASL;Styles conditionnels;
+Styles personnalisés;GESAYP;Styles personnalisés;
+Types facture;MEPGT;Paramètres généraux-Types fact;3
+Fournisseur;GESTPV;Types facture fournisseur;
+Client;GESTSV;Types facture vente;
+Exploitation;METDI;Exploitation;2
+Connexion à Sage sales tax;LTPAR;Connexion à Sage sales tax;
+Serveur batch;MBACT;Serveur batch;3
+Paramètres serveur batch;ABATPAR;Paramètres serveur batch;
+Calendrier serveur batch;GESABC;Calendrier serveur batch;
+Contraintes horaires;GESABH;Contraintes horaires;
+Impressions;MDIMP;Impressions;3
+Requêteur;GESALH;Requêteur;
+Impressions;AIMP;Impressions;
+Requêteur SQL;GESALQ;Requêteur SQL;
+Visualisation archive;ARCVISU;Visualisation archive;
+Requêteur graphique;GESALT;Requêteur graphique;
+Interrogation GED;ARCVISUOBJ;Interrogation GED;
+Visualisation de requêtes;EXEALH;Requêteur;
+Visualisation groupe de requêtes;EXEALHGRP;Requêteur;
+Impressions/groupe;GIMP;Impressions/groupe;
+Lecture traces;LECTRACE;Lecture traces;
+Surveillance impressions;PSIMP;Surveillance impressions;
+Données;MDON;Données;3
+Paramètres épurations;APARHIS;Paramètres épurations;
+Optimisation base de données;GESANX;Index spécifiques;
+Imports/Exports;MEXP;Imports/Exports;3
+Enchaînements;GESAEN;Enchaînements import/export;
+Paramétrage tableau/import;GESAEV;Paramétrage tableau/import;
+Modèles import/export;GESAOE;Modèles import/export;
+Transcodage Import/Export;GESAOR;Transcodage Import/Export;
+Paramètres import/export;GIMPEXPPAR;Paramètres import/export;
+Statistiques;MSTAT;Statistiques;3
+Déclencheurs statistiques;GESPS1;Déclencheurs statistiques;
+Paramètres statistiques;GESPS2;Paramètres statistiques;
+Sage Exchange;MSEPP;Sage Exchange;
+Transaction carte crédit;CONSSET;Transaction carte crédit;
+Paramètres passerelle paiement;GESSER;Paramètres passerelle paiement;
+Passerelles paiement;SEPAR;Passerelles paiement;
+Utilisateurs;MEUSR;Utilisateurs;2
+Codes d'accès;GESACS;Codes d'accès;
+Habilitation fonctionnelle;GESAFP;Habilitation fonctionnelle;
+Profil fonction;GESAFT;Profil fonction;
+Profil métier;GESAME;Profil métier;
+Annuaire;GESANU;Annuaire utilisateur;
+Profil menu;GESAPN;Profil menu utilisateur;
+Restrictions d'accès;GESARL;Restrictions d'accès;
+Utilisateurs;GESAUS;Utilisateurs;
+Profil Safe X3 WAS;GESAYH;Profil Safe X3 WAS;
+Workflow;MEWFL;Workflow;2
+Règles Workflow;GESAWA;Règles Workflow;
+Règles d'affectation utilisateur;GESAWR;Règles d'affectation;
+Utilisateurs délégués;GESAWU;Utilisateurs délégués;
+Affectation utilisateur;GESAWV;Affectation utilisateur;
+Paramétrage plan de travail;GESAWW;Paramétrage plan de travail;
+Notifications;GESAWX;Notifications;
+Workflow manuel;SAIWRKMAN;Workflow manuel;
+Portail interactif;PAPTL;Paramétrage portail;2
+Composants interactifs;GESAIT;Composants interactifs;
+Menu processus;GESAPO;Menu processus;
+Processus;GESAPR;Processus;
+Vues du portail;GESAPV;Vues du portail;
+;GESAVP;Gadgets;
+4CADLINK;XX1JL;4CADLINK;2
+Comptabilité tiers;PATRS;Comptabilité tiers;2
+Destinations comptables;GESCDA;Destinations comptables;
+Types prévisions de trésorerie;GESCFT;Types prévisions de trésorerie;
+Paramétrage saisie factures tiers;GESIDP;Paramétrage saisie factures tiers;
+Code édition;GESTED;Code édition;
+Transactions saisie règlements;GESTPY;Transactions de règlements;
+Paramètres virements commerciaux;PAEDI;Paramètres Vir.Commerciaux;3
+Formules;GESEDM;Formules;
+Paramétrage messages;GESEDP;Paramétrage messages;
+Segments;GESEDS;Segments;
+Ecrans;PECR;Ecrans;3
+Situation tiers;GESGBS;Ecran situation tiers;
+Balance âgée à date;GESGBSH;Ecrans balance âgée à date;
+Gestion échéances;GESGDS;Ecrans gestion échéances;
+Campagnes de relances;GESGFP;Ecran campagnes de relances;
+Notes de frais;PEXS;Notes de frais;3
+Indemnités kilométriques;GESEXM;Indemnités kilométriques;
+Codes frais;GESTES;Codes frais;
+Fichiers;PFIC;Fichiers;3
+Fichiers bancaires;GESTFB;Fichiers bancaires;
+Relances;PREL;Relances;3
+Groupes de relances;GESFGP;Groupes de relances;
+Textes de relance;GESFPT;Textes de relance;
+E-commerce;ECOMM;E-commerce;2
+Site de vente en ligne;ECMLINK;Lien e-commerce;
+Ventes;PASAL;Ventes;2
+Traduction textes;FUNTRAAXS;Textes à traduire;
+Eléments de facturation;GESSFI1;Eléments de facturation ventes;
+Tarifs;PASAT;Ventes Tarifs;3
+Activation;FUNSPCACT;Activation tarifs ventes;
+Structures;GESPRSS;Structure tarifs ventes;
+Paramétrage;GESSPC;Paramétrage tarifs ventes;
+Motifs;GESSPR;Motifs tarifs ventes;
+Types de document;PASTY;Ventes Types de document;3
+Types de retours;GESTRE;Types de retours;
+Types de livraisons;GESTSD;Types de livraisons;
+Types de commandes;GESTSO;Types de commandes;
+Types de devis;GESTSQ;Types de devis;
+Types de factures;GESTSV2;Types de factures;
+Transactions de saisie;TRSAL;Transactions saisie ventes;3
+Avoirs;GESSLA;Transaction avoir;
+Commandes;GESSLC;Transaction commande;
+Livraisons;GESSLD;Transactions livraison;
+Factures;GESSLI;Transaction facture;
+Retours prêt;GESSLL;Transaction retours prêt;
+Commandes ouvertes;GESSLO;Transaction commande ouverte;
+Devis;GESSLQ;Transaction devis;
+Retours client;GESSLR;Transaction retour client;
+Retours matières sous-traitance;GESSLS;Transac.retours matière ss-trt;
+Configurateur;MCFG;Configurateur;2
+Table des réponses;CFGTCT;Table des réponses;
+Utilitaires configurateur;FUNCFGUTI;Utilitaires configurateur;
+Valeurs par défaut;FUNDEF;Valeurs par défaut config.;
+Scénarios configurateur;GESCFG;Scénarios configurateur;
+Procédures;GESCFM;Procédures;
+Options / variantes;GESCOV;Options / variantes;
+Symboles configurateur;GESCQU;Symboles configurateur;
+Sélections configurateur;GESCSE;Sélections configurateur;
+Formes et modèles;GESCSH;Formes et modèles;
+Cas d'emplois configurateur;VISUCFG;Cas d'emplois configurateur;
+Abaques;MCFGA;Configurateur - Abaques;3
+Simples;GESCAB;Abaques simples;
+A deux entrées;GESCAD;Abaques à deux entrées;
+Stocks;PASTO;Stocks;2
+Règles de gestion de stock;FUNSTORUL;Règles de gestion de stock;
+Paramètres interface comptable;GESPAS;Paramètres interface comptable;
+Calculs besoins;GESPCB;Paramètres calculs besoins;
+Paramétrage code préparation;GESPPA;Paramétrage code préparation;
+Règles d'affectation;GESPTO;Règles d'affectation;
+Paramètres stocks;GESSTE;Paramètres stocks;
+Méthodes de valorisation;GESTCM;Méthodes de valorisation;
+Règles d'allocations / sorties;GESTRU;Règles d'allocations / sorties;
+Compteurs versions;GESICV;Paramétrage compteurs versions;
+Types changement de stock;GESTSG;Types changement de stock;
+Transactions de saisie;TRSTO;Transactions saisie stocks;3
+Validation transactions stock;FUNSTKTRS;Validation transactions Stock;
+Assemblage/Désassemblage;GESPBY;Assemblage/Désassemblage;
+Plans de préparation d'expéditions;GESPRE;Plan préparation d'expéditions;
+Bons de préparation;GESPRT;Bons de préparation;
+Changements stock;GESSCT;Changements stock;
+Modification de lot;GESSLT;Modification de lot;
+Inventaires;GESSNP;Inventaires;
+Sorties diverses;GESSOT;Sorties diverses;
+Colisage;GESSPK;Colisage;
+Contrôle qualité;GESSQT;Contrôle qualité;
+Plans de rangement;GESSRG;Plans de rangement;
+Plans de réapprovisionnement;GESSRO;Plan de réapprovisionnement;
+Entrées diverses;GESSRT;Entrées diverses;
+Réceptions;GESPTR2;Transaction Réception;G
+Livraisons;GESSLD2;Transaction livraison;
+Production;PAMFG;Production;2
+Schémas horaires;GESDIH;Schémas horaires;
+Jalonnement;GESPJA;Paramètres jalonnement;
+Paramètres agrégation comptable;GESPWA;Paramètres agrégation compta.;
+Périodes d'indisponibilité;GESTUVM;Périodes d'indisponibilité;
+Schémas hebdomadaires;GESTWD;Schémas hebdomadaires;
+Transactions de saisie;TRMFG;Transactions saisie production;3
+Plan des fiches techniques;GESMCL;Plan des fiches techniques;
+Ordres de fabrication;GESMFL;Ordres de fabrication;
+Plan de production;GESMIL;Plan de production;
+Plan de suivi des matières;GESMML;Plan de suivi matières;
+Plan de suivi des temps;GESMOL;Plan de suivi des temps;
+Pilotage des plans de suivi;GESMPL;Pilotage des plans de suivi;
+Plan de réintégration;GESMRE;Plan de réintégration;
+Suivi fabrication;GESMTL;Suivi fabrication;
+Plan de travail;GESMDL;Plan de travail;
+Planning global;GESMGL;Planning global;
+Regroupement;GESMRL;Regroupement;
+Ordres de retouche;GESXX1JPMFL;OF de retouche;
+Traduction textes;FUNTRAAXX;Textes à traduire;2
+Immobilisations;MEXFA;Immobilisations;2
+Contextes d'amortissements;GESCNX;Contextes d'amortissements;
+Modes d'amortissement;GESDPM;Modes d'amortissement;
+Propriétés des zones libres;GESFRF;Propriétés des zones libres;
+Lien dépenses-biens comptables;GESLDA;Lien Dépenses-Biens comptables;
+Regroupement des dépenses;GESLGT;Regroupement des dépenses;
+Associations - définitions;GESRDE;Associations - définitions;
+Types d'écritures comptables;GESTPE;Types d'écritures comptables;
+Transactions objets métiers;GESTSH;Transactions objets métiers;
+Alimentation zones libres;GESTZL;Alimentation zones libres;
+Impressions;MIMP;Impressions;1
+Superviseur;RPT01;Impression/groupe;
+Données de base;RPT02;Impression/groupe;
+Immobilisations;GIMPF;Immobilisations;3
+Par législation;MFRPT;Impression/groupe/immo;4
+Allemagne & Autriche;RPTF5;Impression/groupe/immo;
+Portugal;RPTF6;Impression/groupe/immo;
+Italie;RPTF7;Impression/groupe/immo;
+Royaume Uni;RPTF8;Impression/groupe/immo;
+France;RPTF9;Impression/groupe/immo;
+Immobilisations;RPTF1;Impression/groupe/immo;
+Financement;RPTF2;Impression/groupe/financement;
+Gestion physique;RPTF3;Impression/groupe/immo phy;
+Paramétrage et données de base;RPTF4;Impression/groupe/immo;
+Ventes;GIMPV;Impression/groupe/ventes;3
+Documents externes;RPT12;Impression/groupe/ventes;
+Documents internes;RPT13;Impression/groupe/ventes;
+Tarifs;RPT14;Impression/groupe/ventes;
+Analyse;RPT15;Impression/groupe/ventes;
+Listes;RPT16;Impression/groupe/ventes;
+Stocks;GIMPS;Impression/groupe/stocks;3
+Inventaires;RPT25;Impression/groupe/stocks;
+Réapprovisionnement;RPT26;Impression/groupe/stocks;
+Stock à mouvementer;RPT27;Impression/groupe/stocks;
+Analyse;RPT28;Impression/groupe/stocks;
+Documents internes;RPT29;Impression/groupe/stocks;
+Production;GIMPP;Impression/groupe/production;3
+Réapprovisionnement;RPT31;Impression/groupe/production;
+Documents de fabrication;RPT32;Impression/groupe/production;
+Données techniques;RPT33;Impression/groupe/production;
+Valorisation;RPT34;Impression/groupe/production;
+Analyse;RPT35;Impression/groupe/production;
+Achats;GIMPA;Impression/groupe/achats;3
+Documents externes;RPT18;Impression/groupe/achats;R
+Documents internes;RPT19;Impression/groupe/achats;R
+Tarifs;RPT20;Impression/groupe/achats;R
+Analyse;RPT21;Impression/groupe/achats;R
+Listes;RPT22;Impression/groupe/achats;R
+Relation client;GIMPM;Impression/groupe/relation clt;3
+Support client;RPT23;Impression/groupe/CRM;
+Action commerciale;RPT24;Impression/groupe/CRM;R
+Comptabilité;GIMPC;Comptabilité;3
+Comptabilité générale;RPT03;Impression/groupe/compta;
+Comptabilité analytique/budgétaire;RPT04;Impression/groupe/compta;
+Editions légales;RPT06;Impression/groupe/compta;
+Trésorerie;RPT08;Impression/groupe/compta;
+Comptabilité tiers;RPT05;Impression/groupe/compta;
+Suivi des échéances;RPT09;Impression/groupe/compta;
+Règlements;RPT10;Impression/groupe/compta;
+Relances clients;RPT11;Impression/groupe/compta;
+Déclaration honoraires;RPT5M;Impression/groupe/compta;4
+France;RPT64;Impression/groupe/compta;
+Autres;RPT68;Impression/groupe/compta;
+Gestion des taxes;RPT6M;Impression/groupe/compta;4
+Autres;RPT60;Impression/groupe/compta;
+Gestion des cases TVA;RPT6F;Impression/groupe/compta;
+Achats;MPUR;Achats;1
+Tarifs;MPTAR;Tarifs;2
+Recherche tarifs;FUNACHPPSI;Recherche tarifs;F
+Saisie des tarifs;GESPPL;Saisie des tarifs;G
+Approvisionnement;MPSUP;Approvisionnement;2
+Plan de travail;FUNDBENCHA;Plan de travail;F
+Planning global;FUNGBENCHA;Planning global;F
+Plan de regroupement;FUNMPICKA;Plan de regroupement;F
+Demandes d'achat;MPREQ;Demandes d'achat;2
+Demandes d'achat;GESPSH;Demandes d'achat;G
+Solde demandes d'achat;MPRQS;Solde des demandes d'achat;3
+Solde automatique;FUNPSH;Solde des demandes achat;F
+Solde manuel;FUNPSH2;Solde des demandes achat;F
+Appels d'offres;MPQUO;Appels d'offres;2
+Génération lignes tarifs;FUNPPD3;Génération lignes tarifs;F
+Relances;FUNREL;Relance Appels d'offres;F
+Réponses;GESPPD;Réponses;G
+Demandes;GESPQH;Demandes appel d'offre;G
+Sous-traitance;MPSCO;Sous-traitance;2
+Allocations automatiques;FUNTEOALL;Allocations automatiques;F
+Clôture/solde en série;FUNTEOCLO;Clôture/solde en série;F
+Désallocations automatiques;FUNTEODESA;Désallocations automatiques;F
+Ordres de sous-traitance;GESSCO;Ordres de sous-traitance;G
+Commandes;MPORD;Commandes;2
+Solde des commandes;FUNCLEAR;Solde des commandes;F
+Gestion des acomptes;FUNPNS;Gestion des acomptes;F
+Contremarques;FUNPOHW;Contremarques;F
+Commandes ouvertes;GESPOC;Gestion des commandes ouvertes;G
+Demandes de livraisons;GESPOD;Demandes de livraisons;G
+Commandes;GESPOH;Commandes;G
+Plan de l'acheteur;GESPOI;Plan de l'acheteur;G
+Visu demandes de livraisons;GESPOV;Visu des commandes ouvertes;G
+Expéditions;MSHIP;Expéditions;2
+Conteneur;GESCTRH;Conteneur;G
+Pré-réception des expéditions;GESPPTS;Pré-réception des expéditions;G
+Expéditions;GESSHIP;Expédition;G
+Transport;GESTRNP;Transport;G
+Réceptions;MPRCP;Réceptions;2
+Pré-réception des commandes;GESPPTO;Pré-réception des commandes;G
+Réceptions;GESPTH2;Réceptions;G
+Factures;MPINV;Factures;2
+Validation des factures;FUNPIH;Validation des factures;F
+Factures;GESPIH;Factures;G
+Retours;MPRET;Retours;2
+Validation des retours;FUNPNHTRT;Validation des retours;F
+Bon de transport;GESBOLP;Bon de transport;G
+Retours d'achat;GESPNH;Retours d'achat;G
+Consultations;MPCNS;Consultations;2
+Produits par fournisseur;CONSBPSI;Produits par fournisseur;C
+Traçabilité pièces;CONSPIA;Traçabilité pièces achats;C
+Commandes;MPCNC;Consultations commandes;3
+Liste commandes;CONSCPO;Consultation commandes;C
+Lignes commandes;CONSCPP;Consultation lignes commandes;C
+Lignes sous-traitance;CONSSSC;Consultation sous-traitance;C
+Commandes par période;FUNGRHPO;Consultation commandes/période;F
+Demandes d'achat;MPCND;Consultations demandes d'achat;3
+Lignes demandes d'achat;CONSCPD;Consultation demandes d'achat;C
+Sous-traitance;MPCNE;Sous-traitance;3
+Allocations;CONSALLA;Allocations;C
+Consommation sous-traitance;CONSSCM;Consommation sous-traitance;C
+Allocations en rupture;CONSSHTA;Allocations en rupture;C
+Factures;MPCNF;Consultations factures;3
+Liste factures;CONSCPI;Consultation factures;C
+Lignes factures;CONSCPJ;Consultation lignes factures;C
+Factures par période;FUNGRHPI;Consultation factures/période;F
+Palmarès factures;FUNGRHPI2;Palmarès factures;F
+Expéditions;MPCNI;Consultations;3
+Lignes d'expéditions;CONSSHIPD;Lignes d'expéditions;C
+Transport;CONSTRN;Consultation de transports;C
+Réceptions;MPCNR;Consultations réceptions;3
+Liste réceptions;CONSCPR;Consultation réceptions;C
+Lignes réceptions;CONSCPS;Consultation lignes réceptions;C
+Réceptions par période;FUNGRHPR;Consultation réception/période;F
+Retours;MPCNZ;Consultations retours;3
+Liste retours;CONSCPN;Consultation retours;C
+Lignes retours;CONSCPQ;Consultation lignes retours;C
+Retours par période;FUNGRHPN;Consultation retours/période;F
+Palmarès retours;FUNGRHPN2;Palmarès retours;F
+Utilitaires;MPUTI;Utilitaires;2
+Resynchronisation en-cours;FUNBPSMVT;Resynchronisation en-cours;F
+Resynchronisation sous-traitance;FUNSCOMVT;Resynchro sous-traitance;F
+Resynchronisation engagements;FUNUTICMM;Resynchronisation engagements;F
+Contrôle contrats inter-sites;FUNUTIPOC;Contrôle contrats inter-sites;F
+Exploitation;MTDI;Exploitation;1
+Moniteur Workflow;SAIWRKPLN;Moniteur Workflow;
+Historisation / Epuration;AHISTO;Historisation / Epuration;
+Serveur batch;DVBAT;Serveur batch;2
+Tâches comptables;VALPCE;Surveillance batch;
+Gestion des requêtes;AREQUETE;Gestion des requêtes;
+Soumission des requêtes;EXERQT;Soumission des requêtes;
+Gestion des abonnements;GESABA;Gestion des abonnements;
+Groupes de tâches;GESABG;Groupes de tâches;
+Gestion des tâches;GESABT;Gestion des tâches;
+Imports/Exports;DVIEX;Imports/Exports;2
+Conversion fichiers mono-ligne;AIFIMPGENFIC;Conversion fichiers mono-ligne;
+Sas import/export;GESAOW;Sas import/export;
+Exports enchaînés;GEXPENCH;Enchaînements d'exports;
+Exports;GEXPOBJ;Exports;
+Imports enchaînés;GIMPENCH;Enchaînements d'imports;
+Imports;GIMPOBJ;Imports;
+Structuration tableau/import;IMPORTV3;Structuration tableau/import;
+Statistiques;DVSTA;Statistiques;2
+Consultations;CONSSTA;Statistiques;
+Prévisions;SAISTA;Prévisions statistiques;
+Validation batch;VALSTA;Validation statistiques;
+Audit;MAUD;Audit;2
+Historique des e-Signatures;CONSESR;Historique des e-Signatures;
+Connexions;CONSALO;Audit;
+Champs;CONSAUD;Audit;
+Tables;CONSAUH;Audit;
+Ctrl. signatures électroniques;FRADSICTL;Ctrl. signatures électroniques;
+RGPD;MGDPR;RGPD;2
+Liste des données Email;AGDPRMAI;Liste des données Email;
+Liste des données personnelles;AGDPRPDATA;Liste des données personnelles;
+Liste des données téléphone;AGDPRPHONE;Liste des données téléphone;
+Recherche RGPD;AGDPRSEA;Recherche RGPD;
+Contrôle société pour DPD;ALISTDPOCPY;Contrôle société pour DPD;
+Paramétrage RGPD;GESAGS;Paramétrage RGPD;
+Migrations;MMOUL;Migrations;2
+Moniteur d'enchainement;AMOULIN;Moniteur d'enchainement;
+Procédures de migration;GESAM3;Procédures de migration;
+Migration des pièces jointes;AMIGNAMFIC;Migration des pièces jointes;
+Utilisateurs;MUSER;Utilisateurs;2
+Changement date;CHGDAT;Changement de date;
+Personnalisation;CHXPERSO;Personnalisation;
+Changement mot de passe;PASSE;Changement mot de passe;
+Connecteurs métier;MCON;Connecteurs métier;2
+Pivots;GESPIT;Pivots;
+Prévision APS;MSCM;Prévision APS;3
+Prévision APS;MSCMA;Prévision APS;4
+Paramétrage Prévision APS;GESSZP;Paramétrage Prévision APS;
+Lancement interface Prév. APS;SCMAINT;Lancement interface Prév. APS;
+APS;MAPS;Advanced Planning & Scheduling;3
+APS;MORO;APS;4
+Paramétrage APS;GESORO;Paramétrage APS;
+Lancement interface APS;OROINT;Lancement interface APS;
+PREACTOR;MORP;PREACTOR;4
+Paramétrage PREACTOR;GESORP;Paramétrage PREACTOR;
+Lancement interface PREACTOR;ORPINT;Lancement interface PREACTOR;
+MES;MMES;MES;3
+Paramétrage MES;GESMES;Paramétrage MES;
+Lancement interface MES;MESINT;Lancement interface MES;
+MMS;MMMS;Maintenance Management System;3
+Paramétrage MMS;GESMMS;Paramétrage MMS;
+Lancement interface MMS;MMSINT;Lancement interface MMS;
+PLM;MPLM;PLM;3
+Paramétrage PLM;GESPLM;Paramétrage PLM;
+Lancement interface PLM;PLMINT;Lancement interface PLM;
+REACH;MRPA;REACH;3
+Paramétrage REACH;GESRPA;Paramétrage REACH;
+Lancement interface REACH;RPAINT;Lancement interface REACH;
+4CAD GROUP;XX1J;4CAD Group;1
+Devis technique;XX1JT;Devis technique;2
+Détermination marge;GESXX1JTXMM;Détermination marge;
+Devis technique;GESXX1JTXSQ;Devis technique;
+Suivi atelier;XX1JA;Suivi atelier;2
+Configuration Saisie des temps;GESXNC;Configuration Saisie des temps;
+Préparation des regroupements;GESXTL;Préparation des regroupements;
+Horaire d'équipe;X4EQUIPE;Horaire équipe de travail;
+Validation auto des temps;X4TPSVAL;Validation auto des temps;
+Décomposition codes-barres;GESX4BAD;Décomposition codes-barres;
+Horaire pré-saisi sur 5 semaines;CONSXCT;Horaires pré-saisi matricule;
+Consultation saisie des temps;CNSXTP;Consultation saisie des temps;
+Validation globale des temps;CONSXTG;Validation globale des temps;
+Validation des temps;CONSXTS;Validation des temps;
+Gestion des temps;GESXTP;Gestion des temps;
+Suspension automatique;X4AUTSSP;Suspension automatique;
+;X4TPSASUP;Temps à Rajouter/Supprimer;
+Regroupement de temps;GESXTR;Regroupement de temps;
+Gestion de la qualité;XX1JQ;Gestion de la qualité;2
+Action qualité;GESXX1JQXIA;Action incident;
+Evènement qualité;GESXX1JQXIN;Incident;
+Plan d'actions;GESXX1JQXIP;Plan d'actions - incident;
+Mise à jour des coûts;XX1JQMAJCOUT;Qualité - MAJ coûts;
+Action modèle;GESXX1JQXAM;Action modèle;
+Audit;GESXX1JQXAU;Audit;
+Modèles de plans d'actions;GESXX1JQXPL;Modèle de plans d'actions;
+Consultation notes;CONSXX1JQ;Notation fournisseurs- Qualité;
+Calcul notes;GESXX1JQXCN;Calcul notation fournisseurs;
+Profil qualité;GESXX1JQXPQ;Profil qualité;
+Scorecard;XX1JY;Scorecard;3
+Calcul client;XX1JYOTD;Scorecard - calcul client;
+Objectif client;XX1JYXOBJC;ScoreCard-Objectif client;
+Consultation Scorecard client;CONSX1JYC;Consultation Scorecard client;
+Calcul fournisseur;XX1JYOTDF;Scorecard - calcul fournisseur;
+Objectif fournisseur;XX1JYXOBJ;ScoreCard-Objectif fournisseur;
+Consultation Scorecard fournisseur;CONSX1JYF;Consultation Scorecard fourn;
+Gestion des dérogations;XX1JD;Gestion des dérogations;3
+Demandes de dérogation Clients;GESXX1JDDC;Demandes de dérogation Clients;
+Demandes de dérogation Fourn.;GESXX1JDDF;Demandes de dérogation Fourn.;
+Notifications de rejet Clients;GESXX1JDNC;Notifications de rejet Clients;
+Notifications de rejet Fourn.;GESXX1JDNF;Notifications de rejet Fourn.;
+Gammes de contrôle;XX1JC;Gammes de contrôle;3
+Relevé de contrôle;GESXX1JCRC;Relevé de contrôle;
+Gammes de contrôle;GESXX1JCSGC;Gammes de contrôle;
+Gestion des FAI;XX1JF;Gestion des FAI;3
+FAI;GESXX1JFFAI;FAI;
+FAI référence;GESXX1JFFR;FAI référence;
+Gestion des moyens;XX1JM;Gestion des moyens;2
+Moyens;GESXX1JMMO;Moyens;
+Tâches;GESXX1JMTSK;Tâches;
+Monitoring des plans de maintenance;XX1JMPM;Monitoring plans maintenance;
+Unités;GESXX1JMTUN;Unités;
+Représentants;GESXX1JMREP;Représentants;
+Gestion des habilitations;XX1JH;Gestion des habilitations;2
+Habilitations;GESXX1JHHAB;Habilitations;
+Gestion des pièces rejetées;XX1JP;Gestion des pièces rejetées;2
+Instructions opératoires;XX1JW;Instructions opératoires;2
+4CAD Référence;XX1JJ;4CAD Référence;2
+Comptabilité;CPTA;Comptabilité;1
+Consultations;CCONS;Consultations;2
+Balance en devises;CONSBAF;Consultation balance en devise;
+Balances;CONSBAL;Balances;
+Consultation bilan;CONSBSE;Consultation bilan;
+Comptes;CONSCPT;Comptes;
+Comptes analytiques;CONSNAT;Comptes analytiques;
+Ecritures;CONSPCE;Ecritures;
+Sections;CONSSEC;Sections;
+Balances analytiques;EDITBLA;Balances analytiques;
+Budgets;CPBUD;Budgets;2
+Mise à jour budgets BI;BIMAJBUD;Mise à jour budgets BI;
+Copie budgets;BUDCOP;Copie de budgets;
+Saisie budgets;BUDGET;Saisie budgets;
+Report des engagements;CMMREP;Report des engagements;
+OD budgétaires;GESBDO;OD budgétaires;
+Calcul budgets;GESBUC;Calcul budgets;
+Utilitaires;CPUTI;Utilitaires;2
+Clôture;UTIEN;Utilitaires clôtures;3
+Ré-ouverture d'exercice;OPNFIY;Ré-ouverture d'exercice;
+Ré-ouverture période;OPNPER;Ré-ouverture période;
+Reconstitution à nouveau;SIMULFINEX;Reconstitution à nouveau;
+Fermeture période;UTICLOPER;Fermeture période;
+Ajout référentiel;UTILE;Rajout type référentiel;3
+Création exercices/périodes;UTIFIYPER;Création exercices/périodes;
+Génération écritures;UTIGNRLED;Génération écritures;
+Divers;UTIMI;Utilitaires divers;3
+Fusions de tiers;BPRMERGE;Fusions de tiers;
+Fusions de comptes;GACMERGE;Fusions de comptes;
+Transfert collectif;TRFSAC;Transfert collectif;
+TVA déclarée;VATSAI;TVA déclarée;
+Vérification date fin devise;VERFEURO;Vérification date fin devise;
+Resynchronisations;UTIRE;Utilitaires resynchronisation;3
+Balances;RECBAL;Resynchronisation balances;
+Balances analytiques;RECBLA;Resynchronisation balances ana;
+Balances engagements;RECBLM;Resynchronisation balances eng;
+Balances analytiques qté;RECBLQ;Resynchronisation balances qté;
+Ecritures;RECECT;Pièces;
+Engagements;RECENG;Resynchronisation engagements;
+Historisation des échéances;RECHDU;Resynchronisation échéances;
+Lettrage;RECLET;Resynchronisation lettrage;
+Pyramides comptes;RECPYRACC;Resynchro pyramides comptes;
+Pyramides sections;RECPYRCCE;Resynchro pyramides sections;
+Soldes comptables;RECSOL;Resynchronisation soldes;
+Interfaces;INTF;Interfaces;2
+Import virements tréso Sage;BNKTRSIMP;Import virements tréso Sage;
+Export balance;EXPBAL;Export balance;
+Export échéancier tréso Sage;EXPCASDUD;Export échéancier tréso Sage;
+Export règlements tréso Sage;EXPCASPAY;Export règlements tréso Sage;
+Export balance conso Sage;EXPCONSO;Export balance conso Sage;
+;ZEXPSAGE;Export vers SAGE i7;
+Reporting;LIA;Reporting;2
+Extraction pour consolidation;BALCONSO;Extraction pour consolidation;
+Extraction par contrepartie;CPCSF;Extraction par contrepartie;3
+Analyse flux trésorerie;GESCSRH;Analyse flux trésorerie;
+Tableaux de bord;TDBOR;Tableaux de bord;3
+Consultation;GESTXW;Consultation tableaux de bord;
+Calcul;TXSGRP;Calcul;
+Lettrage;MTC;Lettrage;2
+Délettrage;DELETTRAGE;Délettrage;
+Lettrage manuel;LETTRAGE;Lettrage;
+Lettrage automatique;LETTRAUTO;Lettrage automatique;
+Pièces;SPCE;Saisies de pièces;2
+Engagements;GESCMM;Engagements;
+Saisie pièces;GESGAS;Saisie pièces;
+Saisie pièces inter-sociétés;GESGIC;Saisie pièces inter-sociétés;
+Saisie lots;GESLOT;Saisie lots;
+Traitements courants;TRTF;Traitements courants;2
+Modifications analytiques;CPTANA;Modification analytique;
+Ecritures calculées;CPTCLP;Ecritures calculées;
+Répartitions analytiques;CPTDSPANA;Répartitions analytiques;
+Déversement;CPTDUM;Validation code déversement;
+Extournes;CPTEXT;Extournes;
+Création pièces inter-sociétés;CPTINTCPY;Création pièces inter-sociétés;
+Lots;CPTLOT;Validation des lots;
+Validation définitive;CPTVAL;Validation définitive;
+Abonnements;ABT;Abonnements;3
+Solde;SOLABT;Solde des abonnements;
+Abonnements;VALABT;Génération abonnements;
+Simulations;TRSIM;Simulations;3
+Activation;CPTACTSIM;Activation simulations;
+Annulation;CPTANUSIM;Annulation simulations;
+Désactivation;CPTDESSIM;Désactivation simulations;
+Validation;CPTVALSIM;Validation simulations;
+Traitements arrêtés;TRTP;Traitements arrêtés;2
+Ecarts de conversion;CNVECAR;Ecarts de conversion;
+CCA/PCA;CPTSVC;Génération CCA/PCA;
+Fin d'exercice;FIYEND;Fin d'exercice;
+Factures à émettre;FUNAUTFAE;Factures à émettre;
+Avoirs à recevoir;FUNPNH;Avoirs à recevoir;
+Factures à recevoir;FUNPTH;Factures à recevoir;
+Comptabilité tiers;GTRS;Comptabilité tiers;1
+Consultations;TCONS;Consultations;2
+Situation client;CONSBAG;Situation client;
+Situation fournisseur;CONSBAGF;Situation fournisseur;
+Balance âgée client à date;CONSBAH;Balance âgée client à date;
+Balance âgée fourn à date;CONSBAHF;Balance âgée fourn à date;
+Banques;CONSBAN;Banques;
+Situation bancaire;CONSBTR;Situation bancaire;
+Chèques;CONSCHQ;Consultation chèque;
+Factures;CONSFAC;Factures;
+Règlements;CONSPAY;Règlements;
+Traçabilité pièces;CONSPIT;Traçabilité pièces tiers;
+Notes de frais;MEXS;Notes de frais;2
+Comptabilisation des frais;EXSGEN;Comptabilisation des frais;
+Relevés de frais;GESEXS;Relevés de frais;
+Transactions bancaires;TRSCH;Pointage;2
+Suppression relevé;ANURBK;Suppression relevé;
+Pointage des relevés bancaires;BANREC;Pointage des relevés bancaires;
+Dépointage;DEPOINTAGE;Dépointage;
+Saisie relevé bancaire;GESRLK;Relevé bancaire;
+Pointage;POINTAGE;Pointage;
+Rapprochement bancaire;RAPBAN;Rapprochement bancaire;
+Import relevé bancaire;RELBANK;Importation relevé bancaire;
+Pointage en partie simple;UTICHK;Pointage en partie simple;
+Avis de domiciliations;TRSDO;Domiciliations;2
+Génération domiciliations;GENAVIDOM;Génération domiciliations;
+Saisie avis de domiciliation;GESPAB;Saisie avis de domiciliation;
+Rapprochement automatique;RAPLCRAUT;Rapprochement domiciliations;
+Rapprochement manuel;RAPLCRMAN;Rapprochement domiciliations;
+Import relevé LCR;RELLCR;Import relevé LCR;
+Export relevé LCR;REPLCR;Export relevé LCR;
+Echéances;TRSDU;Echéances;2
+Blocage client;BPCREDIT;Blocage client;
+Déblocage client;BPCREDITD;Déblocage client;
+Compensation tiers;BPOINET;Compensation tiers;
+Génération de prévisions;FUNTRTCFO;Génération de prévisions;
+Gestion prévisions de tréso.;GESCFO;Gestion prévisions de tréso.;
+Campagnes de relances;GESFUP;Campagnes de relances;
+Relevés;GESREL;Relevés;
+Imputations clients;IPTACPTCLI;Imputation acomptes clients;
+Imputations fournisseurs;IPTACPTFOU;Imputation acomptes;
+Gestion des échéances;MODECHE;Gestion des échéances;
+Saisie des échéances;MODECHE2;Saisie des échéances;
+Affacturage;TRSFC;Affacturage;2
+Comptabilisation quittances;CPTQUIT;Comptabilisation quittances;
+Annulation quittances;DELQUIT;Annulation quittances;
+Génération de fichier;GENFIC;Génération de fichier;
+Génération quittances;GENQUIT;Génération quittances;
+Notification de réglement;NTFQUIT;Notification de réglements;
+Saisie factors;SAIFCT;Saisie factors;
+Facturation;TRSIN;Facturation;2
+Validation factures tiers client;BPCVAL;Validation client;
+Création facture périodique;BPRICRE;Création facture périodique;
+Validation factures tiers fourn.;BPSVAL;Validation fournisseur;
+Factures tiers client;GESBIC;Factures tiers client;
+Factures inter-soc clients;GESBICI;Factures inter-soc clients;
+Factures tiers fournisseur;GESBIS;Factures tiers fournisseur;
+Factures inter-soc fournisseurs;GESBISI;Factures inter-soc fournisseurs;
+Factures périodiques clients;GESRCC;Factures périodiques clients;
+Factures périodiques fourn;GESRCS;Factures périodiques fourn;
+Factures en attente;VALBIS;Factures en attente;
+Règlements;TRSPY;Règlements;2
+Affectation banques;BANAFFA;Affectation banques;
+Saisie banques;BANAFFM;Saisie banques;
+Saisie règlements;GESPAY;Règlements;
+Génération fichier Positive Pay;GESPPY;Positive Pay;
+Impayés;IMPAYE;Impayés;
+Comptabilisation des effets;PAYMEP;Comptabilisation des effets;
+Proposition automatique;PAYPROPAL;Proposition automatique;
+Prorogation fournisseur;PROROG;Prorogation fournisseur;
+Prorogation client;PROROGC;Prorogation client;
+Comptabilisation en banque;REMBAN;Comptabilisation en banque;
+Retour acceptation;RETACC;Retour acceptation;
+Dévalorisation des effets;VALPORT;Dévalorisation des effets;
+Bordereaux de remise;TRSRE;Bordereaux de remise;2
+Remises magnétiques;FICMAG;Remises magnétiques;
+Génération remises;GENBORREM;Génération bordereau de remise;
+Saisie bordereau de remise;GESFRM;Saisie bordereau de remise;
+Comptabilisation intermédiaire;REMCPT;Comptabilisation intermédiaire;
+Ventes;MSAL;Ventes;1
+Allocations;MSALL;Allocations;2
+Allocations automatiques;FUNAUTALL;Allocations automatiques;
+Réservations clients;FUNBPCALL;Gestion réservations clients;
+Désallocations;FUNDESALL;Désallocations;
+Allocations par article;FUNMANALL;Allocations par article;
+Consultations;MSCNS;Consultations;2
+Traçabilité pièces;CONSPIV;Traçabilité pièces ventes;
+Contenu colis;CONSCOL2;Contenu colis;
+Bons de préparation;CONSPRH2;Bons de préparation;
+Allocations;MSCNA;Consultations Allocations;3
+Allocations;CONSALLS;Allocations;
+Allocations en rupture;CONSSHTS;Allocations en rupture;
+Commandes;MSCNC;Consultations commandes;3
+Tournées;CONSCSG2;Tournées;
+Liste commandes;CONSCSO;Liste commandes;
+Lignes commandes;CONSCSP;Lignes commandes;
+Commandes par période;FUNGRHSOH1;Commandes par période;
+Palmarès commandes;FUNGRHSOH2;Palmarès commandes;
+Devis;MSCND;Consultations devis;3
+Lignes devis;CONSCSL;Lignes devis;
+Liste Devis;CONSCSQ;Liste Devis;
+Devis par période;FUNGRHSQH1;Devis par période;
+Palmarès Devis;FUNGRHSQH2;Palmarès Devis;
+Devis par représentant;FUNGRHSQH3;Devis par représentant;
+Factures;MSCNF;Consultations factures;3
+Liste factures;CONSCSI;Liste factures;
+Lignes factures;CONSCST;Lignes factures de vente;
+Factures par période;FUNGRHSIH1;Factures par période;
+Palmarès factures;FUNGRHSIH2;Palmarès Devis;
+Factures par représentant;FUNGRHSIH3;Factures par représentant;
+Livraisons;MSCNL;Consultations livraisons;3
+Liste livraisons;CONSCSD;Liste livraisons;
+Lignes livraisons;CONSCSF;Lignes livraisons;
+Tournées;CONSCSG;Tournées;
+Livraisons par période;FUNGRHSDH1;Livraisons par période;
+Retours;MSCNR;Consultations retours;3
+Liste retours;CONSCSN;Consultation de retours;
+Lignes retours;CONSCSR;Ligne de retours;
+Palmarès motifs retours;FUNGRHSDH2;Palmarès motifs retours;
+Livraisons;MSDLV;Livraisons;2
+Génération livraison commande;FUNAUTDLV;Génération livraison commande;
+Validation des livraisons;FUNCFMDLV;Validation des livraisons;
+Livraisons des bons préparation;FUNPREDLV;Livraison des bons préparation;
+Bon de transport;GESBOLS;Bon de transport;
+Livraisons;GESSDH;Livraisons;
+Factures;MSINV;Factures;2
+Génération factures contrats;FUNAUTINVC;Génération factures contrats;
+Génération factures livraisons;FUNAUTINVD;Génération factures livraisons;
+Génération factures commandes;FUNAUTINVO;Génération factures commandes;
+Génération factures services;FUNAUTINVS;Génération factures services;
+Génération factures échéances;FUNAUTINVSCH;Génération factures échéances;
+Génération factures transferts;FUNAUTINVT;Génération factures transferts;
+Validation facture/avoir vente;FUNCFMINV;Validation facture/avoir vente;
+Emission des acomptes;FUNEMIINS;Emission des acomptes;
+Factures;GESSIH;Factures;
+Commandes;MSORD;Commandes;2
+Gestion des acomptes;FUNSNS;Gestion des acomptes;
+Commandes;GESSOH;Gestion des commandes;
+Demandes de livraisons;GESSOQ;Gestion demandes de livraisons;
+Commandes ouvertes;GESSOR;Gestion des commandes ouvertes;
+Visu demandes de livraisons;GESSOV;Visu demandes de livraisons;
+Devis;MSQUO;Devis;2
+Devis;GESSQH;Gestion des devis;
+Retours;MSRET;Retours;2
+Retours client;GESSRH;Retours client;
+Retours prêt;GESSRL;Retours prêt;
+Retours matières sous-traitance;GESSRS;Retours matière sous-traitance;
+Tarifs;MSTAR;Tarifs;2
+Révision tarifs;FUNSPCINC;Révision tarifs;
+Recherche tarifs;FUNVENSPSI;Recherche tarifs;
+Définition révision tarifs;GESSNE;Définition révision tarifs;
+Saisie tarifs;GESSPL;Saisie des tarifs;
+Génération catalogues tarifs;GESSPP;Génération catalogues tarifs;
+Utilitaires;MSUTI;Utilitaires;2
+Resynchronisation en-cours client;FUNBPCMVT;Resynchronisation en-cours;
+Initialisation Sage Sales Tax;FUNSSTENT;Initialisation Sage Sales Tax;
+Préparations d'expéditions;MSPR2;Préparations d'expéditions;2
+Génération listes de préparation;FUNAUTPRE2;Génération listes préparation;
+Colisage déclaratif;FUNPKD2;Colisage déclaratif;
+Post-colisage;FUNPKP2;Post-colisage;
+Plan de préparation;FUNPREP2;Plan préparation d'expéditions;
+Bons de préparation;GESPRH2;Bons de préparation;
+Déclarations;FISDE;Déclarations;1
+Gestion des taxes;VATST;Gestion des taxes;2
+Autres;RFI60;Impression/groupe/compta;3
+Paramétrage;MOTHS;Paramétrage;
+Entités de TVA;GESVATGRP;Entités de TVA;
+Formulaire TVA;GESVEF;Formulaire TVA;
+Cases TVA;GESVTB;Cases TVA;
+Traitements;MOTHP;Traitements;
+Déclaration Européenne de Services;DCLESD;Déclaration Européenne de Services;
+Déclaration préparatoire TVA;DCLVATOTH;Déclaration préparatoire TVA;
+Déclarations de TVA;GESVFE;Déclarations de TVA;
+Gestion des cases TVA;RFI6B;Impression/groupe/compta;3
+Déclaration des honoraires;MFEE;Déclaration des honoraires;2
+Autres;FOTH;Autres;3
+France;RFI64;Impression/groupe/compta;3
+Fichier déclaration honoraires;GESTFT;Fichier déclaration honoraires;
+France;PACPF;France;3
+Autres;RFI68;Impression/groupe/compta;3
+Traitements;DAS2;Traitements;4
+Annulation lignes d'honoraires;HONLINANN;Annulation lignes d'honoraires;
+Extraction honoraires;HONLINEXT;Extraction des honoraires;
+Mise à jour lignes d'honoraires;SUBHLN;Mise à jour lignes honoraires;
+Contrôles TDS;TDSCTL;Contrôles TDS;
+Génération fichier TDS;TDSGENE;Génération fichier TDS;
+Paramétrage;FFRAS;Paramétrage;4
+Fichier DADS-U;GESFTD;Structure fichier DADS-U;
+Paramètres extraction DADS-U;GESPRM;Paramétrage extraction;
+Audit;MAUDF;Audit;2
+Portugal;MAPOR;Portugal;3
+Traitements;APORP;Traitements;4
+Extraction SAF-T;FUNSAFTEXT;Extraction SAF-T;
+Paramétrage;APORS;Paramétrage;4
+Classification fiscale;GESVCL;Classification fiscale;
+Gestion ATCUD;APORC;Gestion ATCUD;4
+France;MFAE;FEC;3
+Traitements;AFRAP;Traitements;4
+Lancement interface FEC;FAEINT;Lancement interface FEC;
+Paramétrage;AFRAS;Paramétrage;4
+Paramétrage FEC;GESFAE;Paramétrage FEC;
+Déclaration d’échanges de biens;MDEB;Déclaration d’échanges de biens;2
+Autres;MDDEB;Autres;3
+Traitements;MDEBP;Traitements;4
+Génération fichier DEB;FUNDEB;Génération fichier DEB;
+Gestion fichier DEB;GESDEB;Gestion fichier DEB;
+Paramétrage;MDEBS;Paramétrage;4
+Régimes et natures mouvement;GESDRN;Régimes et natures mouvement;
+Nomenclatures NC8;GESINO;Nomenclatures NC8;
+Nature transaction;GESTEC;Nature transaction;
+Régime statistique;GESTSC;Régime statistique;
+Autres déclarations;MOTHD;Autres déclarations;2
+Gestion des déchets;MDMW;Gestion des déchets;3
+Traitements;MDMWP;Traitements;4
+Calcul des déchets;DMWBAT;Calcul des déchets;
+Autriche;DMWPA;Autriche;
+Résultats détaillés calcul;CONSDMWD;Résultats détaillés calcul;
+Résultats groupés calcul;CONSDMWG;Résultats groupés calcul;
+Allemagne;DMWPD;Allemagne;
+Résultats détaillés calcul;CONSDMWDD;Résultats détaillés calcul;
+Résultats groupés calcul;CONSDMWGD;Résultats groupés calcul;
+Paramétrage;MDMWS;Paramétrage;4
+Exceptions gestion des déchets;GESDMWBPREX;Exceptions gestion des déchets;
+Classification Ordonnance emballage;GESDMWPAORD;Classification Ordonnance emballage;
+Affectation emballage article;GESDMWPPA;Affectation emballage article;
+Quotas de gestion des déchets;GESDMWQUOTA;Quotas de gestion des déchets;
+Système de gestion des déchets;GESDMWSC;Système de gestion des déchets;
+Affaires;MPRP;Gestion à l'affaire;1
+Affaires;MPJM;Gestion à l'affaire;2
+Gestion des affaires;GESPJM;Gestion des affaires;
+Création documents de vente;GESPSO;Création documents de vente;
+Copie d'affaire;PJMACTAFCP;Copie d'affaire;
+Suivi financier;PJMFINOV0;Suivi financier;
+Extraction états financiers;PJMRPTEXT;Extraction états financiers;
+Resynchronisation commandes ventes;PJMSOQSYN;Resynchronisation commandes ventes;
+Saisie des temps;PJMTE;Saisie des temps;
+;ZETEMPAFF;Export affaires e-Temptation;
+;ZETEMPOF;Export pointages OF e-Tempt.;
+;ZETEMPTPS;Import tps saisis / affaire;
+Contrôle de gestion;MCST;Coûts - Contrôle de gestion;1
+Coûts de sous-traitance;MCSCC;Coûts de sous-traitance;2
+Coûts de fabrication;MCMFC;Coûts de fabrication;2
+Calcul coûts prévisionnels ss-trait;CALSCOCOST;Calcul coût prévisionnel ss-trait;C
+Calcul prix revient sous-traitance;FUNWIPSCO;Calcul prix revient ss-trait;F
+Consulter en-cours ss-trait.;GESPWI;Consulter en-cours ss-trait.;G
+Consultation prix revient;GESSCC;Consultation prix revient;G
+Consultation coûts prévisionnels;GESSCCP;Consultation coût prévisionnel;G
+Consultation prix revient;GESMFC;Consultation prix revient;
+Calcul coûts prévisionnels OF;CALMFGCOST;Calcul du prix de revient;
+Coût en-cours sans OF;FUNWIPBOM;Coût en-cours sans OF;
+Calcul prix de revient de fab;FUNWIPMFC;Calcul prix de revient de fab;
+Consultation coûts prévisionnels;GESMFCP;Consultation coût prévisionnel;
+Coûts de revient industriels;GESMWI;Coûts de revient industriels;
+Analyse performances;MCANA;Analyse performances;2
+Comparaison des coûts;COMPCOUT;Comparaison des coûts;
+Impression comparatif coûts;COMPCOUTM;Impression comparatif coûts;
+Historique;GESHIC;Historique Coûts;
+Historique prix de revient;GESHIM;Historique prix de revient;
+Traitements divers;MCDIV;Traitements divers;2
+Transfert de coûts;COPYCOUT;Transfert de coûts;
+Purger enreg. coûts en-cours;FUNPURWIP;Purger enreg. coûts en-cours;
+En-cours;MCENC;En-cours;2
+Comptabilisation en-cours OF;FUNWIPACC;Comptabilisation en-cours OF;
+Valorisation en-cours;ORDWIPVAL;Valorisation en-cours;
+NULL;ZEXPLOBOF;Export LOB OF;
+Calculs coûts prévisionnels;MCICC;Calculs coûts prévisionnels;2
+Calcul coûts budget;CALCSTBUD;Calcul coûts budget;
+Calcul coûts actualisés;CALCSTCUT;Calcul coûts actualisés;
+Calcul coûts simulés;CALCSTSIM;Calcul coûts simulés;
+Calcul coûts standards;CALCSTSTD;Calcul coûts standards;
+Mise à jour coûts calculés;CALCSTUPD;Mise à jour coûts calculés;
+Stocks;MSTO;Stocks;1
+Changement de dépôt;GESCWRH;Changement de dépôt;
+Versions;GESECS;Versions;
+Inventaires;MSCUN;Inventaires;2
+Articles en inventaire;CONSSBII;Articles en inventaire;
+Calcul comptages;CONSSCI;Calcul comptages;
+Articles à inventorier;CONSSII;Articles à inventorier;
+Inventaires;GESSNL;Inventaire;
+Sessions inventaires;GESSNX;Sessions inventaires;
+Etiquetage;MSETI;Etiquetage;2
+Flux d'entrées/sorties;MSEXT;Flux d'entrées/sorties;2
+Impression étiquettes stock;FUNLBEIMP;Impression;
+Réceptions;GESPTH;Réceptions;G
+Impression étiquettes colisage;FUNPKE;Impression étiquettes colisage;
+Transferts inter-sites;GESSIS;Transferts inter-sites;
+Sorties diverses;GESSMO;Sorties diverses;
+Entrées diverses;GESSMR;Entrées diverses;
+Transferts sous-traitants;GESSST;Transferts sous-traitants;
+Retours sous-traitants;GESSTR;Retours sous-traitants;
+Livraisons;MLIVR;Livraisons;3
+Livraisons;GESSDH2;Livraisons;
+Livraisons des commandes;FUNAUTDLV2;Livraisons des commandes;
+Validation des livraisons;FUNCFMDLV2;Validation livraison;
+Livraisons des bons préparation;FUNPREDLV2;Livraison des bons préparation;
+Consultations;MSINQ;Interrogations;2
+Emplacements;MCEM;Emplacements;3
+Emplacements;CONSSEA;Emplacements;
+Emplacements dédiés;CONSSED;Emplacements dédiés;
+Occupation emplacements;CONSSOE;Occupation emplacements;
+Historique qualité;MCQU;Historique qualité;3
+Hist. fiche 130;CONSSH3;Hist. fiche 130;
+Hist. fiche technique;CONSSHQ;Hist. fiche technique;
+Réponses contrôle qualité;CONSSRF;Réponses contrôle qualité;
+Réapprovisionnements CBN/PDP;MCRE;Réappro. CBN/PDP;3
+Résultats PDP;CONSSCBPD;Résultats PDP;
+Résultats CBN;CONSSCBCB;Résultats CBN;
+Articles;MSINA;Consultations stock articles;3
+Encours article;CONSORD7;Encours article;
+Articles en inventaire;CONSSBI;Articles en inventaire;
+Historique stocks;CONSSHS;Historique stocks;
+Allocations;MSINL;Consultations stock alloc.;3
+Allocations détaillées;CONSSAD;Allocations détaillées;
+Allocations globales;CONSSAG;Allocations globales;
+Stocks manquants;CONSSMQ;Stocks manquants;
+Mouvements;MSINM;Consultations stock mouvts;3
+Mouvements en attente;CONSSAT;Mouvements en attente;
+Evolution du PMP par mouvement;CONSSMA;Evolution du PMP par mouvement;
+Mouvements par date;CONSSMJ;Mouvements par date;
+Mouvements par article;CONSSMV;Mouvements par article;
+Traçabilité;CONSSTK;Traçabilité;
+Traçabilité étendue;XX1JTRA;Traçabilité étendue;
+Stocks;MSINS;Consultations stock stocks;3
+Stocks par article;CONSSAR;Stocks par article;
+Stock prêté;CONSSBP;Stock prêté;
+Stock à date;CONSSDA;Stock à date;
+Stocks détaillés;CONSSDE;Stocks détaillés;
+Stock disponible;CONSSDI;Stock disponible;
+Stocks inactifs;CONSSDO;Stocks inactifs;
+Stock par site;CONSSFC;Stock par site;
+Stocks par lots;CONSSLO;Stocks par lots;
+Stock périmé;CONSSPE;Stock périmé;
+Stock projeté;CONSSPR;Stock projeté;
+Numéros de série;CONSSSE;Numéros de série;
+Stocks externes;CONSSXT;Stocks externes;
+Flux internes;MSINT;Flux internes;2
+Réappro zone consommation;FUNCALREO;Réappro zone consommation;
+Plan de réapprovisionnement;FUNREO;Plan de réapprovisionnement;
+Plan de rangement;FUNSSL;Plan de rangement;
+Assemblage;GESBBY;Assemblage;
+Désassemblage;GESDBY;Désassemblage;
+Changements stock;GESSCS;Changements stock;
+Affectations;MSMTO;Affectations;2
+Consultation affectations;CONSZCAF;Consultation affectations;
+Affectations;FUNMAUTMTO;Affectations;
+Désaffectations;FUNMDESMTO;Désaffectations;
+Plan d'affectation;FUNMLINK;Plan d'affectation;
+Colisage;MSPAC;Colisage;2
+Contenu colis;CONSCOL;Contenu colis;
+Colisage déclaratif;FUNPKD;Colisage déclaratif;
+Impression étiquettes colisage;FUNPKE2;Impression étiquettes colisage;
+Post-colisage;FUNPKP;Post-colisage;
+Traitements périodiques;MSPER;Traitements périodiques;2
+Validation des périodes stocks;FUNCPTITH;Compléments ITMMVTHIS;
+Régularisation des stocks manquants;FUNSHTSEL;Régul. stocks manquants;
+Calcul classe ABC;FUNSTKA;Calcul classe ABC;
+Purge;MSPUR;Purge;3
+Purge des suggestions;FUNPURSUGA;Purge des suggestions;
+Numéros séries;FUNSTPE;Purge numéros séries;
+Sessions inventaires;FUNSTPI;Purge sessions inventaires;
+Lots nuls;FUNSTPL;Purge lots nuls;
+Analyses qualité;FUNSTPQ;Purge analyses qualité;
+Traçabilité;FUNSTPT;Purge traçabilité;
+Mouvements stocks;FUNSTPU;Purge mouvements stocks;
+Valorisation;MSVAL;Valorisation;3
+Interface comptable;FUNSTKACC;Interface comptabilité;
+Régularisation de prix;FUNSTKADJ;Régularisation de prix;
+Etat valorisé des stocks;FUNSTVA;Etat valorisé des stocks;
+Préparations d'expéditions;MSPRE;Préparations d'expéditions;2
+Consultation bons de préparation;CONSPRH;Bons de préparation;
+Génération listes de préparation;FUNAUTPREP;Génération listes préparation;
+Plan de préparation;FUNPREP;Plan préparation d'expéditions;
+Bons de préparation;GESPRH;Bons de préparation;
+Contrôle qualité;MSQUA;Contrôle qualité;2
+Changt statut lots re-contrôle;FUNSTOLTI;Changt statut lots re-contrôle;
+Changt statut lots périmés;FUNSTOP;Changt statut lots périmés;
+Demandes d'analyse;GESQCR;Demandes d'analyse;
+Contrôle qualité;GESSTQ;Contrôle qualité;
+Modification des lots;MSLOT;Modification des lots;3
+Modification zones utilisateurs;FUNSMU;Modification caract. utilis.;
+Changement en série lot;FUNSMXUPD;Changement en série lot;
+Renumérotation/mélange;GESSLM;Renumérotation/mélange;
+Changement caractéristiques;GESSMX;Changement caractéristiques;
+Réapprovisionnements;MSREO;Réapprovisionnements;2
+Calcul besoins nets;FUNMRP;Calcul besoins nets;
+Réapprovisionnements hors MRP;FUNSTKB;Réapprovisionnements hors MRP;
+Prévisions de consommation;GESORZS;Prévisions de consommation;
+Utilitaires;MSSYN;Utilitaires;2
+Resynchronisation emplacements;FUNLOCS;Resynchronisation emplacements;
+Resynchronisation et contrôle stock;FUNSTOR;Traitements divers stocks;
+Resynchronisation qtés en saisie;FUNSTOWIPW;Resynchronisation qtés en saisie;
+Resynchronisation encours;FUNSYNCW;Resynchronisation encours;
+Resynchronisation réappr zone conso;FUNSYNREO;Resynchro réappro zone conso;
+Resynchronisation plan de rangement;FUNSYNSRG;Resynchro plan de rangement;
+Alerte Kanban;GESZKBN;Alerte Kanban;
+Valorisation;MSSYV;Valorisation;3
+Changement de valeur;FUNCHGVAL;Changement de valeur;
+Modification date d'imputation;FUNIPTD;Modification date d'imputation;
+Terminaux portables;VXADC;Terminaux portables;1
+Définir la destination;VXASP;Définir la destination;
+Définir le site;VXASS;Définir le site;
+Stocks;VXADI;Stocks;2
+Préparations d'expéditions;VXABP;Préparations d'expéditions;
+Inventaires;VXACC;Inventaires;
+Transferts inter-sites;VXAIT;Transferts inter-sites;
+Réapprovisionnements emplacements;VXALR;Réappro emplacement;
+Sorties diverses;VXAMO;Sorties diverses;
+Entrées diverses;VXAMR;Entrées diverses;
+Changements stock;VXASC;Changements stock;
+Transferts sous-traitants;VXAST;Transferts sous-traitants;
+Rangements sur liste;VXASY;Rangements sur liste;
+Sélection par identifiant;VXBDI;Sélection par identifiant;2
+Transferts inter-sites;VXBIT;Transferts inter-sites;
+Sorties diverses;VXBMO;Sorties diverses;
+Changements stock;VXBSC;Changements stock;
+Transferts sous-traitants;VXBST;Transferts sous-traitants;
+Consultations;VXCNS;Consultations;2
+Articles - Sites;VXCAS;Articles - Sites;
+Emplacements;VXCEM;Emplacements;
+Production;VXADM;Production;2
+Sortie matières;VXAMT;Sortie matières;
+Suivi des temps;VXAOT;Suivi des temps;
+Déclaration production;VXAPT;Déclaration prod;
+Suivi atelier;VXADS;Suivi atelier;3
+Début de pause;VXBRKI;Début de pause;
+Arrêt de pause;VXBRKO;Arrêt de pause;
+Pointage arrivée;VXECI;Pointage arrivée;
+Pointage départ;VXECO;Pointage départ;
+Heures passées;VXELP;Heures passées;
+Début temps hors production;VXINDI;Début temps hors production;
+Arrêt temps hors production;VXINDO;Arrêt temps hors production;
+Début exécution;VXRUNI;Début exécution;
+Arrêt exécution;VXRUNO;Arrêt exécution;
+Début préparation;VXSETI;Début préparation;
+Fin préparation;VXSETO;Fin préparation;
+Sortie matières;VXBMT;Sortie matières;
+Production;MMFG;Production;1
+Analyses;MMANL;Analyses;2
+Analyse de production;FUNANL;Analyse de production;
+Edition axes produits;FUNMANL;Edition analyse produits;
+Edition axes ressources;FUNWANL;Edition analyse ressources;
+Traitements automatiques;MMAUT;Traitements automatiques;2
+Contremarque;FUNMAUTF;Contremarque;
+Décalage opérations;FUNMAUTO;Décalage opérations;
+Lancement automatique;FUNMAUTR;Lancement automatique;
+Suppression automatique;FUNMAUTS;Suppression automatique;
+Recalcul des charges;FUNMIWL;Recalcul charges;
+Purge des suggestions;FUNPURSUG;Purge des suggestions;
+Allocation / Désallocation;MMAUA;Trait.autom.-Alloc./Désalloc.;3
+Allocation;FUNMAUTA;Allocation automatique;
+Désallocation;FUNMDESA;Désallocation;
+Jalonnement / Déjalonnement;MMAUJ;Trait.autom.-Jalon./Déjalon.;3
+Déjalonnement;FUNMAUTD;Déjalonnement;
+Jalonnement;FUNMAUTJ;Jalonnement automatique;
+Ordre de fabrication;MMAUO;Traitements automatiques - OF;3
+Mise à niveau;FUNMAUTM;Mise à niveau OF;
+Décalage;FUNMAUTP;Décalage OF;
+Réactivation;FUNMAUTRE;Réactivation OF;
+Suspension;FUNMAUTSU;Suspension OF;
+Consultations;MMINQ;Consultations GPAO;2
+Liste des OF;CONSMFG;Liste des OF;
+Sous-traitance;CONSSST;Sous-traitance;
+Allocations;MMINA;Consultations GPAO allocations;3
+Allocations;CONSALLG;Allocations;
+Allocations en rupture;CONSSHTG;Allocations en rupture;
+Charges;MMINC;Consultations GPAO charge;3
+Charges;CONSMWK;Consultation charge;
+Charges graphiques;FUNGLOAD;Charge graphique;
+En-cours;MMINE;Consultations GPAO encours;3
+Encours charge;CONSOPX;Encours charge;
+Encours article;CONSORD;Encours article;
+Résultats réapprovisionnement;MMINR;Consultations GPAO résult.réap;3
+Résultats CBN;CONSSCBCB1;Interrogation CBN GPAO;
+Résultats PDP;CONSSCBPD1;Interro calculs PDP;
+Stocks;MMINS;Consultations GPAO stock;3
+Stock disponible;CONSSDI1;Stock disponible vente;
+Stock projeté;CONSSPR1;Stock projeté;
+Suivis;MMINV;Consultations GPAO suivi;3
+Productions;CONSMKI;Productions;
+Consommations;CONSMKM;Consommations;
+Temps passés;CONSMKO;Temps passés;
+OF en rupture;CONSSHO;OF en rupture;
+Suivis par OF;GESTKI;Suivi OF;
+Saisie des temps Matricule;CNSXTPS;Saisie des temps matricule;
+Planification;MMPLN;Planification;2
+Plan de travail;FUNDBENCH;Plan de travail;
+Planning global;FUNGBENCH;Planning global;
+Regroupement;FUNMPICK;Regroupement;
+Plan directeur production;FUNMPS;Plan directeur production;
+Calcul besoins nets;FUNMRPG;Calcul besoins nets;
+Replanification en série;FUNTDUMRP;Replanification en série;
+Modification des objectifs;FUNTDUOF;Modification des objectifs;
+Ordre de fabrication;GESMFG;Gestion ordres de fabrication;
+Planification multi-niveaux;MULTIWOX;Planification multi-niveaux;
+Prévisions de consommation;GESORZ;Prévisions de consommation;
+;ZMFGO;MAJ - Dte réel / Op of;
+;ZRECALOBJ;Dates objectifs OF;
+;ZRECALOF;Replanification OF en-cours;
+Production Scheduler;MMPS;Production Scheduler;2
+Recalcul 1e date dispo mat. OF;FUNPSFDMAUPD;Recalcul 1e date dispo mat. OF;
+Soumettre à l’ordonnancement;FUNPSMOPT;Soumettre à l’ordonnancement;
+Production Scheduler;FUNPSSCH;Production Scheduler;
+Consultation Prod. Scheduler;FUNPSVIEW;Consultation Prod. Scheduler;
+Valeurs personnalisées Production Scheduler;GESPOPSCV;Valeurs perso. Prod. Sched.;
+Retirer de l’ordonnancement;PSOPTFREE;Retirer de l’ordonnancement;
+Données techniques;MMTEC;Données techniques;2
+Gammes;MMROU;Gammes;3
+Opérations standard;GESROT;Opérations standard;
+Gestion gammes;GESROU;Gestion des gammes;
+Cas d'emploi gammes;GESROW;Cas d'emploi gammes;
+Alternatives gammes;GESTRO;Alternatives gammes;
+Gammes multi niveaux;VISUROUG;Gammes multi niveaux;
+MAJ temps théoriques gammes;XX1JMAJROU;MAJ temps théoriques gammes;
+Instructions opératoires;GESXX1JWIO;Instructions opératoires;
+Modifications en série;MMTDU;Modifications en série;3
+Copie gammes;COPYGAMME;Copie gammes;
+Opérations standard;FUNSTDTDU;Modif des opérations std;
+Poste de charge/Variation capacité;FUNTDUCAP;P. charge/Variation capacité;
+Opérations de gamme;FUNTDUPDR5;Modification des opérations;
+Postes de charge;FUNTDUPDW;Modification des postes;
+Variation capacité;FUNTDUVAR;Variation de capacité;
+Remplacement postes;FUNTDUWST;Remplacement postes;
+Suppression gammes;SUPGAMME;Suppression gammes;
+;ZPJAJROO;Ajout de pièces jointes;
+;ZPJRPLROO;Remplacement PJ sur opé gamme;
+Centres de production;MMWCR;Centres de production;3
+Postes de charge;GESMWS;Postes de charge;
+Cas d'emploi postes;GESMWW;Cas d'emploi postes;
+Centres de charge;GESTWC;Centres de charge;
+Suivi de fabrication;MMTRK;Suivi de fabrication;2
+Plan de production;FUNBENCHI;Suivi de fabrication;
+Plan de suivi des matières;FUNBENCHM;Suivi des matières;
+Plan de suivi des temps;FUNBENCHO;Plan de suivi des temps;
+Plan de réintégration;FUNBENCHR;Suivi des réintégrations;
+Plan des fiches techniques;FUNBENCHT;Plan des fiches techniques;
+Pilotage des plans de suivi;FUNBENPLT;Pilotage des plans de suivi;
+Clôture/solde OF;FUNMCLOSE;Clôture/solde OF;
+Situation OF;FUNMSITU;Situation OF;
+Clôture/solde en série;FUNTDUCLO;Clôture/solde en série;
+Suivi de fabrication;GESMTK;Suivi de fabrication;
+Articles à retoucher;GESXX1JP;Pièces rejetées;
+Suivi atelier;MMSFT;Suivi atelier;3
+Activité collaborateur;FUNSFTEAC;Activité collaborateur;
+Suivi atelier;FUNSFTPOR;Suivi atelier;
+Validation saisie main oeuvre;FUNSFTVAL;Validation saisie main oeuvre;
+Utilitaires;MMUTI;Utilitaires;2
+Historique PEC;FUNMCOV;Historique PEC;
+Réouverture OF;FUNMREACT;Réouverture OF;
+Resynchronisation charge;FUNSYNCO;Resynchronisation charge;
+;ZBAROFCRIT;Ré-impression bartender;
+;ZRVREGUL;Régulation anomalies valo;
+;ZRVRESUME;Résumé anomalies valo;
+;ZVALOPRI;Export Valorisation PRI;
+;ZVALOPRID;Export Valorisation PRI détail;
+Relation client;MCRM;Relation client;1
+Identifier;FUNCRM9;Identifier;F
+Marketing;MMKG;Marketing;2
+Action commerciale;MACO;Action commerciale;2
+Agenda;FUNCRMAGD;Agenda;F
+Rendez-vous;GESBAP;Rendez-vous;G
+Appels;GESCLL;Appel;G
+Affaires;GESOPP;Affaire;G
+Tâches;GESTSK;Tâche;G
+Consultations;MCCNS;Consultations;3
+Traçabilité pièces;CONSPIC;Traçabilité pièces CRM;C
+Support client;MHDK;Support client;2
+Agenda;FUNHDKAGD;Agenda;F
+Contrats de service;GESCON;Contrats de service;G
+Interventions;GESITN;Interventions;G
+Parc client;GESMAC;Parc client;G
+Demandes de garantie;GESRQW;Demandes de garantie;G
+Solutions;GESSOL;Solutions;G
+Demandes de service;GESSRE;Demandes de service;G
+Consultations;MHCNS;Consultations;3
+Contrats de service;CONSCON;Contrats de service;C
+Traçabilité pièces;CONSPIH;Traçabilité pièces support clt;C
+Planning marketing;FUNPLG;Planning marketing;F
+Campagnes marketing;GESCMG;Campagnes marketing;G
+Opérations marketing;MPOPG;Opérations marketing;3
+Publipostages;GESOMM;Publipostage;G
+Campagnes de presse;GESOMN;Campagne de presse;G
+Campagnes d'appels;GESOMP;Campagne d'appels;G
+Salons professionnels;GESOMT;Salons professionnels;G
+Utilitaires;MCUTI;Utilitaires;2
+Resynchronisation en-cours client;FUNCRMLCM;Resynchronisation en-cours;F
+Immobilisations;MFASM;Immobilisations;1
+Immobilisations;MFAS;Immobilisations;2
+Plan d'amortissement;GESDPP;Plan d'amortissement;
+Biens comptables;GESFAS;Biens comptables;
+Dépenses;GESLOF;Dépenses;
+Plan de production;GESPLP;Plan de production;
+Traitements;MFAST;Traitements Immobilisations;2
+Statut des contextes;SAISTACPY;Statut des contextes;
+Mouvements;MFSTM;Mouvements;3
+Sortie d'actif;FASISSM;Sortie d'actif - Tr massif;
+Modif. méthode amortissement;FASMTCM;Changer la méthode - Tr massif;
+Eclatement massif des biens;FASSPLM;Eclatement massif des biens;
+Modif. imputation comptable;FASTRFCM;Changer l'imputation comptable;
+Transfert analytique / géographique;FASTRFM;Trf massif ana / géo;
+Immobilisation des dépenses;LOFGRPFAS;Immobilisation des dépenses;
+Régularisation TVA;MFSTR;Régularisation TVA;3
+Biens;FASVATREG;Régularisation TVA - Biens;
+Globale;FASVATRGG;Régularisation TVA globale;
+Dépenses;LOFVATREG;Régularisation TVA - Dépenses;
+Amortissements;MFSTA;Amortissements;3
+Calcul amortissements;FASCALC;Calcul amortissements;
+Clôture période et exercice;FASCLOTURE;Clôture période et exercice;
+Génération flux provisoires;FASFLXM;Génération flux provisoires;
+Dépréciation;FASIMLM;Dépréciation - Tr massif;
+Réévaluation;FASRVAM;Réévaluation - Trt massif;
+Simulation amortissements;FASSIMU;Simulation amortissements;
+Interface comptable;MFSTC;Interface comptable;3
+Pièces comptables;GESGPC;Pièces comptables;
+Génération écritures comptables;TRTCPTINT;Interface comptable;
+Interface;MFFXM;Interface;3
+Intégration des mouvements;FXDINT;Intégration des mouvements;
+Mouvements à intégrer;GESFXM;Mouvements à intégrer;
+Consultations;MFCNS;Consultations;2
+Traçabilité pièces;CONSPIF;Traçabilité immobilisations;
+Simulation amortissements;CONSSIM;Consultation de simulation;
+Situation par code flux;FAS246G;Situation par code flux;
+Pièces immobilisations;FASENTRY;Pièces immobilisations;
+Cessions et sorties immobilisations;FASEXIT;Cessions et sorties immobilisations;
+Liste immobilisations;FASLISTDEP;Liste immobilisations;
+Financement;MFIN;Financement;2
+Subventions;MFSTS;Subventions;3
+Subventions;GESGRT;Subventions;
+Calcul des subventions;GRACAL;Calcul des subventions;
+Contrats location financement;MLOCF;Contrats location financement;3
+Contrats location financement;GESLEA;Contrats location financement;
+Génération événements redevance;LEAPAY;Evénements de redevance;
+Gestion physique;MINV;Gestion physique;2
+Sortie massive;PHYISSM;Sortie d'actif - Tr massif;
+Transfert géographique massif;PHYTRFM;Transfert géographique massif;
+Cessions intra-groupe;MFASC;Cessions Intra-groupe;2
+Ajustement manuel des sorties;GESCIB;Ajustement manuel des sorties;
+Définition de l'opération;GESCIG;Définition de l'opération;
+Validation de la cession;GESCII;Validation de la cession;
+Paramétrage des sélections de biens;GESCIS;Sélection biens CIG;
+Pré-enregistrement des sorties;GESCIT;Pré-enregistrement des sorties;
+Utilitaires;MFSTU;Utilitaires;2
+Synchronisation contextes;FASCNXSYNC;Synchronisation contextes;
+Recodifications massives;GESREC;Recodifications massives;
+Reprise Abel Entreprise;REPRISEAE;Reprise Abel Entreprise;
+Création DEPREC courant;UCREDEPCUM;Création DEPREC courant;
+Suppression plan amortissement;UDELPLN;Suppression plan amortissement;
+Mise à jour du dérogatoire;UMAJDEROG;Mise à jour du dérogatoire;
+Synchronisation des suivis;UMAJSUIV;Synchronisation des suivis;
+Modifications en attente;UPDWAITRT;Modifications en attente;
+Exports CSV;CRMEXPCSV;Exports CSV;9
+Qualité - qualification;GESXX1JQXCA;Qualité - qualification;
+;CONSSTT;Stock transit;
+;GESPRL;Liste de préparation;
+;GESSOS;Import prévisions;
+Interrogations;MGINQ;Interrogations;
+Traitements périodiques;MGPER;Traitements périodiques;
+Réapprovisionnements;MGREO;Réapprovisionnements;
+Magasinage;MMAG;Magasinage;
+Réceptions;MSRCP;Réceptions;
+Transferts;MSTRF;Transferts;
+;SYRCONSSDI;Stock disponible;
+Numéros de lot;GESXX1JQXNL;Numéros de lot;
+;ZBARRNG;Etiquettes Bartender;
+;ZETEMPDEC;Export temps décla OF e-Tempt.;
+;ZETIQMAG;Étiquette lot;
+;ZETIQMET;Étiquette SN;
+;ZREBARRNG;Ré-imp. bartender plan de rng;
+;CRERVV;Révision de version;
+Sélection ordre de fabrication;GESMF0;Sélection ordre de fabrication;
+Import ordres de fabrication;GESMFK;Import ordres de fabrication;
+Import decl production;GESMKI;Import decl production;
+Import suivi matières;GESMKM;Import suivi matières;
+Numéros de série;GESXX1JQXNS;Numéros de série;
+Import suivi des temps;GESMKO;Import suivi des temps;
+Ordre de fabrication-ligne;GESXMF;Ordre de fabrication-ligne;
+Regroupement;GESXRE;Regroupement;
+Validation Gamme Version;VALRVV;Validation de version;
+;X4TREGSUP;Suppression des regroupements;
+;ZSAILARLON;Gestion des chutes;
+;CCMIMPBATF;Créer analyse impact;
+;CONSOIT;Encours article;
+;CONSSTCITG;Structure de coûts-catég art;
+;CONSSTCITM;Structure de coûts;
+;ACTLSPE;Contrôle cohérence spécifiques;
+;CONSSTCITP;Structure de coûts-art frs;
+;CREEVL;Révision de version;
+;EDIBAT;Batch EDI;
+;EDIBPRCPY;Flux EDI par tiers société;
+;EDIBPRPAR;Partenaires EDI par tiers;
+;EDICAT;Catégorie EDI;
+;EDICPYPAR;Partenaires EDI par société;
+;EDIFCYPAR;Partenaires EDI par site;
+;EDIFLO;Flux;
+;EDIIMP;Import;
+;ADSVAL;Validation dossiers;
+;EDILINK;Liens;
+;EDIMSG;Paramétrage messages EDI;
+;EDIPARTNER;Partenaire EDI;
+;EDIPTC;Protocole;
+;EDIPUR;Purge EDI;
+;EDIQRY;Requête paramétrage EDI;
+;EDIRUNISS;Lancement envois EDI;
+;EDIRUNREC;Lancement réceptions EDI;
+;EDISEQFIL;Fichier séquentiel;
+;EDISTO;Sas;
+;AECLIEXE;Exécution d'un traitement;
+;EDITRKDOC;Suivi des documents EDI;
+;EDIXMLFIL;Fichier XML;
+;EDIXSDUPL;Téléchargement fichier XSD EDI;
+;FUNMACA;Parc par adresse;
+;GESBOD;Nomenclatures;
+;GESBOL;Bon de transport;
+;GESBOS;Nomenclature sous-traitance;
+;GESBPD;Clients livrés;
+Requêtes suivi financier;GESBTQ;Requêtes suivi financier;
+Structure suivi financier;GESBTS;Structure suivi financier;
+;AECLIRDV;Eclipse;
+;GESCCM;Demande de changement;
+;GESCCMAUS;Further request details;
+;GESGAD;Pièces automatiques;
+;GESINDREF;Temps hors production;
+;GESITC2;Article-Coûts;
+;GESITP;Article-Fournisseur;
+Article-Vente;GESITS;Article-Vente;
+;GESITU;Article - Client;
+;GESNTS;Notes;
+Utilisateurs gestion affaire;GESPAUS;Utilisateurs gestion affaire;
+;AGENADO;Génération doc;
+;GESPBDECO;Code motif économique;
+;GESPFI;Eléments de facturation achats;
+Ligne d'imputation affaire;GESPIM;Ligne d'imputation affaire;
+;GESSEB;Info clients pour passerelle;
+;GESSFI;Eléments de facturation ventes;
+;GESSHFT;Code équipe;
+Conteneur fret;GESTCTR;Conteneur fret;
+;GESTMA;Collaborateurs;
+;GESTPC;Lieu de transit;
+;GESTPCT;Délai de transport;
+;AIMPCRYS;Impression;
+;GESXMA;Matricules;
+Opération d'ordre de fabricat;GESXMO;Opération d'ordre de fabricat;
+Temps validés ou non;GESXTPALL;Temps validés ou non;
+;GESXX1JMMOB;Moyens;
+Distribution;MDIS;Distribution;
+;PJMACTBUD;Budgets d'affaire;
+;PJMACTTAS;Tâches de  l'affaire;
+;PJMBUDTRQ;Requêtes suivi financier;
+;PJMBUDTRS;Structure suivi financier;
+;REQUET;Accès aux requêtes;
+;AIMPCRYSD;Impression directe;
+;SYRWRKPLN;Workflow;
+;TRACKTPL;Modèle suivi logistique;
+;VALEVL;Validation de version;
+;X4TVISUTPS;Gestion des temps;
+;ZEXPLOBSAD;Export LOB stock à date;
+;GESARY;Export Codes Impressions;
+;FASACT;Actualiser;
+;FASCLOTURB;Clôture période et exercice;
+;FASCNL;Suppression de bien;
+;FASDDE;Détacher dépenses d'un bien comptable;
+;FUNCMG3;Retours marketing;9
+;AMOULIN4;Lancement procédures migration;
+;FASIML;Déprécier;
+;FASISR;Assurance;
+;FASISS;Sortie d'actif;
+;FASMTC;Changer de méthode;
+;FASNSP;Valeur marché;
+;FASRVA;Réévaluer;
+;FASSPE;Eclat. avec éléments physiques;
+;FASSPL;Eclater un bien comptable;
+;FASTRF;Transférer;
+;FASTRFC;Changer l'imputation comptable;
+;ANUPAS;Annulation mot de passe;
+;FASVEH;Véhicule;
+;FASVISPLN;Simulation plan amortissement;
+;GESDER;Plan dérogatoire;
+;GESGVD;Evénement détail;
+;GESMAS;Gestion table MFS;
+;GESMFS;Gestion table MFS;
+;GESMPY;Gestion table Elts;
+;GESPHY;Eléments physiques;
+;GESRC1;Recodification;
+;GESTSI;Détail transaction;
+;APTLOBJ;Appel objet X3 par le portail;
+;LOFECL;Eclater une dépense;
+;LOFLDAB;Immobilisation des dépenses;
+;MNTPVT;Maintenance événements;
+;UMAJFACT;Synchronisation taux de TVA;
+;ZBAREQ;Réimpression étiquettes EQ;
+Impression;RFIS;Impression;
+Paramétrage événements avancé;GESPVT;Paramétrage événements avancé;
+Déclaration française;DCLVATFRA;Déclaration de  TVA;
+Gestion des temps;X4TPS;Gestion des temps;
+Recette;VISUROUBOM;Recette;
+;APTLREQ;Demande du portail;
+Transactions saisie pièces;GESGDE;Transactions saisie pièces;
+Trésorerie;GESTFC;Fichier trésorerie;
+Déclaration honoraires;RFI5M;Impression/groupe/compta;
+Gestion des taxes;RFI6M;Impression/groupe/compta;
+France;MFRA;France;
+Autres;MOTH;Autres;
+Etats Unis;MUSA;Etats Unis;
+Réceptions;VXAPR;Réceptions;V
+Matricules;GESXM2;Matricules;
+Validation globale des temps;X4TVALITPG;Validation globale des temps;
+;ASSOMAJ;MAJ utilisateurs annuaire;
+Validation des temps;X4TVALITPS;Validation des temps;
+Demandes de dérogation;GESXX1JDE;Demandes de dérogation;
+Histo patch;GESXX1JJHIS;Delivery historic;
+Prévisions conso client;GESXX1JJPC;Prévisions conso client;
+;AVISULIC;Visualisation licence;
+;AWRKCLASSIC;Workflow;
+;AWRKSIG;Signatures distantes;
+;BATCHEXP;Exports;
+;BATCHIMP;Imports;
+Transaction agenda act co;GESCRA;Transaction agenda act co;9
+;CALALH;Calcul des requêtes;
+;CALALQ;Calcul des requêtes;
+;CONSAWW;Moniteur Workflow;
+;EXEFNC;Exécution d'une fonction;
+Tranches réservées;GESACD;Tranches réservées;
+Documentation spécifique;GESAD7;Documentation spécifique;
+Habilitation fonctionnelle;GESAF1;Habilitation fonctionnelle;
+Editeur de formules;GESAF9;Editeur de formules;
+Editeur de formules;GESAFE;Editeur de formules;
+Hiérarchies;GESAH2;Hiérarchies;
+Mot-clé d'aide;GESAMC2;Mot-clé d'aide;
+Question script d'appel;GESSCQ;Question script d'appel;9
+Profil menu utilisateur;GESAPM;Profil menu utilisateur;
+Profil utilisateur GED;GESARU;Profil utilisateur GED;
+Entête messages;GESAS2;Entête messages;
+;GESAS3;Sous-programmes;
+;GESATD;Traductions messages;
+;GESAVL;Volumes;
+;GESAYO;Pools services web;
+Gammes - Opérations;GESZROO;Gammes - Opérations;
+;MENU;NULL;
+Processus Oracle;ORAPRO;Processus Oracle;
+;OMMEMA;Envoi mailing via E-Mail;9
+Propriétés Oracle;ORAPROP;Propriétés Oracle;
+;ORASTA;Statistiques Oracle;
+;ORASTAB;Statistiques Oracle;
+Processus Sql Server;SQLPRO;Processus Sql Server;
+Propriétés Sql Server;SQLPROP;Propriétés Sql Server;
+Statistiques Sql Server;SQLSTA;Statistiques Sql Server;
+NULL;XX1JHVHAB;Validation des habilitations;
+NULL;ZEXPREQ;Export requête;
+Fournisseur expéditeur;GESBSL;Fournisseur expéditeur;9
+Import ordres de ss-traitance;GESEOK;Import ordres de ss-traitance;9
+;OMMFAX;Envoi mailing via Fax;9
+Saisie des tarifs;GESPPF;Saisie des tarifs;9
+Commandes ouvertes;MPORC;Commandes ouvertes;9
+;SYRACHPPSI;Recherche tarifs;9
+;ZCOLISAGE;Colisage;Z
+;ZMAJPAZ;Bon à payer;Z
+;CONSMCC;Parc client;
+;CONSMCN;Parc client;
+;FUNCONH;Couverture article contrats;
+;FUNCXT0;Statistiques demandes;
+;FUNCXT1;Statistiques sur compétences;
+;OMMMAI;Envoi mailing via courrier;9
+;FUNDSC1;Dispatching;
+;FUNECE2;Statistiques sur escalades;
+;FUNHDK5;Statistiques queues;
+;FUNHDK6;Statistiques collaborateurs;
+;FUNITNH;Historique interventions;
+Exécution des escalades;FUNPEC2;Exécution des escalades;
+Historique des escalades;GESECE;Historique des escalades;
+Transac. agenda support client;GESHDA;Transac. agenda support client;
+;GESSET;Modèles de demande de service;
+;GESSSO;Solutions trouvées;
+Notifications de rejet;GESXX1JDR;Notifications de rejet;
+;CLOPER;Clôture périodes;
+;CONSXTP;Saisi des temps;
+;DCLVATBAT;Déclaration de  TVA;
+;GESBUD;Budgets;
+;GESCSL;Balance de consolidation;
+;GESRCR;Factures périodiques;
+;PAYPROPAL2;Proposition auto (abonnement);
+;GESAONSQH;Documents Office par défaut;
+Commande vente;GESCRMSFS01;Commande vente;
+;GESLTA;Sage sales tax;
+Gestion quotas fournisseurs;GESXX1JQUO;Gestion quotas fournisseurs;G
+Augmentation des tarifs;GESSND;Augmentation des tarifs;
+;GESSOI;Gestion des commandes ouvertes;
+Saisie des tarifs;GESSPF;Saisie des tarifs;
+;GESSPLPRT;Tarifs;
+Commandes ouvertes;MSORC;Commandes ouvertes;
+;SYRVENSPSI;Recherche tarifs;
+;CONSALL;Allocations;
+;CONSSCB;Résultats CBN / PDP;
+;CONSSHT;Allocations en rupture;
+;CONSSTR;Stock transféré;

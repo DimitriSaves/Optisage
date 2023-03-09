@@ -1,36 +1,200 @@
-table, caption, th, td {
-
-    border: 2px solid rgb(155, 155, 155);
-      border-collapse: collapse;
+input[type='file'] {
+  display: none;
 }
 
-caption, th, td {
-    
-    padding: 8px;
-    
-}
-    
-caption {
-    
-    background-color: lightgrey;
-    
-}
-    
-th {
-    
-    background-color: rgb(201, 201, 201);
-    
-}
-    
-td {
-    
-    background-color: rgb(255, 255, 255);
-    text-align: center;
-    
+/* créez un bouton personnalisé */
+
+
+
+
+.tabDroit {
+  border-collapse: collapse;
+  /* Pour supprimer les espaces entre les cellules */
+  font-size: 16px;
+  /* Taille de police pour le contenu du tableau */
+  margin: 18px 0;
+  /* Marge autour du tableau */
+  text-align: center;
+  margin-left: 10px;
 }
 
-table   {
-    margin: auto;
-    box-shadow: lightgray 4px 4px 20px;
+.tabDroit th {
+  background-color: rgb(59, 61, 58);
+  /* Couleur de fond pour les cellules d'en-tête */
 }
-   
+.tabFichier {
+  width: 200%;
+  /* Largeur du tableau */
+  border-collapse: collapse;
+  /* Pour supprimer les espaces entre les cellules */
+  font-size: 16px;
+  /* Taille de police pour le contenu du tableau */
+  margin: 20px 0;
+  /* Marge autour du tableau */
+  text-align: center;
+  margin-left: 15px;
+}
+.tabFichier th {
+  background-color: rgb(86, 117, 73);
+  /* Couleur de fond pour les cellules d'en-tête */
+}
+
+
+.custom-file-upload {
+  text-align: center;
+  margin-left: 500px;
+}
+
+div {
+  
+  margin-bottom: 20px;
+}
+
+.import {
+  margin-right: 1000px;
+  margin-left: 500px;
+  font-size: 15px;
+  color: white;
+  background-color: rgb(72, 72, 73);
+  border-radius: 10px;
+  font-family: Arial;
+  font-weight: bolder;
+
+
+}
+
+.export {
+  font-size: 15px;
+  color: white;
+  background-color: rgb(223, 80, 80);
+  border-radius: 10px;
+  font-family: Arial;
+  font-weight: bolder;
+}
+
+.delete {
+  background-color: rgb(223, 80, 80);
+  border-radius: 10px;
+}
+
+.undo {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+
+.add {
+  background-color: rgb(20, 165, 56);
+  border-radius: 10px;
+  margin-left: 5px;
+
+}
+
+.remove {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  margin-left: 5px;
+}
+
+table.tabDroit tr.ligne-noir td {
+  background-color: rgb(0, 0, 0);
+  color: orange;
+  font-weight: bold;
+  font-size: 17px;
+
+}
+
+
+table.tabDroit tr.ligne-grisFonce td {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 17px;
+
+}
+
+
+table.tabDroit tr.ligne-grisclair td {
+  background-color: rgb(83, 82, 82);
+  font-size: 17px;
+
+}
+
+table.tabDroit tr.ligne-grisfaible td {
+  background-color: rgb(153, 153, 153);
+  font-size: 17px;
+
+}
+
+table.tabDroit tr.ligne-blanche td {
+  background-color: rgb(224, 224, 224);
+  color: rgb(0, 0, 0);
+  font-size: 17px;
+  border-bottom: 1px solid black;
+}
+
+
+.table-container {
+  overflow-x: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .table-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .tabDroit, .tabFichier {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.custom-filter{
+  width: 25px;
+  height: 25px;
+  background-color: rgb(255, 255, 255);
+}
+table.tabFichier tr.ligne-noir td {
+  background-color: rgb(0, 0, 0);
+  color: orange;
+  font-weight: bold;
+  font-size: 17px;
+
+}
+
+table.tabFichier tr.ligne-grisFonce td {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 17px;
+
+}
+
+
+table.tabFichier  tr.ligne-grisclair td {
+  background-color: rgb(83, 82, 82);
+  font-size: 17px;
+
+}
+
+table.tabFichier  tr.ligne-grisfaible td {
+  background-color: rgb(153, 153, 153);
+  font-size: 17px;
+
+}
+
+table.tabFichier  tr.ligne-blanche td {
+  background-color: rgb(224, 224, 224);
+  color: rgb(0, 0, 0);
+  font-size: 17px;
+  border-bottom: 1px solid black;
+}
+
+table.tabFichier tr.deleted-row td {
+  background-color: rgb(218, 77, 77);
+  color: gray;
+   text-decoration: line-through;
+}
+
