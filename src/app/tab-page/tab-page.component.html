@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 
 
 <div>
@@ -5,32 +6,44 @@
   <button class="import" style="width:150px" (click)="fileInput.click()">Sélectionner un fichier</button>
 
   <button class="export" style="width:150px" (click)="exportFile()">Exporter au format CSV</button>
+
+  <button class="supprimer" style="width:150px" (click)="clearImportedData()">Supprimer CSV          </button>
+
+
 </div>
 
 
-<table class="tabDroit tableau-droit" style="display:inline" mat-table [dataSource]="dataSourceDroit">  <ng-container matColumnDef="MENU">
-    <th mat-header-cell *matHeaderCellDef>MENU</th>
-    <td mat-cell *matCellDef="let element">{{ element.MENU }}</td>
-  </ng-container>
 
-  <ng-container matColumnDef="CODINT_0">
-    <th mat-header-cell *matHeaderCellDef>CODINT_0</th>
-    <td mat-cell *matCellDef="let element">{{ element.CODINT_0 }}</td>
-  </ng-container>
+<div class="table-container">
+  <div class="table-wrapper table1-container" id="table1-container">
 
-  <ng-container matColumnDef="FONCTION">
-    <th mat-header-cell *matHeaderCellDef>FONCTION</th>
-    <td mat-cell *matCellDef="let element">{{ element.FONCTION }}</td>
-  </ng-container>
+    <table class="tabDroit tableau-droit" style="display:inline" mat-table [dataSource]="dataSourceDroit">
+      <th mat-header-cell *matHeaderCellDef>MENU</th>
+      <th mat-header-cell *matHeaderCellDef>CODINT_0</th>
+      <th mat-header-cell *matHeaderCellDef>FONCTION</th>
+      <th mat-header-cell *matHeaderCellDef>NUM</th>
+      <ng-container matColumnDef="MENU">
+        <th mat-header-cell *matHeaderCellDef>MENU</th>
+        <td mat-cell *matCellDef="let element">{{ element.MENU }}</td>
+      </ng-container>
 
-  <ng-container matColumnDef="NUM">
-    <th mat-header-cell *matHeaderCellDef>NUM</th>
-    <td mat-cell *matCellDef="let element">{{ element.NUM }}</td>
-  </ng-container>
+      <ng-container matColumnDef="CODINT_0">
+        <th mat-header-cell *matHeaderCellDef>CODINT_0</th>
+        <td mat-cell *matCellDef="let element">{{ element.CODINT_0 }}</td>
+      </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
-  <tr  mat-row *matRowDef="let row; columns: displayedColumns2;"
-  [ngClass]="{
+      <ng-container matColumnDef="FONCTION">
+        <th mat-header-cell *matHeaderCellDef>FONCTION</th>
+        <td mat-cell *matCellDef="let element">{{ element.FONCTION }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="NUM">
+        <th mat-header-cell *matHeaderCellDef>NUM</th>
+        <td mat-cell *matCellDef="let element">{{ element.NUM }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns2;" [ngClass]="{
     'ligne-noir': row.NUM === '1',
     'ligne-grisFonce': row.NUM === '2',
     'ligne-grisclair': row.NUM === '3',
@@ -38,92 +51,122 @@
     'ligne-blanche': !row.NUM || row.NUM === 'F' || row.NUM === 'C' || row.NUM === 'V'
     || row.NUM === 'G' || row.NUM === 'R' || row.NUM === '9'|| row.NUM === 'Z'
   }"></tr>
-</table>
+    </table>
+  </div>
+
+  <div class="table-wrapper table2-container" id="table2-container">
+
+    <table class="tabFichier" style="display:inline" mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="FNC_0">
+        <th mat-header-cell *matHeaderCellDef>
+          <span class="header-title">FONCTION</span>
+          <br>
+          <span class="header-subtitle">FNC_0</span>
+          <input (input)="updateFilter('FNC_0', $event)">
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.FNC_0 }}</td>
+      </ng-container>
+      
+      
+
+      <ng-container matColumnDef="ACS_0">
+        <th mat-header-cell *matHeaderCellDef>
+          <span class="header-title">ACCÈS </span>
+          <br>
+          <span class="header-subtitle">ACS_0</span>
+          <input (input)="updateFilter('ACS_0', $event)">
+        </th>
+        <td mat-cell *matCellDef="let element" contentEditable="true" (blur)="onCellEdit($event, element, 'ACS_0')">
+          {{ element.ACS_0 }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="OPT_0">
+        <th mat-header-cell *matHeaderCellDef>
+          <span class="header-title">OPTIONS </span>
+          <br>
+          <span class="header-subtitle">OPT_0</span>
+          <input (input)="updateFilter('OPT_0', $event)">
+        </th>
+        <td mat-cell *matCellDef="let element" contentEditable="true" (blur)="onCellEdit($event, element, 'OPT_0')">
+          {{ element.OPT_0 }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="PRFCOD_0">
+        <th mat-header-cell *matHeaderCellDef>
+          <span class="header-title">CODE PROFIL </span>
+          <br>
+          <span class="header-subtitle">PRFCOD_0</span>
+          <input (input)="updateFilter('PRFCOD_0', $event)">
+        </th>
+        <td mat-cell *matCellDef="let element" contentEditable="true" (blur)="onCellEdit($event, element, 'PRFCOD_0')">
+          {{ element.PRFCOD_0 }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="FCYGRUCOD_0">
+        <th mat-header-cell *matHeaderCellDef>
+          <span class="header-title">TYPE </span>
+          <br>
+          <span class="header-subtitle">FCYGRUCOD_0</span>
+          <input (input)="updateFilter('FCYGRUCOD_0', $event)">
+        </th>
+        <td mat-cell *matCellDef="let element" contentEditable="true"
+          (blur)="onCellEdit($event, element, 'FCYGRUCOD_0')">
+          {{ element.FCYGRUCOD_0 }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="FCYGRU_0">
+        <th mat-header-cell *matHeaderCellDef>
+          <span class="header-title">SITE </span>
+          <br>
+          <span class="header-subtitle">FCYGRU_0</span>
+          <input (input)="updateFilter('FCYGRU_0', $event)">
+        </th>
+        <td mat-cell *matCellDef="let element" contentEditable="true" (blur)="onCellEdit($event, element, 'FCYGRU_0')">
+          {{ element.FCYGRU_0 }} </td>
+
+      </ng-container>
 
 
 
-<table class="tabFichier" style="display:inline" mat-table [dataSource]="dataSource">
-  <thead>
-    <ng-container matColumnDef="FNC_0">
-      <th mat-header-cell *matHeaderCellDef>FNC_0
-        <input [(ngModel)]="filterValue" (input)="applyFilter()">
-      </th>
-      <td mat-cell *matCellDef="let element">{{ element.FNC_0 }}</td>
-    </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>
+          <button class="undo" mat-icon-button color="primary" (click)="undo()">
+            <mat-icon>Retour</mat-icon>
+          </button>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="deleteRow(element)" *ngIf="!element.deleted" title="Supprimer">
+            <i class="fa-solid fa-delete-left fa-lg" style="color: #d40c0c;"></i>
+          </button>
 
-    <ng-container matColumnDef="ACS_0">
-      <th mat-header-cell *matHeaderCellDef>ACS_0
-        <input [(ngModel)]="filterValue" (input)="applyFilter()">
-      </th>
-      <td mat-cell *matCellDef="let element" contentEditable="true" (blur)="onCellEdit($event, element, 'ACS_0')">{{
-        element.ACS_0 }}</td>
-    </ng-container>
+          <ng-container *ngIf="!element.deleted && !element.isNew">
+            <button (click)="addRow(element)" title="Ajouter une ligne">
+              <i class="fa-solid fa-circle-plus fa-lg" style="color: #20b62a;"></i>
+            </button>
+         
 
-    <ng-container matColumnDef="OPT_0">
-      <th mat-header-cell *matHeaderCellDef>OPT_0
-        <input [(ngModel)]="filterValue" (input)="applyFilter()">
-      </th>
-      <td mat-cell *matCellDef="let element" contentEditable="true" (blur)="onCellEdit($event, element, 'OPT_0')">{{
-        element.OPT_0 }}</td>
-    </ng-container>
+         
 
-    <ng-container matColumnDef="PRFCOD_0">
-      <th mat-header-cell *matHeaderCellDef>PRFCOD_0
-        <input [(ngModel)]="filterValue" (input)="applyFilter()">
-      </th>
-      <td mat-cell *matCellDef="let element" contentEditable="true" (blur)="onCellEdit($event, element, 'PRFCOD_0')">{{
-        element.PRFCOD_0 }}</td>
-    </ng-container>
+          <button (click)="copyRow(element)" title="Copier">
+            <i class="fa-solid fa-copy fa-lg" style="color: #000000;"></i>
+          </button>
 
-    <ng-container matColumnDef="FCYGRUCOD_0">
-      <th mat-header-cell *matHeaderCellDef>FCYGRUCOD_0
-        <input [(ngModel)]="filterValue" (input)="applyFilter()">
-      </th>
-      <td mat-cell *matCellDef="let element" contentEditable="true" (blur)="onCellEdit($event, element, 'FCYGRUCOD_0')">
-        {{ element.FCYGRUCOD_0 }}</td>
-    </ng-container>
+          <button (click)="pasteRow(element)" [disabled]="!copiedRow" title="Coller">
+            <i class="fa-solid fa-paste fa-lg" style="color: #ffffff;"></i>
+          </button> </ng-container>
 
-    <ng-container matColumnDef="FCYGRU_0">
-      <th mat-header-cell *matHeaderCellDef>FCYGRU_0
-        <input [(ngModel)]="filterValue" (input)="applyFilter()">
-      </th>
-      <td mat-cell *matCellDef="let element" contentEditable="true" (blur)="onCellEdit($event, element, 'FCYGRU_0')">{{
-        element.FCYGRU_0 }} </td>
-        
-    </ng-container>
+           <button class="remove" mat-icon-button color="warn" (click)="removeRow(element)" *ngIf="element.isNew">
+            <mat-icon>remove</mat-icon>
+          </button>
+      </ng-container>
 
 
-
-   <ng-container matColumnDef="delete">
-  <th mat-header-cell *matHeaderCellDef>
-    <button class="undo" mat-icon-button color="primary" (click)="undo()">
-      <mat-icon>Retour</mat-icon>
-    </button>
-  </th>
-  <td mat-cell *matCellDef="let element">
-    <button class="delete" mat-icon-button color="warn" (click)="deleteRow(element)" *ngIf="!element.deleted">
-      <mat-icon>delete</mat-icon>
-    </button>
-
-    <ng-container *ngIf="!element.deleted && !element.isNew">
-      <button class="add" mat-icon-button color="primary" (click)="addRow(element)">
-        <mat-icon>+</mat-icon>
-      </button>
-    </ng-container>
-
-    <button class="remove" mat-icon-button color="warn" (click)="removeRow(element)" *ngIf="element.isNew">
-      <mat-icon>remove</mat-icon>
-    </button>
-  </td>
-</ng-container>
-  </thead>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns1;" [class.deleted-row]="row.deleted"
+        [ngClass]="getColorClass(row)">
+      </tr>
 
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns1;"
-  [class.deleted-row]="row.deleted"
-    [ngClass]="getColorClass(row)">
-</tr>
-
-
-</table>
+    </table>
+  </div>
+</div>

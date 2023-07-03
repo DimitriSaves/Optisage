@@ -18,10 +18,6 @@ input[type='file'] {
   margin-left: 10px;
 }
 
-.tabDroit th {
-  background-color: rgb(59, 61, 58);
-  /* Couleur de fond pour les cellules d'en-tête */
-}
 .tabFichier {
   width: 200%;
   /* Largeur du tableau */
@@ -34,26 +30,18 @@ input[type='file'] {
   text-align: center;
   margin-left: 15px;
 }
-.tabFichier th {
-  background-color: rgb(86, 117, 73);
-  /* Couleur de fond pour les cellules d'en-tête */
-}
 
 
-.custom-file-upload {
-  text-align: center;
-  margin-left: 500px;
-}
 
 div {
   
-  margin-bottom: 20px;
+  margin-bottom: 2vh;
 }
 
 .import {
-  margin-right: 1000px;
-  margin-left: 500px;
-  font-size: 15px;
+  margin-right: 25vw;
+  margin-left: 25vw;
+  font-size:  1rem;
   color: white;
   background-color: rgb(72, 72, 73);
   border-radius: 10px;
@@ -64,7 +52,7 @@ div {
 }
 
 .export {
-  font-size: 15px;
+  font-size: 1rem;
   color: white;
   background-color: rgb(223, 80, 80);
   border-radius: 10px;
@@ -72,29 +60,17 @@ div {
   font-weight: bolder;
 }
 
-.delete {
-  background-color: rgb(223, 80, 80);
+.supprimer {
+  font-size: 1rem;
+  color: white;
+  background-color: rgb(23, 114, 53);
   border-radius: 10px;
+  font-family: Arial;
+  font-weight: bolder;
+  margin-right: 10vw;
 }
 
-.undo {
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-}
 
-
-.add {
-  background-color: rgb(20, 165, 56);
-  border-radius: 10px;
-  margin-left: 5px;
-
-}
-
-.remove {
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  margin-left: 5px;
-}
 
 table.tabDroit tr.ligne-noir td {
   background-color: rgb(0, 0, 0);
@@ -134,9 +110,6 @@ table.tabDroit tr.ligne-blanche td {
 }
 
 
-.table-container {
-  overflow-x: auto;
-}
 
 @media screen and (max-width: 600px) {
   .table-container {
@@ -197,4 +170,52 @@ table.tabFichier tr.deleted-row td {
   color: gray;
    text-decoration: line-through;
 }
+
+.tabFichier th {
+  background-color: rgb(86, 117, 73);
+  /* Couleur de fond pour les cellules d'en-tête */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  
+}
+
+.tabDroit th {
+  background-color: rgb(59, 61, 58);
+  /* Couleur de fond pour les cellules d'en-tête */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.table-container {
+  display: flex;
+}
+
+.table-wrapper {
+  overflow: visible;
+  max-height: 100%;
+}
+
+.table1-container {
+  overflow: visible;
+  max-height: 100%;
+}
+
+.table2-container {
+  overflow: visible;
+  max-height: 100%;
+}
+
+.custom-snackbar {
+  background-color: #f30051;
+  font-size: 50px;
+
+}
+
+.header-title {
+  font-weight: bold;
+}
+
+
 

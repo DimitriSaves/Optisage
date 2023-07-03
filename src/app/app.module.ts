@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatTableDataSourcePaginator } from '@angular/material/table';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import * as fr from  '@angular/common/locales/fr'
 
 
@@ -38,10 +41,12 @@ import { TabPageComponent } from './tab-page/tab-page.component';
     ReactiveFormsModule,
     MatInputModule,
     BrowserModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     CommonModule,
     HttpClientModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    ScrollingModule
     ],
     schemas: [
       CUSTOM_ELEMENTS_SCHEMA
