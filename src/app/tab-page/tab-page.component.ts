@@ -8,7 +8,7 @@ import { ElementRef, Renderer2, AfterViewInit, ViewChild } from '@angular/core';
 import { tableNames } from './codint';
 import axios from 'axios';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { FormsModule } from '@angular/forms';
 
 interface MyData {//tabFichier
   FNC_0: string;
@@ -18,6 +18,7 @@ interface MyData {//tabFichier
   FCYGRUCOD_0: string;
   FCYGRU_0: string;
   deleted?: boolean; // Champ pour indiquer si la ligne est supprimée
+  editing?: boolean; // Champ pour indiquer si la ligne est en mode d'édition
 
 }
 
@@ -33,8 +34,9 @@ interface MyDataRow { //tabDroit
 @Component({
   selector: 'app-tab-page',
   templateUrl: './tab-page.component.html',
-  styleUrls: ['./tab-page.component.css']
+  styleUrls: ['./tab-page.component.scss']
 })
+
 
 
 export class TabPageComponent implements OnInit {
@@ -53,9 +55,126 @@ export class TabPageComponent implements OnInit {
   filterValues: { [key: string]: string } = {};
   filteredDataSourceDroit!: MatTableDataSource<MyDataRow>;
   originalDroitData: MyDataRow[] = [];
-
+  // Définition des noms de colonnes dans l'ordre approprié
+  private columnNames = ['FNC_0', 'ACS_0', 'OPT_0', 'PRFCOD_0', 'FCYGRUCOD_0', 'FCYGRU_0'];
 
   dataSourceAllData: MyData[] = [];
+
+  uploadFile(event) {
+    let file = event.target.files[0];
+    this.importedFileName = file.name;
+  
+    // Définition des noms de colonnes dans l'ordre approprié
+    const columnNames = ['FNC_0', 'ACS_0', 'OPT_0', 'PRFCOD_0', 'FCYGRUCOD_0', 'FCYGRU_0'];
+  
+    Papa.parse(file, {
+      delimiter: ";",
+      download: true,
+      header: false,
+      skipEmptyLines: true,
+      complete: (results) => {
+        const data = results.data as string[][];  // déclaration du type de données
+        const modifiedData: MyData[] = [];
+        const emptyRows: MyData[] = [];
+        this.countMap = this.countOccurrences(this.dataSource.data);
+        this.dataSourceDroit.data = this.addEmptyRowsToTabDroit(this.dataSourceDroit.data);
+        tableNames.forEach(name => {
+          const matchingRows = data.filter(row => row[0] === name); // utilisez 'data' ici
+          if (matchingRows.length > 0) {
+            matchingRows.forEach(matchingRow => {
+              modifiedData.push({
+                FNC_0: matchingRow[0],
+                ACS_0: matchingRow[1] === '1' ? 'Non' : 'Oui', // conversion ici
+                OPT_0: matchingRow[2],
+                PRFCOD_0: matchingRow[3],
+                FCYGRUCOD_0: matchingRow[4],
+                FCYGRU_0: matchingRow[5],
+                editing: false  // Ajoutez cette ligne
+
+              });
+            });
+  
+            const emptyRowCount = matchingRows.length - 1;
+            for (let i = 0; i < emptyRowCount; i++) {
+              emptyRows.push({
+                FNC_0: '',
+                ACS_0: '',
+                OPT_0: '',
+                PRFCOD_0: '',
+                FCYGRUCOD_0: '',
+                FCYGRU_0: ''
+              });
+            }
+          } else {
+            modifiedData.push({
+              FNC_0: '',
+              ACS_0: '',
+              OPT_0: '',
+              PRFCOD_0: '',
+              FCYGRUCOD_0: '',
+              FCYGRU_0: ''
+            });
+          }
+        });
+  
+        this.dataSource = new MatTableDataSource(modifiedData);
+        this.countMap = this.countOccurrences(this.dataSource.data);
+        Papa.parse('assets/fichiercsv/tabDroit3.csv', {
+          delimiter: ";",
+          download: true,
+          header: true,
+          complete: (resultsDroit) => {
+            let dataDroit = resultsDroit.data as MyDataRow[];
+            this.countMap = this.countOccurrences(this.dataSource.data);
+            dataDroit = this.addEmptyRowsToTabDroit(dataDroit);
+            this.dataSourceDroit = new MatTableDataSource(dataDroit);
+            localStorage.setItem('tabDroitData', JSON.stringify(dataDroit));
+          }
+        });
+
+        // Vérifier si les données sont déjà dans le localStorage
+        const existingData = localStorage.getItem('uploadedTableData');
+
+        // Si les données ne sont pas dans le localStorage, envoyez-les au backend et enregistrez-les dans le localStorage
+        if (!existingData) {
+          // Ajoutez ces lignes pour enregistrer les données dans le localStorage
+          localStorage.setItem('uploadedTableData', JSON.stringify(this.dataSource.data));
+          // Envoi du fichier au backend
+          const formData = new FormData();
+          formData.append('file', file);
+
+          axios.post('http://localhost:3001/upload', formData).then(response => {
+            console.log(response.data);
+
+            // Envoi des données traitées et du nom de fichier au backend
+            const payload = {
+              data: modifiedData,
+              filename: this.importedFileName,
+            };
+
+            axios.post('http://localhost:3001/uploadFile', payload) // Utilisez la route '/uploadFile'
+              .then(response => {
+                console.log(response.data);
+                // Afficher le message après le succès du téléchargement
+                this._snackBar.open('Fichier téléchargé avec succès', 'Fermer', {
+                  duration: 3000,
+                  panelClass: ['custom-snackbar']
+                });
+
+              })
+              .catch(error => {
+                console.error(error);
+              });
+
+          }).catch(error => {
+            console.error(error);
+          });
+          // Enregistrez les données dans le localStorage
+          localStorage.setItem('uploadedTableData', JSON.stringify(modifiedData));
+        }
+      }
+    });
+  }
 
   ngOnInit() {
     // Charger les données du fichier CSV pour dataSourceDroit seulement si elles ne sont pas dans le localStorage
@@ -218,139 +337,7 @@ export class TabPageComponent implements OnInit {
 
 
 
-  uploadFile(event) {
-    let file = event.target.files[0];
-    this.importedFileName = file.name;
-
-    Papa.parse<{ FNC_0: string, ACS_0: string, OPT_0: string, PRFCOD_0: any, FCYGRUCOD_0: any, FCYGRU_0: any }>(file, {
-      delimiter: ";",
-      download: true,
-      header: true,
-      transformHeader: (header) => {
-        switch (header) {
-          case 'FNC_0':
-            return 'FNC_0';
-          case 'ACS_0':
-            return 'ACS_0';
-          case 'OPT_0':
-            return 'OPT_0';
-          case 'PRFCOD_0':
-            return 'PRFCOD_0';
-          case 'FCYGRUCOD':
-            return 'FCYGRUCOD_0';
-          case 'FCYGRU':
-            return 'FCYGRU_0';
-          default:
-            return header;
-        }
-      },
-      complete: (results) => {
-        const modifiedData: { FNC_0: string, ACS_0: string, OPT_0: string, PRFCOD_0: any, FCYGRUCOD_0: any, FCYGRU_0: any }[] = [];
-        const emptyRows: { FNC_0: string, ACS_0: string, OPT_0: string, PRFCOD_0: any, FCYGRUCOD_0: any, FCYGRU_0: any }[] = [];
-        this.countMap = this.countOccurrences(this.dataSource.data); // Compute countMap here
-        this.dataSourceDroit.data = this.addEmptyRowsToTabDroit(this.dataSourceDroit.data); // Use it here
-        tableNames.forEach(name => {
-          const matchingRows = results.data.filter(row => row.FNC_0 === name);
-          if (matchingRows.length > 0) {
-            matchingRows.forEach(matchingRow => {
-              modifiedData.push({
-                FNC_0: matchingRow.FNC_0,
-                ACS_0: matchingRow.ACS_0,
-                OPT_0: matchingRow.OPT_0,
-                PRFCOD_0: matchingRow.PRFCOD_0,
-                FCYGRUCOD_0: matchingRow.FCYGRUCOD_0,
-                FCYGRU_0: matchingRow.FCYGRU_0
-              });
-            });
-
-            const emptyRowCount = matchingRows.length - 1; // Calculer le nombre de lignes vides à ajouter
-            for (let i = 0; i < emptyRowCount; i++) {
-              emptyRows.push({
-                FNC_0: '',
-                ACS_0: '',
-                OPT_0: '',
-                PRFCOD_0: '',
-                FCYGRUCOD_0: '',
-                FCYGRU_0: ''
-              });
-            }
-          } else {
-            modifiedData.push({
-              FNC_0: '',
-              ACS_0: '',
-              OPT_0: '',
-              PRFCOD_0: '',
-              FCYGRUCOD_0: '',
-              FCYGRU_0: ''
-            });
-          }
-        });
-
-        this.dataSource = new MatTableDataSource(modifiedData);
-        // Compute the count map
-        this.countMap = this.countOccurrences(this.dataSource.data);
-        // Charger les données du fichier CSV pour dataSourceDroit
-        Papa.parse('assets/fichiercsv/tabDroit3.csv', {
-          delimiter: ";",
-          download: true,
-          header: true,
-          complete: (resultsDroit) => {
-            let dataDroit = resultsDroit.data as MyDataRow[];
-            // Compute the count map
-            this.countMap = this.countOccurrences(this.dataSource.data);
-            // Add empty rows to dataDroit
-            dataDroit = this.addEmptyRowsToTabDroit(dataDroit);
-            // Update the dataSourceDroit
-            this.dataSourceDroit = new MatTableDataSource(dataDroit);
-
-            //  sauvegarder les données de tabDroit dans le localStorage
-            localStorage.setItem('tabDroitData', JSON.stringify(dataDroit));
-          }
-        });
-
-        // Vérifier si les données sont déjà dans le localStorage
-        const existingData = localStorage.getItem('uploadedTableData');
-
-        // Si les données ne sont pas dans le localStorage, envoyez-les au backend et enregistrez-les dans le localStorage
-        if (!existingData) {
-          // Ajoutez ces lignes pour enregistrer les données dans le localStorage
-          localStorage.setItem('uploadedTableData', JSON.stringify(this.dataSource.data));
-          // Envoi du fichier au backend
-          const formData = new FormData();
-          formData.append('file', file);
-
-          axios.post('http://localhost:3001/upload', formData).then(response => {
-            console.log(response.data);
-
-            // Envoi des données traitées et du nom de fichier au backend
-            const payload = {
-              data: modifiedData,
-              filename: this.importedFileName,
-            };
-
-            axios.post('http://localhost:3001/uploadFile', payload) // Utilisez la route '/uploadFile'
-              .then(response => {
-                console.log(response.data);
-                // Afficher le message après le succès du téléchargement
-                this._snackBar.open('Fichier téléchargé avec succès', 'Fermer', {
-                  duration: 3000,
-                  panelClass: ['custom-snackbar']
-                });
-
-              })
-              .catch(error => {
-                console.error(error);
-              });
-
-          }).catch(error => {
-            console.error(error);
-          });
-          // Enregistrez les données dans le localStorage
-          localStorage.setItem('uploadedTableData', JSON.stringify(modifiedData));
-        }
-      }
-    });
-  }
+ 
 
 
 
@@ -388,36 +375,57 @@ export class TabPageComponent implements OnInit {
 
     // filtrer les lignes supprimées et nettoyer les données
     let filteredData = dataCopy
-      .filter((row) => !row['deleted'])
-      .map((row, index) => {
-        let hasData = Object.values(row).some((value) => value !== '' && value !== null);
-        let transformedRow: {
-          [key: string]: string;
-        } & MyData = {
-          M: index === 0 ? '' : hasData ? 'M' : '',
-          FNC_0: row.FNC_0 || '',
-          ACS_0: row.ACS_0 || '',
-          OPT_0: row.OPT_0 || '',
-          PRFCOD_0: row.PRFCOD_0 || '',
-          FCYGRUCOD_0: row.FCYGRUCOD_0 || '',
-          FCYGRU_0: row.FCYGRU_0 || '',
-        };
-        return transformedRow;
-      });
+        .filter((row) => {
+            // Ignorer la ligne si elle est supprimée
+            if (row['deleted']) {
+                return false;
+            }
+            
+            // Ignorer la ligne si toutes les valeurs sont vides (à l'exception de ACS_0 pouvant être '2')
+            let isEmpty = true;
+            for (let key in row) {
+                if ((key !== 'ACS_0' || row[key] !== '2') && row[key] !== '') {
+                    isEmpty = false;
+                    break;
+                }
+            }
 
-    // Supprimer les lignes vides qui ont toutes les cellules vides
-    filteredData = filteredData.filter((row) => {
-      return Object.values(row).some((value) => value !== '');
-    });
+            return !isEmpty;
+        })
+        .map((row) => {
+            let hasData = Object.entries(row).some(([key, value]) => key !== 'ACS_0' && value !== '' && value !== null);
+            
+            let transformedRow: {
+                [key: string]: string;
+            } & MyData = {
+                M: hasData ? 'M' : '', // Modification ici
+                FNC_0: row.FNC_0 || '',
+                ACS_0: row.ACS_0 === 'Non' ? '1' : row.ACS_0 === 'Oui' ? '2' : '',
+                OPT_0: row.OPT_0 || '',
+                PRFCOD_0: row.PRFCOD_0 || '',
+                FCYGRUCOD_0: row.FCYGRUCOD_0 || '',
+                FCYGRU_0: row.FCYGRU_0 || '',
+            };
+            return transformedRow;
+        });
 
     // créer le fichier CSV et le télécharger
-    let csv = Papa.unparse(filteredData, { delimiter: ';' }); // Utiliser le point-virgule comme délimiteur
+    let csv = Papa.unparse(filteredData, { delimiter: ';' });
     csv = csv.replace(/"[\s]*"/g, '');
+
+    // Enlevez la première ligne (noms des colonnes)
+    let csvArray = csv.split('\n');
+    csvArray.shift();  // supprime la première ligne
+    csv = csvArray.join('\n');
+
     let blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
-    FileSaver.saveAs(blob, this.importedFileName); // utiliser le nom de fichier importé
+    FileSaver.saveAs(blob, this.importedFileName);
+    
     // Supprimer le fichier de la base de données
     this.deleteFileFromDatabase(this.importedFileName);
-  }
+}
+
+
 
 
   deleteFileFromDatabase(filename) {
@@ -485,12 +493,17 @@ export class TabPageComponent implements OnInit {
 
 
   onCellEdit(event, element, field) {
-    // sauvegarder l'état précédent
     this.saveTableData();
-    const newValue = event.target.textContent;
+    let newValue;
+    // Si le champ est ACS_0, obtenir la valeur de l'option sélectionnée
+    if (field === 'ACS_0') {
+      newValue = event.target.value;
+    } else {
+      // sinon obtenir le contenu textuel comme avant
+      newValue = event.target.textContent;
+    }
     element[field] = newValue;
-
-    // Mettre à jour la base de données
+  
     axios
       .post('http://localhost:3001/updateFile', {
         id: element.id, // Assurez-vous que l'élément a un identifiant unique
@@ -505,12 +518,7 @@ export class TabPageComponent implements OnInit {
       });
     this.saveTableData();
   }
-
-
-
-
-
-
+  
 
   deleteRow(element: any): void {
     // sauvegarder l'état précédent

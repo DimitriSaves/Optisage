@@ -71,14 +71,21 @@
 
       <ng-container matColumnDef="ACS_0">
         <th mat-header-cell *matHeaderCellDef>
-          <span class="header-title">ACCÈS </span>
-          <br>
-          <span class="header-subtitle">ACS_0</span>
-          <input (input)="updateFilter('ACS_0', $event)">
+            <span class="header-title">ACCÈS </span>
+            <br>
+            <span class="header-subtitle">ACS_0</span>
+            <input (input)="updateFilter('ACS_0', $event)">
         </th>
-        <td mat-cell *matCellDef="let element" contentEditable="true" (blur)="onCellEdit($event, element, 'ACS_0')">
-          {{ element.ACS_0 }}</td>
-      </ng-container>
+        <td mat-cell *matCellDef="let element">
+            <span *ngIf="!element.editing" (click)="element.editing = true">{{ element.ACS_0 }}</span>
+            <select [(ngModel)]="element.ACS_0" *ngIf="element.editing" (change)="onCellEdit($event, element, 'ACS_0'); element.editing = false">
+                <option value="Non">Non</option>
+                <option value="Oui">Oui</option>
+            </select>
+        </td>
+    </ng-container>
+    
+      
 
       <ng-container matColumnDef="OPT_0">
         <th mat-header-cell *matHeaderCellDef>
