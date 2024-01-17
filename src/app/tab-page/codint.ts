@@ -1,6 +1,6 @@
 ﻿export const tableNames = [
 
-'GENE',
+
 'ATRAD',
 'ATDOC',
 'ATFCT',

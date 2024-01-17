@@ -14,6 +14,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatTableDataSourcePaginator } from '@angular/material/table';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import * as fr from  '@angular/common/locales/fr'
 
@@ -23,6 +26,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { TabPageComponent } from './tab-page/tab-page.component';
+import { AppsageComponent } from './appsage/appsage.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,7 @@ import { TabPageComponent } from './tab-page/tab-page.component';
     HeaderComponent,
     LandingPageComponent,
     TabPageComponent,
+    AppsageComponent,
     ],
   imports: [
     BrowserModule,
@@ -46,7 +51,11 @@ import { TabPageComponent } from './tab-page/tab-page.component';
     CommonModule,
     HttpClientModule,
     NgxDatatableModule,
-    ScrollingModule
+    ScrollingModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+
     ],
     schemas: [
       CUSTOM_ELEMENTS_SCHEMA

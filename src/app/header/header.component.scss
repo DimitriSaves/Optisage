@@ -1,13 +1,12 @@
 header {
     text-align: center;
-    background: linear-gradient(90deg, #ada9a9, #709b70);
     margin-bottom: 20px;
     padding: 10px
 }
 
 a {
     margin: 0 10px;
-    color: #333;
+    color: #ffffff;
     text-decoration: none;
     &:hover {
         text-decoration: underline;
@@ -27,7 +26,20 @@ a {
 h1{
     font-size: 40px;
     font-weight: bold ;
-    font-family: 'Helvetica';
+    font-family: 'Arial';
     margin-bottom: 30px;
-    color: white;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 5vh;
 }
+
+/* header.component.css */
+header {
+    background-color: rgb(156, 31, 31);
+    color: white; /* Vous pouvez également spécifier la couleur du texte si nécessaire */
+    padding: 10px; /* Ajoutez un peu d'espacement pour améliorer l'apparence */
+  }
+  

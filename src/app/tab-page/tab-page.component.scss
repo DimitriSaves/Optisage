@@ -25,10 +25,10 @@ input[type='file'] {
   /* Pour supprimer les espaces entre les cellules */
   font-size: 16px;
   /* Taille de police pour le contenu du tableau */
-  margin: 20px 0;
+  margin: 1.25rem;
   /* Marge autour du tableau */
   text-align: center;
-  margin-left: 15px;
+  margin-left: 0.938rem;
 }
 
 
@@ -125,8 +125,8 @@ table.tabDroit tr.ligne-blanche td {
 }
 
 .custom-filter{
-  width: 25px;
-  height: 25px;
+  width:1.563rem;
+  height:1.563rem;
   background-color: rgb(255, 255, 255);
 }
 table.tabFichier tr.ligne-noir td {
@@ -177,7 +177,8 @@ table.tabFichier tr.deleted-row td {
   position: sticky;
   top: 0;
   z-index: 100;
-  
+
+
 }
 
 .tabDroit th {
@@ -186,6 +187,8 @@ table.tabFichier tr.deleted-row td {
   position: sticky;
   top: 0;
   z-index: 100;
+  flex-direction: column;
+
 }
 
 .table-container {
@@ -207,11 +210,7 @@ table.tabFichier tr.deleted-row td {
   max-height: 100%;
 }
 
-.custom-snackbar {
-  background-color: #f30051;
-  font-size: 50px;
 
-}
 
 .header-title {
   font-weight: bold;
@@ -219,3 +218,144 @@ table.tabFichier tr.deleted-row td {
 
 
 
+
+
+
+.table-container {
+  width: 100%;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 10rem;  /* hauteur fixe pour les conteneurs d'en-tête */
+}
+
+.header-title {
+  font-weight: bold;
+  height: 1.5rem; /* ajustez cette valeur pour répartir la hauteur totale de 3rem */
+}
+
+.header-filter {
+  height: 1.5rem; /* ajustez cette valeur pour répartir la hauteur totale de 3rem */
+}
+
+.mat-column-MENU {
+  max-width: 25rem;
+
+}
+
+.mat-column-MENU input {
+  width: 90%;
+  margin-bottom: 1rem;
+
+}
+
+
+.mat-column-CODINT_0 {
+  max-width: 13rem;
+
+}
+
+.mat-column-CODINT_0 input {
+  width: 90%;
+  margin-bottom: 1rem;
+
+}
+
+.mat-column-FONCTION {
+  max-width: 20rem;
+
+}
+
+.mat-column-FONCTION input {
+  width: 80%;
+  margin-bottom: 1rem;
+
+}
+
+.mat-column-NUM {
+  max-width: 4.375rem;
+
+}
+
+.mat-column-NUM input {
+  width: 90%;
+  margin-bottom: 1rem;
+
+}
+
+.mat-column-FNC_0 {
+  max-width: 13rem;
+
+}
+
+.mat-column-FNC_0 input {
+  width: 90%;
+  margin-bottom: 1rem;
+
+}
+
+.mat-column-ACS_0 {
+  max-width: 7.5rem;
+
+}
+
+.mat-column-ACS_0 input {
+  width: 90%;
+  margin-bottom: 1rem;
+}
+
+.mat-column-OPT_0 {
+  max-width: 10rem;
+
+}
+
+.mat-column-OPT_0 input {
+  width: 90%;
+  margin-bottom: 1rem;
+
+}
+
+.mat-column-PRFCOD_0 {
+  max-width: 15rem;
+
+}
+
+.mat-column-PRFCOD_0 input {
+  width: 90%;
+  margin-bottom: 1rem;
+
+}
+
+
+.mat-column-FCYGRUCOD_0 {
+  max-width: 10rem;
+
+}
+
+.mat-column-FCYGRUCOD_0 input {
+  width: 90%;
+  margin-bottom: 1rem;
+
+}
+
+
+.mat-column-FCYGRU_0{
+  max-width: 10rem;
+
+}
+
+.mat-column-FCYGRU_0 input {
+  width: 90%;
+  margin-bottom: 1rem;
+
+}
+
+.custom-snackbar {
+  background-color: #59f300;
+  position: fixed;
+  top: 50px;
+
+}

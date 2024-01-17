@@ -3,7 +3,6 @@
   "compilerOptions": {
     "types": [
       "node",
-      "body-parser"
     ],
     "baseUrl": "./",
     "paths": {

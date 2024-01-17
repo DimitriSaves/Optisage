@@ -7,7 +7,7 @@
 
   <button class="export" style="width:150px" (click)="exportFile()">Exporter au format CSV</button>
 
-  <button class="supprimer" style="width:150px" (click)="clearImportedData()">Supprimer CSV          </button>
+  <button class="supprimer" style="width:150px" (click)="clearImportedData()">Supprimer CSV</button>
 
 
 </div>
@@ -22,25 +22,48 @@
       <th mat-header-cell *matHeaderCellDef>CODINT_0</th>
       <th mat-header-cell *matHeaderCellDef>FONCTION</th>
       <th mat-header-cell *matHeaderCellDef>NUM</th>
+
+
       <ng-container matColumnDef="MENU">
-        <th mat-header-cell *matHeaderCellDef>MENU</th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span class="header-title"> </span>
+          <br>
+          <span class="header-subtitle">MENU</span>
+          <input (input)="updateFilterDroit('MENU', $event)">
+        </th>
         <td mat-cell *matCellDef="let element">{{ element.MENU }}</td>
       </ng-container>
-
+      
       <ng-container matColumnDef="CODINT_0">
-        <th mat-header-cell *matHeaderCellDef>CODINT_0</th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span class="header-title"> </span>
+          <br>
+          <span class="header-subtitle">CODINT_0</span>
+          <input (input)="updateFilterDroit('CODINT_0', $event)">
+        </th>
         <td mat-cell *matCellDef="let element">{{ element.CODINT_0 }}</td>
       </ng-container>
-
+      
       <ng-container matColumnDef="FONCTION">
-        <th mat-header-cell *matHeaderCellDef>FONCTION</th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span class="header-title"> </span>
+          <br>
+          <span class="header-subtitle">FONCTION</span>
+          <input (input)="updateFilterDroit('FONCTION', $event)">
+        </th>
         <td mat-cell *matCellDef="let element">{{ element.FONCTION }}</td>
       </ng-container>
-
+      
       <ng-container matColumnDef="NUM">
-        <th mat-header-cell *matHeaderCellDef>NUM</th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span class="header-title"> </span>
+          <br>
+          <span class="header-subtitle">NUM</span>
+          <input (input)="updateFilterDroit('NUM', $event)">
+        </th>
         <td mat-cell *matCellDef="let element">{{ element.NUM }}</td>
       </ng-container>
+      
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns2;" [ngClass]="{
@@ -77,14 +100,13 @@
             <input (input)="updateFilter('ACS_0', $event)">
         </th>
         <td mat-cell *matCellDef="let element">
-            <span *ngIf="!element.editing" (click)="element.editing = true">{{ element.ACS_0 }}</span>
-            <select [(ngModel)]="element.ACS_0" *ngIf="element.editing" (change)="onCellEdit($event, element, 'ACS_0'); element.editing = false">
+            <span *ngIf="currentlyEditingElement !== element" (click)="currentlyEditingElement = element">{{ element.ACS_0 }}</span>
+            <select [(ngModel)]="element.ACS_0" *ngIf="currentlyEditingElement === element" (change)="onCellEdit($event, element, 'ACS_0'); currentlyEditingElement = null" (blur)="currentlyEditingElement = null">
                 <option value="Non">Non</option>
                 <option value="Oui">Oui</option>
             </select>
         </td>
-    </ng-container>
-    
+    </ng-container>   
       
 
       <ng-container matColumnDef="OPT_0">
@@ -111,16 +133,21 @@
 
       <ng-container matColumnDef="FCYGRUCOD_0">
         <th mat-header-cell *matHeaderCellDef>
-          <span class="header-title">TYPE </span>
+          <span class="header-title">Site </span>
           <br>
           <span class="header-subtitle">FCYGRUCOD_0</span>
           <input (input)="updateFilter('FCYGRUCOD_0', $event)">
         </th>
-        <td mat-cell *matCellDef="let element" contentEditable="true"
-          (blur)="onCellEdit($event, element, 'FCYGRUCOD_0')">
-          {{ element.FCYGRUCOD_0 }}</td>
-      </ng-container>
-
+        <td mat-cell *matCellDef="let element">
+          <span *ngIf="currentlyEditingElement !== element" (click)="currentlyEditingElement = element">{{ getFCYGRUCOD_0Value(element.FCYGRUCOD_0) }}</span>
+          <select [(ngModel)]="element.FCYGRUCOD_0" *ngIf="currentlyEditingElement === element" (change)="onCellEdit($event, element, 'FCYGRUCOD_0'); currentlyEditingElement = null" (blur)="currentlyEditingElement = null">
+            <option value="0">-</option>
+            <option value="1">Regroup</option>
+            <option value="2">Site</option>
+          </select>
+        </td>
+    </ng-container>
+    
       <ng-container matColumnDef="FCYGRU_0">
         <th mat-header-cell *matHeaderCellDef>
           <span class="header-title">SITE </span>
@@ -137,7 +164,7 @@
 
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef>
-          <button class="undo" mat-icon-button color="primary" (click)="undo()">
+          <button class="undo" mat-icon-button style="color: #ffffff;"(click)="undo()">
             <mat-icon>Retour</mat-icon>
           </button>
         </th>
