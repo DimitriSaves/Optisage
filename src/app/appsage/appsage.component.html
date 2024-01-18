@@ -1,9 +1,11 @@
+<!-- appsage.component.html -->
 <div class="menu-container">
   <ul class="main-menu">
-    <li *ngFor="let menuItem of menuItems; let i = index" (mouseenter)="showSubMenus[i] = true"
-      (mouseleave)="showSubMenus[i] = false">
+    <li *ngFor="let menuItem of menuItems; let i = index" 
+        (mouseenter)="onMouseEnter(i)" 
+        (mouseleave)="onMouseLeave()">
       <a href="#">{{ menuItem.label }}</a>
-      <div class="sub-menu" *ngIf="showSubMenus[i]">
+      <div *ngIf="showSubMenus[i]" class="sub-menu">
         <ul *ngFor="let subMenu of menuItem.subMenus">
           <li>
             <a href="#">{{ subMenu.label }}</a>
@@ -21,6 +23,5 @@
         </ul>
       </div>
     </li>
-
   </ul>
 </div>

@@ -31,10 +31,16 @@ export class AppsageComponent {
   triggers: any;
   selectedMenu: MenuItem | null = null;
   showSubMenu: MenuItem | null = null;
+  showSubMenus: boolean[]; // Un tableau pour garder la trace de l'état affiché de chaque sous-menu
 
   // ... Autres propriétés et méthodes
+  constructor() {
+    // Initialisez menuItems avec vos données ici
+    this.showSubMenus = new Array(this.menuItems.length).fill(false); // Commence avec tous les sous-menus masqués
+  }
 
-  // Fonction pour afficher le sous-menu correspondant
+
+ /* // Fonction pour afficher le sous-menu correspondant
   showSubMenu2(menuItem: MenuItem): void {
     this.showSubMenu = menuItem;
   }
@@ -43,6 +49,38 @@ export class AppsageComponent {
   hideSubMenu(): void {
     this.showSubMenu = null;
   }
+  openSubMenu(menuItem: MenuItem): void {
+    this.selectedMenu = menuItem;
+  }
+
+  closeSubMenu(): void {
+    this.selectedMenu = null;
+  }*/
+
+  // Méthode pour afficher un sous-menu spécifique
+  onMouseEnter(index: number): void {
+    this.resetSubMenus(); // Masquer tous les sous-menus
+    this.showSubMenus[index] = true; // Afficher le sous-menu survolé
+  }
+
+  // Méthode pour masquer tous les sous-menus
+  onMouseLeave(): void {
+    this.resetSubMenus();
+  }
+
+  // Méthode d'assistance pour réinitialiser le tableau showSubMenus
+  private resetSubMenus(): void {
+    this.showSubMenus.fill(false);
+  }
+
+
+  // Fonction pour basculer l'affichage d'un sous-menu spécifique
+  toggleSubMenu(index: number): void {
+    // Bascule l'état de true à false ou vice versa
+    this.showSubMenus[index] = !this.showSubMenus[index];
+  }
+
+
   menuItems: MenuItem[] = [
     {
       label: 'Administration',
@@ -166,38 +204,25 @@ export class AppsageComponent {
           ],
         },
       ],
-
     },
-
+    {
+      label: 'Développement',
+      subMenus: [
+        {
+          label: 'Dictionnaires données',
+          categories: [
+            {
+              label: 'Tables',
+              functions: ['Tables', 'Types de données', 'Menus locaux - Messages', 'Eléments de dimensionnement', 'Formules de dimensionnement'],
+            },
+            // Ajoutez d'autres subMenus ici si nécessaire
+          ],
+        },
+      ],
+    },
     // ... continuez avec d'autres éléments de menu principaux ici
   ];
 
 
-  openSubMenu(menuItem: MenuItem): void {
-    this.selectedMenu = menuItem;
-  }
-
-  closeSubMenu(): void {
-    this.selectedMenu = null;
-  }
-
-  // Ajoutez cette méthode dans votre classe de composant
-  onMouseEnter(i: number) {
-    let menuTrigger = this.menuTriggers.toArray()[i];
-    if (menuTrigger) {
-      menuTrigger.openMenu();
-    }
-  }
-
-  constructor() {
-    // Initialisez menuItems avec vos données ici
-  }
-
-  showSubMenus: { [key: number]: boolean } = {};
-
-  // Fonction pour basculer l'affichage d'un sous-menu spécifique
-  toggleSubMenu(index: number): void {
-    // Bascule l'état de true à false ou vice versa
-    this.showSubMenus[index] = !this.showSubMenus[index];
-  }
+ 
 }
