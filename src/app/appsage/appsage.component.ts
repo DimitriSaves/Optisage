@@ -1,24 +1,6 @@
 import { Component } from '@angular/core';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
-import { ViewChildren, QueryList } from '@angular/core';
-import { MatMenuTrigger } from '@angular/material/menu';
-import { FormsModule } from '@angular/forms';
+import { MenuItem } from 'primeng/api';
 
-interface MenuItem {
-  label: string;
-  subMenus?: SubMenu[];
-}
-
-interface SubMenu {
-  label: string;
-  categories?: Category[];
-}
-
-interface Category {
-  label: string;
-  functions?: string[];
-}
 
 @Component({
   selector: 'app-appsage',
@@ -26,23 +8,39 @@ interface Category {
   styleUrls: ['./appsage.component.scss']
 })
 export class AppsageComponent {
-  @ViewChildren(MatMenuTrigger) menuTriggers!: QueryList<MatMenuTrigger>;
 
-  triggers: any;
-  selectedMenu: MenuItem | null = null;
-  showSubMenu: MenuItem | null = null;
+  
+  primeNgMenuItems: MenuItem[]; // Utilisez le type MenuItem de PrimeNG
 
-  // ... Autres propriétés et méthodes
 
-  // Fonction pour afficher le sous-menu correspondant
-  showSubMenu2(menuItem: MenuItem): void {
-    this.showSubMenu = menuItem;
+  constructor() {
+
+   this.primeNgMenuItems = this.menuItems.map(menuItem => this.convertToPrimeNgMenuItem(menuItem));
+
   }
 
-  // Fonction pour masquer le sous-menu
-  hideSubMenu(): void {
-    this.showSubMenu = null;
+  private convertToPrimeNgMenuItem(menuItem): MenuItem {
+    const subMenuItems: MenuItem[] = menuItem.subMenus?.flatMap(subMenu => {
+      const categoryItems: MenuItem[] = subMenu.categories?.flatMap(category => 
+        category.functions.map(func => {
+          return { label: func }; // Elements de fonction, pas de classe spéciale nécessaire ici
+        })
+      );
+      return [
+        { 
+          label: subMenu.label, 
+          items: categoryItems,
+        }
+      ];
+    });
+
+    return {
+      label: menuItem.label,
+      items: subMenuItems
+    };
   }
+
+
   menuItems: MenuItem[] = [
     {
       label: 'Administration',
@@ -166,38 +164,25 @@ export class AppsageComponent {
           ],
         },
       ],
-
     },
-
+    {
+      label: 'Développement',
+      subMenus: [
+        {
+          label: 'Dictionnaires données',
+          categories: [
+            {
+              label: 'Tables',
+              functions: ['Tables', 'Types de données', 'Menus locaux - Messages', 'Eléments de dimensionnement', 'Formules de dimensionnement'],
+            },
+            // Ajoutez d'autres subMenus ici si nécessaire
+          ],
+        },
+      ],
+    },
     // ... continuez avec d'autres éléments de menu principaux ici
   ];
 
 
-  openSubMenu(menuItem: MenuItem): void {
-    this.selectedMenu = menuItem;
-  }
-
-  closeSubMenu(): void {
-    this.selectedMenu = null;
-  }
-
-  // Ajoutez cette méthode dans votre classe de composant
-  onMouseEnter(i: number) {
-    let menuTrigger = this.menuTriggers.toArray()[i];
-    if (menuTrigger) {
-      menuTrigger.openMenu();
-    }
-  }
-
-  constructor() {
-    // Initialisez menuItems avec vos données ici
-  }
-
-  showSubMenus: { [key: number]: boolean } = {};
-
-  // Fonction pour basculer l'affichage d'un sous-menu spécifique
-  toggleSubMenu(index: number): void {
-    // Bascule l'état de true à false ou vice versa
-    this.showSubMenus[index] = !this.showSubMenus[index];
-  }
+ 
 }

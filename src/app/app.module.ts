@@ -24,17 +24,20 @@ import * as fr from  '@angular/common/locales/fr'
 import { AppRoutingModule } from './app-routing-module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 import { TabPageComponent } from './tab-page/tab-page.component';
 import { AppsageComponent } from './appsage/appsage.component';
+import { MenubarModule } from 'primeng/menubar';
+import { MegaMenuModule } from 'primeng/megamenu';
+import { AppSage2Component } from './appsage2/app-sage2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LandingPageComponent,
     TabPageComponent,
     AppsageComponent,
+    AppSage2Component,
+    
     ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { AppsageComponent } from './appsage/appsage.component';
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
-
+    MenubarModule,
+    MegaMenuModule,
     ],
     schemas: [
       CUSTOM_ELEMENTS_SCHEMA

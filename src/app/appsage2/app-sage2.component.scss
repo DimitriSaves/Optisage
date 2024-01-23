@@ -1,0 +1,40 @@
+/* Style général du menubar avec taille de police augmentée */
+.p-menubar {
+    background-color: #e0e0e0 !important; /* Couleur de fond */
+    border: none !important; /* Pas de bordure */
+    font-size: 1em !important; /* Taille de la police générale */
+}
+
+/* Style des éléments du menu */
+.p-menubar .p-menubar-root-list > .p-menuitem {
+    border-right: 1px solid #e0e0e0 !important; /* Séparation des éléments */
+}
+
+/* Assurez-vous que le MegaMenu est un conteneur flex */
+.p-megamenu .p-megamenu-panel .p-megamenu-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+/* Style pour les colonnes de catégories */
+.p-megamenu .p-megamenu-panel .p-megamenu-grid > li {
+    flex: 1 1 33% !important;
+    box-sizing: border-box !important;
+    margin-right: 20px !important;
+}
+
+/* S'assurer que les fonctions s'affichent correctement en liste verticale */
+.p-megamenu .p-megamenu-panel .p-megamenu-grid > li > ul {
+    padding-left: 0 !important;
+    list-style: none !important;
+}
+
+/* Style pour les éléments individuels de fonction */
+.p-megamenu .p-megamenu-panel .p-megamenu-grid > li > ul > li {
+    padding: 4px 0 !important;
+}
+
+/* S'assurer que le dernier élément de la colonne n'a pas de marge à droite */
+.p-megamenu .p-megamenu-panel .p-megamenu-grid > li:last-child {
+    margin-right: 0 !important;
+}
