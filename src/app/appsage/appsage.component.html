@@ -1,0 +1,27 @@
+<!-- appsage.component.html -->
+<div class="menu-container">
+  <ul class="main-menu">
+    <li *ngFor="let menuItem of menuItems; let i = index" 
+        (mouseenter)="onMouseEnter(i)" 
+        (mouseleave)="onMouseLeave()">
+      <a href="#">{{ menuItem.label }}</a>
+      <div *ngIf="showSubMenus[i]" class="sub-menu">
+        <ul *ngFor="let subMenu of menuItem.subMenus">
+          <li>
+            <a href="#">{{ subMenu.label }}</a>
+            <ul *ngFor="let category of subMenu.categories" class="category-menu">
+              <li>
+                <a href="#">{{ category.label }}</a>
+                <ul class="function-menu">
+                  <li *ngFor="let function of category.functions">
+                    <a href="#">{{ function }}</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

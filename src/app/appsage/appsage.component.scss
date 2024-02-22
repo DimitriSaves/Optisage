@@ -1,0 +1,124 @@
+.menu-container {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  /* Full width of the container */
+  position: relative;
+  /* Position relative pour le conteneur principal */
+  display: flex;
+
+}
+
+.main-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style-type: none;
+  background-color: #f0f0f0;
+  display: flex;
+  /* Changez la disposition en flex */
+  flex-direction: row;
+  /* Empilez les éléments verticalement */
+  width: 200px;
+  /* Définissez la largeur du menu principal */
+  border-right: 1px solid #ccc;
+  /* Ajoutez une bordure si nécessaire */
+}
+
+.main-menu>li {
+  background-color: #ffffff;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  /* Position relative pour les éléments de menu */
+  border-bottom: 1px solid #ddd; /* Sépare visuellement les éléments de menu */
+}
+
+.main-menu>li a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.sub-menu {
+  display: none;
+  /* Hide by default and will be shown on hover */
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  left: 0;
+  /* Align with the left edge of main-menu */
+  top: 100%;
+  /* Positioned below the main-menu item */
+  width: auto;
+  white-space: nowrap;
+  /* Ensure the menu doesn't wrap */
+  font-size: 120%;
+  z-index: 1000; /* Assurez-vous que le sous-menu est au-dessus des autres éléments */
+
+}
+
+
+.category-menu>li>a {
+  color: rgb(35, 155, 224);
+  /* Cible spécifiquement les liens directs des labels de catégorie */
+  margin-left: 10px;
+}
+
+.main-menu>li:hover .sub-menu {
+  display: block;
+  /* Display sub-menu on hover */
+  width: max-content;
+  /*Assurez-vous que le sous-menu est assez large pour tous les contenus */
+}
+
+.category-menu {
+  position: static;
+  /* ou 'relative' selon le besoin */
+  display: inline-block;
+  /* Pour placer les catégories côte à côte */
+  vertical-align: top;
+  /* Alignez les catégories en haut */
+  list-style: none;
+  padding-left: 0;
+}
+
+.category-menu>li {
+  display: inline-block;
+  /* Display category items side by side */
+  vertical-align: top;
+  margin-right: 30px;
+  /* Space between categories */
+  padding-bottom: 20px;
+}
+
+.function-menu {
+  list-style: none;
+  position: static;
+  /* pour s'assurer qu'ils ne sont pas affectés par le positionnement absolu */
+  padding-left: 0;
+  /* Remove default padding */
+}
+
+.function-menu>li a {
+  display: block;
+  /* Make each function item a block for full-width click area /
+padding: 5px 0; / Padding for function items /
+color: #000000; / Text color for function items /
+text-decoration: none; / No underline */
+}
+
+/* Apply hover effect for function items */
+.function-menu>li a:hover {
+  background-color: #f9f9f9;
+}
+
+.function-menu>li {
+  margin-top: 10px;
+  /* Ajoute un espace de 10px en haut de chaque fonction */
+  /* ... autres styles ... */
+  margin-left: 10px;
+}
