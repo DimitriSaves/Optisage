@@ -14,14 +14,12 @@ button{
     box-sizing: border-box;
     padding: 5px 10px;
     border: none;
-    box-shadow: lightgray 3px 3px 7px;
-    margin-right: 20px;
     outline: none;
     font-size: 14px;
     font-weight: 500;
     &:active{
         transform: translate(1px, 1px);
-        box-shadow: rgb(29, 68, 177) 0 0 5px;
+        box-shadow: rgb(216, 217, 218) 0 0 5px;
     }
 }
 
@@ -30,12 +28,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
-.custom-snackbar {
-    background-color: #4500f3;
-    position: fixed;
-    top: 50px;
-  
-  }
+
 
 
   

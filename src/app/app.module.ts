@@ -17,7 +17,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import { TieredMenuModule } from 'primeng/tieredmenu';
 import * as fr from  '@angular/common/locales/fr'
 
 
@@ -25,17 +25,16 @@ import { AppRoutingModule } from './app-routing-module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TabPageComponent } from './tab-page/tab-page.component';
-import { AppsageComponent } from './appsage/appsage.component';
 import { MenubarModule } from 'primeng/menubar';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { AppSage2Component } from './appsage2/app-sage2.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TabPageComponent,
-    AppsageComponent,
     AppSage2Component,
     
     ],
@@ -60,6 +59,8 @@ import { AppSage2Component } from './appsage2/app-sage2.component';
     MatToolbarModule,
     MenubarModule,
     MegaMenuModule,
+    TieredMenuModule,
+    LayoutModule,
     ],
     schemas: [
       CUSTOM_ELEMENTS_SCHEMA

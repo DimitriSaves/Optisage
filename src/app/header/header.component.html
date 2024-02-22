@@ -1,12 +1,20 @@
+    <!-- Autres balises d'en-tête... -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <header>
-<h1> OptiSage</h1>
+    <h1> OptiSage</h1>
 
-<button routerLink="/">TabPage</button>
+    <button class="tab" routerLink="/">TAB PAGE</button>
 
-<!-- Bouton pour AppPage -->
-<button routerLink="/app-page">AppPage</button>
+    <!-- Bouton pour AppPage -->
 
-<button routerLink="/app-page2">AppPage2</button>
+    <button class="app" routerLink="/app-page2">APP PAGE</button>
 
+    <button class="import" routerLink="/app-page2">
+        <i class="fas fa-download"></i> Importer
+    </button>
 
+    <button class="export" routerLink="/app-page2">
+        <i class="fas fa-upload"></i> Exporter
+    </button>
 </header>

@@ -1,2 +1,9 @@
 <p-menubar [model]="mainMenuItems"></p-menubar>
-<p-megaMenu [model]="megaMenuItems" [orientation]="'vertical'" *ngIf="megaMenuItems.length"></p-megaMenu>
+<p-megaMenu [model]="megaMenuItems"orientation="vertical" *ngIf="megaMenuItems.length"></p-megaMenu>
+<!-- Ajouté pour le sous-sous-menu 'Vérifications' -->
+<p-tieredMenu [model]="utilitairesSubMenuItems" *ngIf="showUtilitairesSubMenu"></p-tieredMenu>
+<p-tieredMenu [model]=" gestionTaxesSubMenuItems" *ngIf="showGestionTaxesSubMenu"></p-tieredMenu>
+<p-tieredMenu [model]=" declarationEchangeBienTaxesSubMenuItems" *ngIf="showDeclarationEchangeBienTaxesSubMenu"></p-tieredMenu>
+<p-tieredMenu [model]=" AutresDeclarations" *ngIf="showAutresDeclarationsSubMenu"></p-tieredMenu>
+<p-tieredMenu [model]=" Audit" *ngIf="showAuditSubMenu"></p-tieredMenu>
+
