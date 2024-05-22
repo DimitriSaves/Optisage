@@ -1,64 +1,57 @@
 import express from 'express';
-import * as process from 'process';
-import multer from 'multer';
 import cors from 'cors';
-import bodyParser from 'body-parser';
-import Papa from 'papaparse';
-import fs from 'fs';
+import multer from 'multer';
+import { parse } from 'csv-parse';
 
 const app = express();
-const port = process.env['PORT'] || 3001;
+const port = 3001;
 
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+app.use(cors());
 
-var corsOptions = {
-  origin: 'http://localhost:4200',
-  optionsSuccessStatus: 200,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-};
-
-app.use(cors(corsOptions));
-
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, 'uploads/');
-  },
-  filename: function(req, file, cb) {
-    cb(null, file.originalname);
-  }
-});
-
-const upload = multer({ storage: storage });
+// Configuration de multer pour stocker les fichiers en mémoire
+const upload = multer({ storage: multer.memoryStorage() });
 
 app.post('/upload', upload.single('file'), (req, res) => {
-  const file = req.file;
+  if (!req.file || !req.file.buffer) {
+    return res.status(400).send('Aucun fichier reçu');
+  }
 
-  // Read the content of the CSV file
-  fs.readFile(file.path, 'utf8', (err, fileContent) => {
+  parse(req.file.buffer, {
+    delimiter: ';',
+    trim: true,
+    skip_empty_lines: true
+  }, (err, output) => {
     if (err) {
-      console.error(err);
-      return res.status(500).send('Error reading file');
+      return res.status(500).send('Erreur lors du parsing du fichier');
     }
 
-    // Parse the content of the CSV file
-    Papa.parse(fileContent, {
-      delimiter: ";",
-      header: true,
-      complete: (results) => {
-        res.json(results.data);
+    const codes = [];
+    const fullData = [];
+
+    output.forEach(row => {
+      if (row.length >= 7) { // Assurez-vous que chaque ligne a au moins 7 éléments
+        const code = row[1];
+        codes.push(code);
+
+        const detailedData = {
+          profileCode: row[4],
+          access: row[2],
+          sites: row[6],
+          menu: row[5],
+          function: code,
+          options: row[3]
+        };
+        fullData.push(detailedData);
       }
     });
+
+    console.log({ codes, fullData }); // Affichez pour vérifier
+    res.json({ codes, fullData });
   });
 });
 
+
+
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });

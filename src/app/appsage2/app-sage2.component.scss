@@ -15,3 +15,36 @@
     flex-direction: column;
   }
   
+
+  .custom-tooltip {
+    position: relative;
+    cursor: pointer;
+    display: inline-block; /* Assurez-vous que le span se comporte comme un élément inline-block */
+  }
+  
+  .custom-tooltip:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-align: center;
+    z-index: 1000;
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .categorie-style {
+    color: rgb(68, 0, 255) !important; /* Définit la couleur du texte en blanc pour un contraste optimal */
+}
+
+
+.red-text {
+  color: red;
+}
+
+  

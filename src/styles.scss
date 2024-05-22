@@ -1,8 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-*{
-    font-family: Roboto, Helvetica, sans-serif;
-}
 
 body {
     padding: 0;
@@ -24,11 +21,132 @@ button{
 }
 
 
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0;  }
 
-
-
-
-
+/* Surcharge des styles PrimeNG pour MegaMenu dans styles.scss */
+.p-megamenu .p-megamenu-submenu-header {
+    color: rgb(20, 175, 236) !important; /* Définit la couleur du texte en blanc */
+  }
   
+  /* Ciblez les éléments de liste vides dans votre menu et cachez-les */
+.p-megamenu .p-megamenu-submenu > li:empty {
+    display: none;
+  }
+  
+ 
+  .menuitem-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    margin-top: 18px;
+    margin-left: 10px;
+    width:fit-content;
+    margin-bottom: 10px ;
+  }
+
+ .p-megamenu .p-menuitem.p-highlight > .p-menuitem-content {
+    color: #ffffff;
+    background: #0b64bd;
+
+}
+  
+  
+  .menuitem-buttons {
+    display: flex; /* pour aligner les boutons horizontalement */
+    gap: 0.5rem; /* espace entre les boutons */
+  }
+  
+  
+  .p-megamenu .p-megamenu-panel {
+    width: 1200px; /* ou 100%, selon la façon dont vous voulez qu'il s'adapte */
+}
+  
+.gray-text {
+ color: gray !important;
+}
+.red-text {
+ color: red !important;
+}
+.green-text {
+  color: green !important;
+}
+
+
+.status-button {
+  border: none; /* Supprimez la bordure si nécessaire */
+  color: white; /* Couleur du texte à l'intérieur du bouton */
+  padding: 5px 10px; /* Ajustez le padding selon votre design */
+  cursor: pointer; /* Changez le curseur en pointeur pour indiquer qu'il est cliquable */
+}
+
+/* In app-sage2.component.scss or css */
+p-dialog .dialog-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.ui-button {
+  margin-left: 10px;
+}
+
+.ui-button-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.ui-button-text-only {
+  background: none;
+  color: #333;
+  border: none;
+}
+
+/* Ensure that the dialog title matches the styling */
+p-dialog .ui-dialog-titlebar {
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ddd;
+}
+
+
+  /* In app-sage2.component.scss or css */
+.form-group select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%; /* Ensure dropdown fills the form group */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+.ui-button-secondary {
+  background-color: rgb(122, 22, 22);
+  color: white;
+  border: none;
+  display:flex
+}

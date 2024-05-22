@@ -18,6 +18,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TieredMenuModule } from 'primeng/tieredmenu';
+import { TooltipModule } from 'primeng/tooltip';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { DialogService } from 'primeng/dynamicdialog';
+
 import * as fr from  '@angular/common/locales/fr'
 
 
@@ -36,6 +44,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     HeaderComponent,
     TabPageComponent,
     AppSage2Component,
+    
     
     ],
   imports: [
@@ -61,12 +70,20 @@ import { LayoutModule } from '@angular/cdk/layout';
     MegaMenuModule,
     TieredMenuModule,
     LayoutModule,
+    TooltipModule,
+    OverlayPanelModule,
+    InputTextModule,
+    ButtonModule,
+    FormsModule, 
+    DynamicDialogModule,
+    DialogModule
     ],
     schemas: [
       CUSTOM_ELEMENTS_SCHEMA
     ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'fr-FR'},    
+    { provide: LOCALE_ID, useValue: 'fr-FR'}, 
+    DialogService  
   ],
   bootstrap: [AppComponent]
 })
