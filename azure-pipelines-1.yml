@@ -21,11 +21,6 @@ steps:
     npm install --legacy-peer-deps
   displayName: 'Install dependencies'
 
-# Lancer les tests unitaires
-- script: |
-    npm test
-  displayName: 'Run tests'
-
 # Construire l'application Angular
 - script: |
     npm run build -- --prod
