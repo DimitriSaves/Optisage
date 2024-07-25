@@ -16,9 +16,9 @@ steps:
     echo "##[endgroup]"
   displayName: 'Install Node.js'
 
-# Installer les dépendances npm
+# Installer les dépendances npm avec l'option --legacy-peer-deps
 - script: |
-    npm install
+    npm install --legacy-peer-deps
   displayName: 'Install dependencies'
 
 # Lancer les tests unitaires
