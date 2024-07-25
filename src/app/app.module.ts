@@ -25,6 +25,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { DialogService } from 'primeng/dynamicdialog';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 import * as fr from  '@angular/common/locales/fr'
 
@@ -32,7 +33,6 @@ import * as fr from  '@angular/common/locales/fr'
 import { AppRoutingModule } from './app-routing-module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { TabPageComponent } from './tab-page/tab-page.component';
 import { MenubarModule } from 'primeng/menubar';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { AppSage2Component } from './appsage2/app-sage2.component';
@@ -42,7 +42,6 @@ import { LayoutModule } from '@angular/cdk/layout';
   declarations: [
     AppComponent,
     HeaderComponent,
-    TabPageComponent,
     AppSage2Component,
     
     
@@ -76,7 +75,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     ButtonModule,
     FormsModule, 
     DynamicDialogModule,
-    DialogModule
+    DialogModule,
+    MultiSelectModule 
     ],
     schemas: [
       CUSTOM_ELEMENTS_SCHEMA

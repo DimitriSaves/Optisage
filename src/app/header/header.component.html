@@ -1,34 +1,20 @@
-<!-- Autres balises d'en-tête... -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <header>
   <h1>OptiSage</h1>  
-  <button class="app" routerLink="/app-page2">APP PAGE</button>
 
   <input type="file" id="fileInput" style="display: none;" (change)="uploadFile($event)">
   <label class="file-button" for="fileInput">Importer CSV
     <span class="material-icons">file_download</span>
   </label>
   
-
   <button class="export" (click)="onExportClick()">Export CSV</button>
 
   <p *ngIf="fileName.length > 0">File Imported: {{ fileName }}</p>
+
   <!-- Bouton pour supprimer les données CSV -->
-  <button class="file-button" (click)="onDeleteClick()">
+  <button class="Supprimer" (click)="onDeleteClick()">
     Supprimer
     <span class="material-icons">delete</span>
   </button>
-  
 </header>
-
-
-<!--<button class="tab" routerLink="/">TAB PAGE</button>
-
- Bouton pour AppPage 
-
-    
-
-    <button class="export" (click)="callExportCsv()">
-        <i class="fas fa-download"></i> Exporter
-      </button>-->

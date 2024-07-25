@@ -16,4 +16,9 @@ export class FileStateService {
             localStorage.removeItem('uploadedFileName');
         }
     }
+
+    deleteFileName() {
+        this.fileNameSource.next(null);
+        localStorage.removeItem('uploadedFileName');
+    }
 }

@@ -5,7 +5,7 @@ import { ExportService } from './export.service';
 import { MenuService } from '../appsage2/menu.service';
 import { StateManagementService } from './state-management.service';
 import { FileStateService } from './file-state.service';
-
+import { ConfigService } from '../appsage2/config.service';
 
 @Component({
   selector: 'app-header',
@@ -16,9 +16,10 @@ export class HeaderComponent implements OnInit {
   isMatched = false;
   fileName: string = '';
   private fileInput!: HTMLInputElement;
+  isFileImported: boolean = false;  // Ajoutez cette ligne pour déclarer la propriété
 
   constructor(private uploadService: UploadService, private http: HttpClient, private exportService: ExportService, private menuService: MenuService,
-    private stateManagementService: StateManagementService, private fileStateService: FileStateService) { }
+    private stateManagementService: StateManagementService, private fileStateService: FileStateService, private configService: ConfigService) { }
 
   ngOnInit(): void {
     // Récupérer le nom du fichier de localStorage au chargement du composant
@@ -26,8 +27,12 @@ export class HeaderComponent implements OnInit {
     if (storedFileName) {
       this.fileName = storedFileName;
     }
-  }
 
+    // Subscribe to file state changes
+    this.fileStateService.currentFileName.subscribe((fileName) => {
+      this.isFileImported = !!fileName;
+    });
+  }
 
   uploadFile(event: Event) {
     const element = event.target as HTMLInputElement;
@@ -43,9 +48,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-
-
-
   uploadFileToServer(file: File) {
     const formData = new FormData();
     formData.append('file', file, file.name);
@@ -56,11 +58,10 @@ export class HeaderComponent implements OnInit {
         if (response && Array.isArray(response.codes) && Array.isArray(response.fullData)) {
           this.menuService.setCodes(response.codes);
           this.uploadService.emitCsvDataProcessed(response.fullData);
-          this.uploadService.processCsvData(response.fullData); // S'assurer que les données sont passées correctement
+          this.uploadService.processCsvData(response.fullData, this.fileName); // S'assurer que les données sont passées correctement
         } else {
           console.error('La réponse attendue doit être un objet avec codes et fullData', response);
         }
-
       },
       error: (error) => {
         console.error('Erreur lors de l\'upload', error);
@@ -68,28 +69,23 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-
   public onDeleteClick(): void {
-    // Reset the application state and remove file name
     this.stateManagementService.resetState();
     this.fileName = '';
     localStorage.removeItem('uploadedFileName');
+    this.configService.clearAllFunctionData(); // Efface les données
+    localStorage.clear(); // Efface toutes les autres clés du localStorage
+    this.isFileImported = false;
+    location.reload(); // Rafraîchir la page après la suppression
   }
 
-  onExportClick(): void {
-    const items = JSON.parse(localStorage.getItem('functionsData') || '[]');
-    this.exportService.exportToCSV(items, 'modified_data.csv');
+  onExportClick() {
+    this.exportService.exportToCSV();
   }
   
+  
+  
+  
+  
+
 }
-
-
-
-// Dans HeaderComponent
-/*  callExportCsv() {
-    const items = this.menuService.getMegaMenuItems();
-    this.exportService.exportToCSV(items);
-  }*/
-
-
-

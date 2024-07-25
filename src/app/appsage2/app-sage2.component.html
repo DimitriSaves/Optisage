@@ -1,64 +1,67 @@
-<!-- Dans app-sage2.component.html -->
-<!-- Dans app-sage2.component.html -->
-<!-- Dans app-sage2.component.html -->
 <p-menubar [model]="mainMenuItems"></p-menubar>
 <p-megaMenu [model]="displayedMegaMenuItems" orientation="vertical" *ngIf="displayedMegaMenuItems.length">
   <ng-template let-item pTemplate="item">
-    <div *ngIf="!item.routerLink" class="menuitem-content">
-      <!-- Encapsulez uniquement le nom dans un div cliquable pour ouvrir les détails -->
-      <div (click)="openFunctionDetails(item.code)" style="cursor: pointer;">
-        {{ item.label }}
-      </div>
-      <!-- Bouton pour changer le statut, avec event.stopPropagation pour éviter les conflits de clic -->
-      <button *ngIf="item.code" class="round-button" (click)="toggleStatus($event, item.code)"
-        [ngClass]="{'green-text': isPresent(item.code) === 'present', 'red-text': isPresent(item.code) === 'absent', 'gray-text': isPresent(item.code) === 'unknown'}"
-        style="cursor: pointer;">
+    <div *ngIf="!item.routerLink" class="menuitem-content pointer-cursor" (click)="openFunctionDetails(item.code, item.label)" pTooltip="{{item.code}}" tooltipPosition="top">
+      {{ item.label }}
+      <!-- Le bouton change de couleur en fonction de l'état et ouvre les détails -->
+      <button *ngIf="item.code" class="round-button pointer-cursor"
+        [ngClass]="{'green-text': isPresent(item.code) === 'present', 'red-text': isPresent(item.code) === 'absent'}"
+        (click)="toggleStatus($event, item.code)">
         <span class="material-icons">circle</span>
       </button>
     </div>
   </ng-template>
 </p-megaMenu>
 
-
-<!-- In app-sage2.component.html -->
 <p-dialog header="Détails de la Fonction" [(visible)]="displayDialog" [modal]="true" [style]="{width: '50vw'}" (onHide)="cancelChanges()">
-  <div *ngIf="selectedItemData && selectedItemData.length" class="dialog-body">
-    <h3>{{ selectedItemData[0]?.function }} Détails</h3>
+  <div *ngIf="selectedItemData && isArray(selectedItemData) && selectedItemData.length > 0" class="dialog-body">
+    <h3 class="function-label">{{ selectedItemLabel }} | {{ selectedItemData[0]?.function }}</h3>
     <p-tabView>
       <p-tabPanel *ngFor="let config of selectedItemData; let i = index" [header]="'Configuration ' + (i + 1)">
-        <div class="form-group">
-          <label for="access-{{i}}">Accès :</label>
-          <select id="access-{{i}}" [(ngModel)]="config.access" class="form-control">
-            <option value="2">Oui</option>
-            <option value="1">Non</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="options-{{i}}">Options :</label>
-          <input id="options-{{i}}" [(ngModel)]="config.options" type="text">
-        </div>
-        <div class="form-group">
-          <label for="profileCode-{{i}}">Code Profil :</label>
-          <input id="profileCode-{{i}}" [(ngModel)]="config.profileCode" type="text" readonly>
-        </div>
-        <div class="form-group">
-          <label for="menu-{{i}}">Menu :</label>
-          <select id="menu-{{i}}" [(ngModel)]="config.menu" class="form-control">
-            <option [value]="'1'">1</option>
-            <option [value]="'2'">2</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="sites-{{i}}">Sites :</label>
-          <input id="sites-{{i}}" [(ngModel)]="config.sites" type="text">
+        <div class="config-section">
+          <div class="form-group">
+            <label for="access-{{i}}">Accès :</label>
+            <select id="access-{{i}}" [(ngModel)]="config.access" (ngModelChange)="onAccessChange(config, i)" class="form-control">
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="options-{{i}}">Options :</label>
+            <input id="options-{{i}}" [(ngModel)]="config.options" type="text" [disabled]="i > 0 && config.disableOptions">
+          </div>
+          <div class="form-group">
+            <label for="profileCode-{{i}}">Code Profil :</label>
+            <input id="profileCode-{{i}}" [(ngModel)]="config.profileCode" type="text" >
+            <div *ngIf="config?.profileCode === '' && showError" class="error-message">Code Profil ne peut pas être vide</div>
+          </div>
+          <div class="form-group">
+            <label for="types-{{i}}">Types :</label>
+            <select id="types-{{i}}" [(ngModel)]="config.types" class="form-control">
+              <option [value]="'1'">Regroup</option>
+              <option [value]="'2'">Site</option>
+            </select>
+            <div *ngIf="config?.types === '' && showError" class="error-message">Types ne peut pas être vide</div>
+          </div>
+          <div class="form-group">
+            <label for="sites-{{i}}">Regroupement / Sites :</label>
+            <input id="sites-{{i}}" [(ngModel)]="config.sites" type="text">
+          </div>
+          <button type="button" pButton label="Remove" (click)="removeConfiguration(i)" class="ui-button-secondary"></button>
         </div>
       </p-tabPanel>
     </p-tabView>
-    <div class="dialog-actions">
+    <div class="button-container">
       <button type="button" pButton label="Add Configuration" (click)="addConfiguration()" class="ui-button-secondary"></button>
+    </div>
+    <div class="dialog-actions">
       <button type="button" pButton label="Cancel" (click)="cancelChanges()" class="ui-button-text-only"></button>
       <button type="button" pButton label="Save" (click)="saveChanges()" class="ui-button-primary"></button>
     </div>
+  </div>
+  <!-- Diagnostic pour voir si selectedItemData est chargé -->
+  <div *ngIf="!selectedItemData || !isArray(selectedItemData) || selectedItemData.length === 0">
+    Aucune donnée à afficher.
   </div>
 </p-dialog>
 
@@ -66,19 +69,100 @@
 
 
 
+<p-tieredMenu [model]="utilitairesSubMenuItems" *ngIf="showUtilitairesSubMenu">
+  <ng-template let-item pTemplate="item">
+    <div class="menuitem-content pointer-cursor"
+         (click)="item.items ? null : openFunctionDetails(item.code, item.label)"
+         pTooltip="{{item.code}}" tooltipPosition="top">
+      {{ item.label }}
+      <!-- Ajoutez une div pour le chevron et la positionner à droite -->
+      <div *ngIf="item.items?.length && item.label === 'Utilitaires'" class="submenu-indicator-container">
+        <span class="submenu-indicator"></span>
+      </div>
+      <button *ngIf="item.code && !item.items" class="round-button pointer-cursor"
+        [ngClass]="{'green-text': isPresent(item.code) === 'present', 'red-text': isPresent(item.code) === 'absent'}"
+        (click)="toggleStatus($event, item.code)">
+        <span class="material-icons">circle</span>
+      </button>
+    </div>
+  </ng-template>
+</p-tieredMenu>
 
 
 
 
+<!-- Gestion Taxes -->
+<p-tieredMenu [model]="gestionTaxesSubMenuItems" *ngIf="showGestionTaxesSubMenu">
+  <ng-template let-item pTemplate="item">
+    <div class="menuitem-content pointer-cursor"
+         (click)="item.items ? null : openFunctionDetails(item.code, item.label)"
+         pTooltip="{{item.code}}" tooltipPosition="top">
+      {{ item.label }}
+      <div *ngIf="item.items?.length" class="submenu-indicator-container">
+        <span *ngIf="item.label === 'Gestion des taxes'" class="submenu-indicator-gestionTaxes"></span>
+      </div>
+      <button *ngIf="item.code && !item.items" class="round-button pointer-cursor"
+        [ngClass]="{'green-text': isPresent(item.code) === 'present', 'red-text': isPresent(item.code) === 'absent'}"
+        (click)="toggleStatus($event, item.code)">
+        <span class="material-icons">circle</span>
+      </button>
+    </div>
+  </ng-template>
+</p-tieredMenu>
 
+<!-- Déclaration d'Échange Bien Taxes -->
+<p-tieredMenu [model]="declarationEchangeBienTaxesSubMenuItems" *ngIf="showDeclarationEchangeBienTaxesSubMenu">
+  <ng-template let-item pTemplate="item">
+    <div class="menuitem-content pointer-cursor"
+         (click)="item.items ? null : openFunctionDetails(item.code, item.label)"
+         pTooltip="{{item.code}}" tooltipPosition="top">
+      {{ item.label }}
+      <div *ngIf="item.items?.length" class="submenu-indicator-container">
+        <span *ngIf="item.label === 'Déclaration d\'échanges de biens'" class="submenu-indicator-Echanges"></span>
+      </div>
+      <button *ngIf="item.code && !item.items" class="round-button pointer-cursor"
+        [ngClass]="{'green-text': isPresent(item.code) === 'present', 'red-text': isPresent(item.code) === 'absent'}"
+        (click)="toggleStatus($event, item.code)">
+        <span class="material-icons">circle</span>
+      </button>
+    </div>
+  </ng-template>
+</p-tieredMenu>
 
+<!-- Autres Déclarations -->
+<p-tieredMenu [model]="AutresDeclarations" *ngIf="showAutresDeclarationsSubMenu">
+  <ng-template let-item pTemplate="item">
+    <div class="menuitem-content pointer-cursor"
+         (click)="item.items ? null : openFunctionDetails(item.code, item.label)"
+         pTooltip="{{item.code}}" tooltipPosition="top">
+      {{ item.label }}
+      <div *ngIf="item.items?.length" class="submenu-indicator-container">
+        <span *ngIf="item.label === 'Autres déclarations'" class="submenu-indicator-Autres"></span>
+      </div>
+      <button *ngIf="item.code && !item.items" class="round-button pointer-cursor"
+        [ngClass]="{'green-text': isPresent(item.code) === 'present', 'red-text': isPresent(item.code) === 'absent'}"
+        (click)="toggleStatus($event, item.code)">
+        <span class="material-icons">circle</span>
+      </button>
+    </div>
+  </ng-template>
+</p-tieredMenu>
 
-
-
-<!-- Ajouté pour le sous-sous-menu 'Vérifications' -->
-<p-tieredMenu [model]="utilitairesSubMenuItems" *ngIf="showUtilitairesSubMenu"></p-tieredMenu>
-<p-tieredMenu [model]="gestionTaxesSubMenuItems" *ngIf="showGestionTaxesSubMenu"></p-tieredMenu>
-<p-tieredMenu [model]="declarationEchangeBienTaxesSubMenuItems"
-  *ngIf="showDeclarationEchangeBienTaxesSubMenu"></p-tieredMenu>
-<p-tieredMenu [model]="AutresDeclarations" *ngIf="showAutresDeclarationsSubMenu"></p-tieredMenu>
-<p-tieredMenu [model]="Audit" *ngIf="showAuditSubMenu"></p-tieredMenu>
+<!-- Audit -->
+<p-tieredMenu [model]="Audit" *ngIf="showAuditSubMenu">
+  <ng-template let-item pTemplate="item">
+    <div class="menuitem-content pointer-cursor"
+         (click)="item.items ? null : openFunctionDetails(item.code, item.label)"
+         pTooltip="{{item.code}}" tooltipPosition="top">
+      {{ item.label }}
+      <div *ngIf="item.items?.length" class="submenu-indicator-container">
+        <span *ngIf="item.label === 'Audit'" class="submenu-indicator-Audit"></span>
+      </div>
+      <button *ngIf="item.code && !item.items" class="round-button pointer-cursor"
+        [ngClass]="{'green-text': isPresent(item.code) === 'present', 'red-text': isPresent(item.code) === 'absent'}"
+        (click)="toggleStatus($event, item.code)">
+        <span class="material-icons">circle</span>
+      </button>
+    </div>
+  </ng-template>
+</p-tieredMenu>

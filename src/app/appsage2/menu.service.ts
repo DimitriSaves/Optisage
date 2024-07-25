@@ -1,6 +1,6 @@
 // menu.service.ts
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,4 +17,12 @@ export class MenuService {
   getCodesObservable() {
     return this.codesSubject.asObservable();
   }
+  private menuUpdateSource = new Subject<void>();
+
+  menuUpdate$ = this.menuUpdateSource.asObservable();
+
+  notifyMenuUpdate(): void {
+    this.menuUpdateSource.next();
+  }
+
 }

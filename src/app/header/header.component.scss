@@ -1,6 +1,6 @@
 /* Styles pour le header */
 header {
-    background-color: rgb(122, 22, 22);
+    background-color: #7d0000;
     color: white;
     padding: 10px;
     display: flex;
@@ -8,123 +8,72 @@ header {
 }
 
 /* Styles pour le titre h1 */
-h1 {
+header h1 {
     margin-left: 10px;
     position: relative;
 }
 
-/* Styles pour la barre verticale du titre h1 */
-h1::after {
-    content: "";
-    width: 2px;
-    height: 40px;
-    background-color: white;
-    position: absolute;
-    top: 50%;
-    right: -15px;
-    transform: translateY(-50%);
-}
-
-/* Styles pour le bouton "Tab" */
-.tab {
-    color: #ccc;
-    /* Couleur du texte par défaut (gris) */
-    position: relative;
-    font-size: 20px;
-    /* Augmente la taille de la police */
-    left: -50px;
-
-    /* Effet de survol */
-    cursor: pointer;
-    /* Change le curseur en une main pointant vers le haut */
-}
-
-.tab:hover {
-
-    color: #ffffff;
-    /* Augmente la taille du texte en survol */
-}
-
-/* Styles pour le bouton "App" */
-.app {
-    color: #ffffff;
-    /* Couleur du texte par défaut (gris) */
-    position: relative;
+/* Boutons import, export et supprimer */
+header .file-button,
+header .export,
+header .Supprimer {
+    color: #0c0c0c; /* Couleur du texte */
+    background-color: #f3f3f3; /* Couleur de fond */
+    border-color: #dae0e5; /* Couleur de la bordure */
+    border-radius: 0.25rem; /* Rayon de la bordure */
+    padding: 0.375rem 0.75rem; /* Rembourrage */
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    /* Ajustez la valeur négative pour déplacer vers la gauche */
-    font-size: 20px;
-    /* Augmente la taille de la police */
-    margin-left: 15px;
-    /* Effet de survol */
-    cursor: pointer;
-    /* Change le curseur en une main pointant vers le haut */
+    font-size: 1rem; /* Taille de la police */
+    line-height: 1.5; /* Hauteur de ligne */
+    display: inline-block; /* Affichage en ligne */
+    text-align: center; /* Alignement du texte */
+    margin-right: 40px;
+    vertical-align: middle; /* Alignement vertical */
+    cursor: pointer; /* Curseur pointeur */
+    border: 1px solid transparent; /* Bordure */
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre sous le bouton */
 }
 
-.app:hover {
-    color: #fff;
-    /* Couleur du texte en survol (blanc) */
-    /* Augmente la taille du texte en survol */
+header .file-button:hover,
+header .export:hover,
+header .Supprimer:hover {
+    color: #5a6268; /* Couleur du texte au survol */
+    background-color: #d6dadc; /* Couleur de fond au survol */
+    border-color: #c6cbcf; /* Couleur de la bordure au survol */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Ombre accentuée au survol */
 }
 
-.file-button {
-    color: #ffffff;
-    /* Couleur du texte par défaut (gris) */
-    background-color: transparent;
-    /* Couleur de fond transparente */
-    cursor: pointer;
-    /* Changez le curseur en une main pointant vers le haut */
-    font-size: 20px;
-    /* Augmente la taille de la police */
+header .file-button:active,
+header .export:active,
+header .Supprimer:active {
+    transform: translateY(4px); /* Effet de pressage */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre réduite lors de l'appui */
+}
+
+header .file-button .material-icons,
+header .Supprimer .material-icons {
+    vertical-align: middle; /* Alignement vertical */
+    margin-left: 5px; /* Marge à gauche */
+}
+
+/* Styles spécifiques pour chaque bouton */
+header .file-button {
     margin-left: 25%;
     margin-right: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: larger;
-    display: inline-block;
-    border-radius: 10px;
-    border-style: solid;
-    padding: 10px;
-    border-width: 1px;
 }
 
-.file-button .material-icons {
-    vertical-align: middle;
-    /* Ajuste l'alignement vertical */
-    /* Autres styles si nécessaire */
-}
-
-
-/* Styles au survol des boutons "Importer" et "Exporter" */
-.import:hover {
-    color: #fff;
-    /* Couleur du texte en survol (blanc) */
-
-}
-
-.export:hover {
-    color: #fff;
-    /* Couleur du texte en survol (blanc) */
-}
-
-p {
-    margin-left: 5%;
-}
-
-.export {
-    color: #ffffff;
-    /* Couleur du texte par défaut (gris) */
-    background-color: transparent;
-    /* Couleur de fond transparente */
-    cursor: pointer;
-    /* Changez le curseur en une main pointant vers le haut */
-    font-size: 20px;
-    /* Augmente la taille de la police */
+header .export {
     margin-left: 3px;
-    ;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: larger;
-    display: inline-block;
-    border-radius: 10px;
-    border-style: solid;
-    padding: 10px;
-    border-width: 1px;
+}
+
+header .Ajouter {
+    margin-left: 10%;
+    margin-right: -10%;
+}
+
+header .Supprimer {
+    margin-left: 15%;
+    margin-right: 5px;
 }

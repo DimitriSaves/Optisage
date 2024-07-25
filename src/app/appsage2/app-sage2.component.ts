@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { MegaMenuItem, MenuItem } from 'primeng/api';
+import { MegaMenuItem, MenuItem, SelectItem } from 'primeng/api';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 import { UploadService } from '../header/upload.service'; // Assurez-vous que le chemin est correct
 import { MenuService } from './menu.service';
@@ -8,6 +8,10 @@ import { Subscription } from 'rxjs';
 import { ConfigService } from './config.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FileStateService } from '../header/file-state.service';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ChangeDetectorRef } from '@angular/core';
+import { ExportService } from '../header/export.service'; // Importer ExportService
+
 
 interface ExtendedMenuItem extends MenuItem {
   code?: string;
@@ -47,63 +51,180 @@ export class AppSage2Component implements OnInit, OnDestroy {
   categories: any[] = [];
   functions: any[] = [];
   sousFunctions: any[] = [];
-  originalItemData: any;
+  originalItemData = { function: '', status: '', profileCode: '', access: '', sites: '', types: '', options: '' };
+  isFileImported: boolean = false;
+  selectedItemLabel: string = '';
+  showError: boolean = false;
+  private subscriptions = new Subscription();
 
-  constructor(private uploadService: UploadService, private menuService: MenuService, private stateManagementService: StateManagementService, private configService: ConfigService,
-    private dialogService: DialogService, private fileStateService: FileStateService) {
+  constructor(  private changeDetectorRef: ChangeDetectorRef ,private uploadService: UploadService, private menuService: MenuService, private stateManagementService: StateManagementService, private configService: ConfigService,
+    private dialogService: DialogService, private fileStateService: FileStateService,private exportService: ExportService) {}
 
+
+  isArray(value: any): boolean {
+    return Array.isArray(value);
   }
+  
+ 
+
+ 
 
   ngOnInit() {
     this.resetSubscription = this.stateManagementService.resetState$.subscribe(() => {
       this.updateDisplayedMegaMenuItems();
     });
   
-    // Restore data from localStorage
+    this.fileStateService.currentFileName.subscribe((fileName) => {
+      this.isFileImported = !!fileName;
+      this.updateDisplayedMegaMenuItems();
+
+      // Définir le nom du fichier d'import dans le ExportService
+      if (fileName) {
+        this.exportService.setImportFileName(fileName);
+      }
+    });
+  
+    this.subscriptions.add(this.fileStateService.currentFileName.subscribe(fileName => {
+      this.isFileImported = !!fileName;
+    }));
+  
     this.restoreFunctionData();
-  
-    // Initialiser les menus automatiquement à l'ouverture de la page
     this.initializeAllMenus();
-    console.log("Mega Menu Items après initialisation:", this.megaMenuItems);
   
-    // Définition des éléments pour Menubar avec command qui permet la réinitialisation ou d'autres actions
     const menus = ['Développement', 'Paramétrage', 'Données de base', 'Relation client', 'Affaires', 'Achats', 'Ventes', 'Stocks', 'Production', 'Contrôle de gestion', 'Comptabilité', 'Comptabilité tiers', 'Déclarations', 'Immobilisations', 'Terminaux portables', 'Exploitation', 'Impressions', 'Traductions', 'Pages en lecture seule', 'EDI', '4CAD Gestion de la qualité', '4CAD Gestion des moyens', '4CAD Gestion des habilitations', '4CAD Devis technique', '4CAD Suivi atelier'];
-    // Définition des éléments pour Menubar
+  
     this.mainMenuItems = menus.map(menu => ({
       label: menu,
       command: (event) => {
         this.selectMainMenu(menu);
-      } // Réinitialise ou rafraîchit les données au clic
+      }
     }));
   
-    // S'abonner aux données du CSV et préparer pour la comparaison
     this.uploadService.csvDataProcessed$.subscribe(fullData => {
-      console.log('Full Data from CSV:', fullData);
-      this.compareCodesWithMenus(fullData.map(data => data.function)); // Supposant que `function` contient le code
+      if (!Array.isArray(fullData)) {
+        console.error('Les données importées ne sont pas un tableau:', fullData);
+        return;
+      }
+  
+      const functionCodes = fullData.map(data => data.function);
+      this.compareCodesWithMenus(functionCodes);
+  
+      // Stocker les données importées dans le localStorage
+      fullData.forEach(data => {
+        if (!data.id) {
+          data.id = this.generateUniqueId();
+        }
+        
+        const existingData = this.configService.getFunctionData(data.function) || [];
+        existingData.push(data);
+        this.configService.storeFunctionData(data.function, existingData);
+      });
     });
+  
+    this.menuService.menuUpdate$.subscribe(() => {
+      this.initializeAllMenus();
+    });
+  
   }
   
+  onExportClick() {
+    this.exportService.exportToCSV();
+  }
+  
+
+
+  generateUniqueId(): string {
+    return Math.random().toString(36).substr(2, 9);
+  }
+
+  saveChanges() {
+    if (this.selectedItemData && this.selectedItemData.length > 0) {
+      const functionCode = this.selectedItemData[0].function;
+  
+      // Récupérer les données existantes
+      let existingData = this.configService.getFunctionData(functionCode) || [];
+      if (!Array.isArray(existingData)) {
+        existingData = [existingData];
+      }
+  
+      // Filtrer les configurations par défaut non modifiées
+      existingData = existingData.filter(config => !(config.isNew && this.isConfigEmpty(config)));
+  
+      // Mettre à jour les configurations existantes avec les nouvelles données
+      this.selectedItemData.forEach((newConfig: any) => {
+        if (Object.keys(newConfig).length === 0) {
+          return; // Ignorer les configurations vides
+        }
+  
+        const index = existingData.findIndex((config: any) =>
+          config.profileCode === newConfig.profileCode &&
+          config.sites === newConfig.sites &&
+          config.function === newConfig.function
+        );
+  
+        if (index === -1) {
+          existingData.push(newConfig); // Ajouter la nouvelle configuration sans écraser
+        } else {
+          existingData[index] = { ...existingData[index], ...newConfig };
+        }
+      });
+  
+      // Sauvegarder les données mises à jour
+      this.configService.storeFunctionData(functionCode, existingData);
+  
+      // Mettre à jour le localStorage globalement
+      let functionsData = JSON.parse(localStorage.getItem('functionsData') || '[]');
+      functionsData = functionsData.filter((item: any) => item.function !== functionCode);
+      functionsData.push(...existingData);
+  
+      localStorage.setItem('functionsData', JSON.stringify(functionsData));
+      this.displayDialog = false;
+    } else {
+      console.error("Erreur: Données non disponibles pour l'enregistrement.");
+    }
+  }
+  
+  isConfigEmpty(config: any): boolean {
+    return !config.profileCode && !config.access && !config.sites && !config.types && !config.options;
+  }
+  
+  
+  
+  
+
+
+
+
   restoreFunctionData() {
     const storedData = JSON.parse(localStorage.getItem('functionsData') || '[]');
     storedData.forEach((item: any) => {
       this.configService.storeFunctionData(item.function, item);
     });
   }
-  
 
-  compareCodesWithMenus(codesFromCSV: string[]): void {
-    this.clearStatus(); // Efface tous les états précédemment stockés avant de vérifier les nouveaux
 
+  compareCodesWithMenus(codesFromCSV: string[], autoOpenDetails: boolean = false): void {
     const checkItems = (items: ExtendedMenuItem[] | undefined) => {
       if (!items) return;
 
       items.forEach(item => {
-        const state = codesFromCSV.includes(item.code ? item.code : '') ? 'present' : 'absent';
-        sessionStorage.setItem(item.code || '', state); // Définir l'état dans sessionStorage
-        if (item.items) checkItems(item.items);
+        const isPresent = codesFromCSV.includes(item.code || '');
+        const status = isPresent ? 'present' : 'absent';
+        item['class'] = isPresent ? 'green-text' : 'red-text';
+        sessionStorage.setItem(item.code || '', status);
+
+        // Modifier ici pour contrôler l'ouverture automatique
+        if (isPresent && item['type'] === 'fonction' && item.code && autoOpenDetails) {
+          this.openFunctionDetails(item.code, item.label || "Label par défaut");
+        }
+
+        if (item.items) {
+          checkItems(item.items);
+        }
       });
     };
 
+    // Appliquer aux menus principaux
     Object.values(this.megaMenuItems).forEach(menuItems => {
       menuItems.forEach(megaMenuItem => {
         const extendedMegaMenu = megaMenuItem as ExtendedMegaMenuItem;
@@ -113,122 +234,109 @@ export class AppSage2Component implements OnInit, OnDestroy {
       });
     });
 
-    this.updateDisplayedMegaMenuItems(); // Mise à jour de l'affichage
-  }
-
-  get access(): string {
-    // Convertit les valeurs numériques en valeurs de chaîne pour l'interface utilisateur
-    return this.selectedItemData.access === '2' ? 'Oui' : 'Non';
-  }
-
-  set access(value: string) {
-    // Convertit les valeurs de chaîne de l'interface utilisateur en valeurs numériques pour le stockage
-    this.selectedItemData.access = value === 'Oui' ? '2' : '1';
-  }
-
-  getMenuKeys(): string[] {
-    return Object.keys(this.megaMenuItems);
-  }
-
-  openFunctionDetails(code: string) {
-    const data = this.configService.getFunctionData(code);
-    if (data && data.length > 0) {
-        this.selectedItemData = JSON.parse(JSON.stringify(data));
-        this.originalItemData = JSON.parse(JSON.stringify(data));
-        this.displayDialog = true;
-    } else {
-        console.error("Data is undefined, cannot open the dialog.");
-    }
-}
-
-
-saveChanges() {
-  if (this.selectedItemData && this.selectedItemData.length > 0) {
-      const functionCode = this.selectedItemData[0].function;
-
-      // Récupérer les données actuelles de la fonction
-      let existingData = this.configService.getFunctionData(functionCode) || [];
-      if (!Array.isArray(existingData)) {
-          existingData = [existingData];
-      }
-
-      // Mettre à jour les données existantes ou ajouter les nouvelles configurations
-      this.selectedItemData.forEach((newConfig: any) => {
-          const index = existingData.findIndex((config: any) =>
-              config.profileCode === newConfig.profileCode &&
-              config.sites === newConfig.sites &&
-              config.function === newConfig.function &&
-              config.access === newConfig.access &&
-              config.options === newConfig.options
-          );
-          if (index === -1) {
-              existingData.push(newConfig);
-          } else {
-              existingData[index] = newConfig;
-          }
+    // Appliquer aux menus ajoutés spécifiquement
+    [
+      this.utilitairesSubMenuItems,
+      this.gestionTaxesSubMenuItems,
+      this.declarationEchangeBienTaxesSubMenuItems,
+      this.AutresDeclarations,
+      this.Audit
+    ].forEach(menuGroup => {
+      menuGroup.forEach(menuItem => {
+        if (menuItem.items) {
+          checkItems(menuItem.items);
+        }
       });
+    });
 
-      this.configService.storeFunctionData(functionCode, existingData);
-
-      // Supprimez l'ancienne configuration et ajoutez la nouvelle
-      let functionsData = JSON.parse(localStorage.getItem('functionsData') || '[]');
-      functionsData = functionsData.filter((item: any) => item.function !== functionCode);
-      functionsData.push(...existingData);
-
-      localStorage.setItem('functionsData', JSON.stringify(functionsData));
-      console.log("Modifications enregistrées pour:", functionCode);
-      this.displayDialog = false;
-  } else {
-      console.error("Erreur: Données non disponibles pour l'enregistrement.");
-  }
+    this.updateDisplayedMegaMenuItems(); // Mise à jour de l'affichage après toutes les modifications
 }
 
+
+  
+  
+openFunctionDetails(code: string, label: string): void {
+  if (!code) {
+    console.error('Aucun code fourni pour la fonction, impossible d\'ouvrir les détails.');
+    return;
+  }
+
+  // Récupération de l'état de la fonction.
+  const status = sessionStorage.getItem(code);
+  if (status === 'absent') {
+    console.error(`La fonction ${code} est marquée comme supprimée, impossible d'ouvrir le dialogue.`);
+    return;
+  }
+
+  // Récupération et validation des données de configuration.
+  let data = this.configService.getFunctionData(code);
+
+  // Si les données sont vides, initialisez avec des champs vides
+  if (!data || data.length === 0) {
+    console.log(`Aucune donnée de configuration trouvée pour ${code}, ouverture d'un popup vide.`);
+    this.selectedItemData = [{
+      function: code,
+      profileCode: '',
+      access: '',
+      sites: '',
+      types: '',
+      options: ''
+    }];
+  } else {
+    // Assurez-vous que les données sont bien formées pour l'affichage.
+    if (!Array.isArray(data)) {
+      data = [data]; // Transformez les données en array si nécessaire.
+    }
+
+    // Préparation des données pour le dialogue sans doublons
+    this.selectedItemData = [...new Map(data.map(item => [item.profileCode + item.sites, item])).values()];
+  }
+
+  this.originalItemData = JSON.parse(JSON.stringify(this.selectedItemData));
+  this.selectedItemLabel = label;
+  this.displayDialog = true;
+}
+
+shouldDisableOptions(): boolean {
+  return this.selectedItemData && this.selectedItemData[0] && this.selectedItemData[0].access === '1';
+}
 
 
 
 
   cancelChanges() {
-    this.selectedItemData = JSON.parse(JSON.stringify(this.originalItemData));
-    this.displayDialog = false;
+    if (this.originalItemData && Array.isArray(this.originalItemData) && this.originalItemData.length) {
+      this.selectedItemData = JSON.parse(JSON.stringify(this.originalItemData));
+      this.displayDialog = false;
+    } else {
+      console.error('Données originales invalides ou inexistantes');
+      this.displayDialog = false;
+    }
   }
+
+
+  getMenuKeys(): string[] {
+    return Object.keys(this.megaMenuItems);
+  }
+
+ 
+
+
+
 
   closeDialog() {
     this.displayDialog = false;
   }
 
-  addConfiguration() {
-    if (this.selectedItemData && this.selectedItemData.length > 0) {
-      const newConfig = { ...this.selectedItemData[0] };
-      this.selectedItemData.push(newConfig);
+
+
+  removeConfiguration(index: number) {
+    if (this.selectedItemData.length > 1) {
+      this.selectedItemData.splice(index, 1);
+    } else {
+      console.error("At least one configuration must remain.");
     }
   }
-
-
-
-toggleStatus(event: MouseEvent, code: string | undefined): void {
-  if (!code) return; // Si le code est undefined, ne fait rien
-
-  event.stopPropagation(); // Empêcher la propagation de l'événement au parent
-
-  const currentState = sessionStorage.getItem(code) || 'unknown';
-  let newState;
-
-  switch (currentState) {
-    case 'present':
-      newState = 'absent';
-      break;
-    case 'absent':
-      newState = 'unknown';
-      break;
-    default:
-      newState = 'present';
-      break;
-  }
-
-  sessionStorage.setItem(code, newState); // Mettre à jour l'état dans sessionStorage
-  this.updateDisplayedMegaMenuItems(); // Mise à jour de l'affichage
-}
-
 
 
   toggleRed(event: Event, code: string): void {
@@ -241,32 +349,134 @@ toggleStatus(event: MouseEvent, code: string | undefined): void {
     button.classList.toggle('red-text', newState === 'absent');
     button.classList.toggle('green-text', newState === 'present');
     this.updateDisplayedMegaMenuItems();
-}
+  }
 
-  isPresent(code: string | undefined): string {
-    return sessionStorage.getItem(code!) || 'unknown'; // Renvoie 'unknown' si aucun état n'est stocké
+
+  toggleStatus(event: MouseEvent, code: string | undefined): void {
+    if (!code) return;
+  
+    event.stopPropagation();
+  
+    const currentState = sessionStorage.getItem(code) || 'unknown';
+    let newState;
+  
+    switch (currentState) {
+      case 'present':
+        newState = 'absent';
+        break;
+      case 'absent':
+        newState = 'present';
+        break;
+      default:
+        newState = 'present';
+        break;
+    }
+  
+    sessionStorage.setItem(code, newState);
+  
+    // Si la fonction devient "présente" (bouton vert), assurez-vous qu'elle peut être modifiée
+    if (newState === 'present') {
+      let existingData = this.configService.getFunctionData(code);
+      if (!existingData || existingData.length === 0) {
+        existingData = [{
+          function: code,
+          profileCode: '',
+          access: '',
+          sites: '',
+          types: '',
+          options: '',
+          isNew: true // Marquer comme nouvelle configuration
+        }];
+        this.configService.storeFunctionData(code, existingData);
+      }
+    }
+  
+    this.updateDisplayedMegaMenuItems();
+  }
+  
+  toggleFunctionState(code: string): void {
+    const currentStatus = sessionStorage.getItem(code) || 'unknown';
+    const newState = currentStatus === 'present' ? 'absent' : 'present';
+    sessionStorage.setItem(code, newState);
+
+    // Update UI or other elements as necessary
+    this.updateDisplayedMegaMenuItems();
+
+    // Optionally update stored data in ConfigService if needed
+    let functionData = this.configService.getFunctionData(code);
+    if (functionData) {
+      functionData.forEach((config: any) => {
+        config.status = newState; // Assuming there's a status field
+      });
+      this.configService.storeFunctionData(code, functionData);
+    }
   }
 
 
 
 
 
+  addConfiguration(): void {
+    const initialConfig = this.selectedItemData[0]; // Obtenez la première configuration comme configuration initiale
+    const newConfig = {
+      access: '2',
+      options: '',
+      isNew: true, // Marquer comme nouvelle configuration
+      optionsAvailable: this.determineOptions({ function: initialConfig.function }), // Déterminer les options basées sur la fonction
+      profileCode: initialConfig.profileCode, // Copier le code profil de la configuration initiale
+      types: initialConfig.types, // Copier le type de la configuration initiale
+      function: initialConfig.function, // Copier la fonction de la configuration initiale
+      sites: initialConfig.sites || '', // Copier les sites ou mettre une chaîne vide
+      disableOptions: initialConfig.access === '1' // Désactiver les options si l'accès de la config initiale est '1'
+    };
+  
+    this.selectedItemData.push(newConfig);
+  }
+  
+
+  onAccessChange(config: any, index: number): void {
+    if (!config.isNew) return; // Ignorer les modifications pour les configurations non ajoutées
+
+    if (config.access === '1') {
+      config.options = []; // Aucune option possible pour accès de type '1'
+    } else if (config.access === '2') {
+      config.options = ['CMS']; // CMS ajouté par défaut pour accès de type '2'
+    }
+
+    config.optionsAvailable = this.determineOptions(config);
+  }
+
+
+
+
+
+
+  onDeleteClick() {
+    this.fileStateService.deleteFileName(); // Ceci va actualiser le BehaviorSubject
+  }
+
+
+
+  isPresent(code: string | undefined): string {
+    return sessionStorage.getItem(code!) || 'unknown';
+  }
+
   clearStatus(): void {
-    sessionStorage.clear(); // Efface le sessionStorage pour réinitialiser les états
+    sessionStorage.clear();
   }
 
   ngOnDestroy(): void {
     this.resetSubscription.unsubscribe();
-  }
+    this.subscriptions.unsubscribe();
 
+  }
 
   updateDisplayedMegaMenuItems(): void {
     if (this.currentMainMenu && this.megaMenuItems[this.currentMainMenu]) {
       this.displayedMegaMenuItems = this.megaMenuItems[this.currentMainMenu].map((item: ExtendedMegaMenuItem) => {
-        // Vérifiez si 'code' est défini avant de l'utiliser
         if (item.code) {
           const code = item.code;
-          const status = sessionStorage.getItem(code) || 'unknown'; // Utiliser sessionStorage
+          const status = sessionStorage.getItem(code) || 'unknown';
           return {
             ...item,
             class: status === 'present' ? 'green-text' : status === 'absent' ? 'red-text' : 'gray-text'
@@ -274,7 +484,7 @@ toggleStatus(event: MouseEvent, code: string | undefined): void {
         } else {
           return {
             ...item,
-            class: 'gray-text' // Classe par défaut si le code n'est pas défini
+            class: 'gray-text'
           };
         }
       });
@@ -284,10 +494,6 @@ toggleStatus(event: MouseEvent, code: string | undefined): void {
   }
 
 
-
-
-
-
   selectMainMenu(menu: string) {
     this.currentMainMenu = menu;
     let newItems = this.buildMenuItemsForMenu(menu);
@@ -295,6 +501,358 @@ toggleStatus(event: MouseEvent, code: string | undefined): void {
     this.updateDisplayedMegaMenuItems();
   }
 
+  // Method to initialize and assign commands to all menu items recursively
+  initializeMenuItems(items: MenuItem[]) {
+    items.forEach(item => {
+      // Check if item has a code and set its state
+      if (item['code']) {
+        const functionData = this.configService.getFunctionData(item['code']);
+        if (functionData) {
+          item.command = () => this.openFunctionDetails(item['code'], item.label || 'No Label');
+          // Additional setup or state management based on functionData can be done here
+        }
+      }
+
+      // Recursively apply to sub-items
+      if (item.items) {
+        this.initializeMenuItems(item.items as MenuItem[]);
+      }
+    });
+  }
+
+
+  determineOptions(config?: any): any[] {
+    const optionsMap: { [key: string]: any[] } = {
+      'FONADI': [
+        { label: 'M', value: 'M' },
+        { label: 'P', value: 'P' }
+      ],
+      'BANAFFA': [
+        { label: 'U', value: 'U' }
+      ],
+      'BANAFFM': [
+        { label: 'U', value: 'U' }
+      ],
+      'BATCHEXP': [
+        { label: 'T', value: 'T' }
+      ],
+      'BATCHIMP': [
+        { label: 'T', value: 'T' }
+      ],
+      'BPCVAL': [
+        { label: 'U', value: 'U' }
+      ],
+      'BPSVAL': [
+        { label: 'U', value: 'U' }
+      ],
+      'CONSPIA': [
+        { label: 'P', value: 'P' },
+        { label: 'S', value: 'S' },
+        { label: 'C', value: 'C' },
+        { label: 'T', value: 'T' },
+        { label: 'F', value: 'F' }
+      ],
+      'CONSPIC': [
+        { label: 'P', value: 'P' },
+        { label: 'S', value: 'S' },
+        { label: 'C', value: 'C' },
+        { label: 'T', value: 'T' },
+        { label: 'F', value: 'F' }
+      ],
+      'CONSPIH': [
+        { label: 'P', value: 'P' },
+        { label: 'S', value: 'S' },
+        { label: 'C', value: 'C' },
+        { label: 'T', value: 'T' },
+        { label: 'F', value: 'F' }
+      ],
+      'CONSPIV': [
+        { label: 'P', value: 'P' },
+        { label: 'S', value: 'S' },
+        { label: 'C', value: 'C' },
+        { label: 'T', value: 'T' },
+        { label: 'F', value: 'F' }
+      ],
+      'CPTACTSIM': [
+        { label: 'U', value: 'U' }
+      ],
+      'CPTANUSIM': [
+        { label: 'U', value: 'U' }
+      ],
+      'CPTDESSIM': [
+        { label: 'U', value: 'U' }
+      ],
+      'CPTVALSIM': [
+        { label: 'U', value: 'U' }
+      ],
+      'FUNDBENCH': [
+        { label: 'A', value: 'A' },
+        { label: 'M', value: 'M' },
+        { label: 'J', value: 'J' },
+        { label: 'P', value: 'P' }
+      ],
+      'FUNDBENCHA': [
+        { label: 'A', value: 'A' },
+        { label: 'M', value: 'M' },
+        { label: 'J', value: 'J' },
+        { label: 'P', value: 'P' }
+      ],
+      'FUNGBENCH': [
+        { label: 'A', value: 'A' },
+        { label: 'M', value: 'M' },
+        { label: 'J', value: 'J' }
+      ],
+      'FUNGBENCHA': [
+        { label: 'A', value: 'A' },
+        { label: 'M', value: 'M' },
+        { label: 'J', value: 'J' }
+      ],
+      'GENAVIDOM': [
+        { label: 'U', value: 'U' }
+      ],
+      'GENBORREM': [
+        { label: 'U', value: 'U' }
+      ],
+      'GESBBY': [
+        { label: 'K', value: 'K' }
+      ],
+      'GESBICI': [
+        { label: 'V', value: 'V' },
+        { label: 'E', value: 'E' }
+      ],
+      'GESBISI': [
+        { label: 'V', value: 'V' },
+        { label: 'E', value: 'E' }
+      ],
+      'GESBPC': [
+        { label: 'T', value: 'T' },
+        { label: 'W', value: 'W' }
+      ],
+      'GESBPP': [
+        { label: 'W', value: 'W' }
+      ],
+      'GESBPR': [
+        { label: 'W', value: 'W' }
+      ],
+      'GESBPS': [
+        { label: 'T', value: 'T' },
+        { label: 'W', value: 'W' }
+      ],
+      'GESCAZ': [
+        { label: 'T', value: 'T' }
+      ],
+      'GESDBY': [
+        { label: 'K', value: 'K' }
+      ],
+      'GESFAS': [
+        { label: 'A', value: 'A' },
+        { label: 'G', value: 'G' },
+        { label: 'R', value: 'R' },
+        { label: 'T', value: 'T' },
+        { label: 'U', value: 'U' },
+        { label: 'V', value: 'V' },
+        { label: 'W', value: 'W' },
+        { label: 'Z', value: 'Z' },
+        { label: 'O', value: 'O' },
+        { label: 'P', value: 'P' }
+      ],
+      'GESFRM': [
+        { label: 'V', value: 'V' },
+        { label: 'F', value: 'F' },
+        { label: 'T', value: 'T' }
+      ],
+      'GESGAS': [
+        { label: 'T', value: 'T' }
+      ],
+      'GESITM': [
+        { label: 'T', value: 'T' },
+        { label: 'c', value: 'c' }
+      ],
+      'GESITN': [
+        { label: 'K', value: 'K' }
+      ],
+      'GESLOT': [
+        { label: 'T', value: 'T' }
+      ],
+      'GESMFG': [
+        { label: 'A', value: 'A' },
+        { label: 'J', value: 'J' }
+      ],
+      'GESMTK': [
+        { label: 'K', value: 'K' }
+      ],
+      'GESPAB': [
+        { label: 'V', value: 'V' },
+        { label: 'F', value: 'F' },
+        { label: 'T', value: 'T' }
+      ],
+      'GESPAY': [
+        { label: 'A', value: 'A' },
+        { label: 'V', value: 'V' },
+        { label: 'T', value: 'T' },
+        { label: 'L', value: 'L' },
+        { label: 'O', value: 'O' }
+      ],
+      'GESPHY': [
+        { label: 'G', value: 'G' }
+      ],
+      'GESPIH': [
+        { label: 'V', value: 'V' },
+        { label: 'E', value: 'E' },
+        { label: 'U', value: 'U' },
+        { label: 'I', value: 'I' }
+      ],
+      'GESPNH': [
+        { label: 'V', value: 'V' },
+        { label: 'K', value: 'K' }
+      ],
+      'GESPOD': [
+        { label: 'T', value: 'T' }
+      ],
+      'GESPOH': [
+        { label: 'T', value: 'T' },
+        { label: 'L', value: 'L' },
+        { label: 'I', value: 'I' }
+      ],
+      'GESPRH': [
+        { label: 'L', value: 'L' },
+        { label: 'G', value: 'G' }
+      ],
+      'GESPRH2': [
+        { label: 'L', value: 'L' },
+        { label: 'G', value: 'G' }
+      ],
+      'GESPSH': [
+        { label: 'T', value: 'T' },
+        { label: 'G', value: 'G' }
+      ],
+      'GESPTH': [
+        { label: 'T', value: 'T' },
+        { label: 'K', value: 'K' },
+        { label: 'L', value: 'L' }
+      ],
+      'GESPTH2': [
+        { label: 'T', value: 'T' },
+        { label: 'K', value: 'K' },
+        { label: 'L', value: 'L' }
+      ],
+      'GESSCO': [
+        { label: 'A', value: 'A' },
+        { label: 'O', value: 'O' }
+      ],
+      'GESSDH': [
+        { label: 'V', value: 'V' },
+        { label: 'P', value: 'P' },
+        { label: 'F', value: 'F' },
+        { label: 'K', value: 'K' },
+        { label: 'G', value: 'G' },
+        { label: 'I', value: 'I' }
+      ],
+      'GESSDH2': [
+        { label: 'V', value: 'V' },
+        { label: 'P', value: 'P' },
+        { label: 'F', value: 'F' },
+        { label: 'K', value: 'K' },
+        { label: 'G', value: 'G' }
+      ],
+      'GESSFI': [
+        { label: 'W', value: 'W' }
+      ],
+      'GESSFI1': [
+        { label: 'W', value: 'W' }
+      ],
+      'GESSIH': [
+        { label: 'V', value: 'V' },
+        { label: 'E', value: 'E' },
+        { label: 'R', value: 'R' },
+        { label: 'K', value: 'K' },
+        { label: 'I', value: 'I' }
+      ],
+      'GESSIS': [
+        { label: 'D', value: 'D' }
+      ],
+      'GESSMO': [
+        { label: 'K', value: 'K' }
+      ],
+      'GESSMR': [
+        { label: 'K', value: 'K' }
+      ],
+      'GESSNL': [
+        { label: 'V', value: 'V' }
+      ],
+      'GESSOH': [
+        { label: 'P', value: 'P' },
+        { label: 'L', value: 'L' },
+        { label: 'F', value: 'F' },
+        { label: 'A', value: 'A' },
+        { label: 'D', value: 'D' },
+        { label: 'R', value: 'R' },
+        { label: 'I', value: 'I' }
+      ], 'GESSOQ': [
+        { label: 'A', value: 'A' }
+      ],
+      'GESSQH': [
+        { label: 'P', value: 'P' },
+        { label: 'O', value: 'O' }
+      ],
+      'GESSRE': [
+        { label: 'G', value: 'G' },
+        { label: 'H', value: 'H' },
+        { label: 'K', value: 'K' },
+        { label: 'F', value: 'F' }
+      ],
+      'GESSRH': [
+        { label: 'K', value: 'K' }
+      ],
+      'GESSRL': [
+        { label: 'K', value: 'K' }
+      ],
+      'GESSRS': [
+        { label: 'K', value: 'K' }
+      ],
+      'GESSTQ': [
+        { label: 'Q', value: 'Q' }
+      ],
+      'GEXPOBJ': [
+        { label: 'T', value: 'T' }
+      ],
+      'GIMPOBJ': [
+        { label: 'T', value: 'T' }
+      ],
+      'MODECHE': [
+        { label: 'E', value: 'E' },
+        { label: 'B', value: 'B' },
+        { label: 'T', value: 'T' }
+      ],
+      'MODECHE2': [
+        { label: 'E', value: 'E' },
+        { label: 'B', value: 'B' },
+        { label: 'T', value: 'T' }
+      ],
+      'PAYMEP': [
+        { label: 'G', value: 'G' },
+        { label: 'U', value: 'U' }
+      ],
+      'REMBAN': [
+        { label: 'G', value: 'G' },
+        { label: 'U', value: 'U' }
+      ],
+      'REMCPT': [
+        { label: 'G', value: 'G' },
+        { label: 'U', value: 'U' }
+      ],
+      'SAIWRKPLN': [
+        { label: 'G', value: 'G' },
+        { label: 'A', value: 'A' },
+        { label: 'U', value: 'U' }
+      ],
+      'VALBIS': [
+        { label: 'U', value: 'U' }
+      ]
+    };
+
+    return config && optionsMap[config.function] ? [{ label: 'CMS', value: 'CMS' }, ...optionsMap[config.function]] : [{ label: 'CMS', value: 'CMS' }];
+  }
 
 
 
@@ -312,6 +870,8 @@ toggleStatus(event: MouseEvent, code: string | undefined): void {
     this.showDeclarationEchangeBienTaxesSubMenu = menu === 'Déclarations';
     this.showAutresDeclarationsSubMenu = menu === 'Déclarations';
     this.showAuditSubMenu = menu === 'Déclarations';
+
+    let menuItems: MegaMenuItem[] = [];
 
     switch (menu) {
       case 'Développement':
@@ -6602,9 +7162,12 @@ toggleStatus(event: MouseEvent, code: string | undefined): void {
           }
         ];
       default:
-        return []; // Retourne un tableau vide si le menu n'est pas reconnu
+        menuItems = []; // Ajoutez cette ligne pour gérer les cas par défaut
+        break;
 
     }
+    return menuItems;
+
   }
 
   utilitairesSubMenuItems: MenuItem[] = [
@@ -6651,7 +7214,8 @@ toggleStatus(event: MouseEvent, code: string | undefined): void {
           label: 'Divers',
           items: this.getDiversSubMenu()
         },
-      ]
+      ],
+      className: 'has-submenu' // Ajoutez une classe spécifique
     },
   ]
 

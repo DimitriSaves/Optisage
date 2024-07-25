@@ -8,7 +8,6 @@ const port = 3001;
 
 app.use(cors());
 
-// Configuration de multer pour stocker les fichiers en mémoire
 const upload = multer({ storage: multer.memoryStorage() });
 
 app.post('/upload', upload.single('file'), (req, res) => {
@@ -29,15 +28,17 @@ app.post('/upload', upload.single('file'), (req, res) => {
     const fullData = [];
 
     output.forEach(row => {
-      if (row.length >= 7) { // Assurez-vous que chaque ligne a au moins 7 éléments
+      if (row.length >= 7) {
         const code = row[1];
         codes.push(code);
+        const types = row[5] === '1' ? '1' : row[5] === '2' ? '2' : '';
+        console.log(`Function: ${code}, Types: ${types}`);  // Log the types value
 
         const detailedData = {
           profileCode: row[4],
           access: row[2],
           sites: row[6],
-          menu: row[5],
+          types: types,
           function: code,
           options: row[3]
         };
@@ -45,11 +46,10 @@ app.post('/upload', upload.single('file'), (req, res) => {
       }
     });
 
-    console.log({ codes, fullData }); // Affichez pour vérifier
+    console.log({ codes, fullData }); // Log final data structure
     res.json({ codes, fullData });
   });
 });
-
 
 
 app.listen(port, () => {

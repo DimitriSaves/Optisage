@@ -35,6 +35,10 @@ body { margin: 0;  }
     display: none;
   }
   
+  .p-megamenu.p-megamenu-vertical {
+    width: 13%;
+    padding: 0.25rem 0;
+}
  
   .menuitem-content {
     display: flex;
@@ -144,9 +148,131 @@ p-dialog .ui-dialog-titlebar {
   box-sizing: border-box; /* Includes padding and border in the element's total width and height */
 }
 
+.config-section {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
 .ui-button-secondary {
   background-color: rgb(122, 22, 22);
   color: white;
   border: none;
-  display:flex
+  margin-top: 10px; /* Ajoute un espace entre le bouton et les champs de formulaire */
+}
+
+.ui-button-secondary.remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.function-label {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 5px;
+}
+
+.bulk-update-dialog .bulk-update-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.bulk-update-dialog .bulk-update-select, .bulk-update-dialog .bulk-update-input {
+  width: 100%; 
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 16px; 
+}
+
+.bulk-update-dialog .bulk-update-select {
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center; 
+  background-size: 24px;
+  cursor: pointer; 
+}
+
+.bulk-update-dialog .bulk-update-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.bulk-update-dialog .bulk-update-button {
+  background-color: #4CAF50; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  &:hover {
+    background-color: #45a049; 
+  }
+}
+/* Style pour l'indicateur de sous-menu dans un conteneur */
+.submenu-indicator-container {
+  margin-left: auto; /* Pousse le conteneur du chevron à la droite */
+  display: flex;
+  align-items: center; /* Centre le chevron verticalement avec le texte */
+}
+
+.submenu-indicator::after {
+  content: '>';
+  display: block; /* Assure que le chevron est un bloc propre */
+  margin-left: 200px;
+}
+
+.p-tieredmenu {
+  width: 13%;
+}
+
+.submenu-indicator-gestionTaxes::after {
+  content: '>';
+  display: block; /* Assure que le chevron est un bloc propre */
+  margin-left: 150px;
+}
+
+.submenu-indicator-Echanges::after {
+  content: '>';
+  display: block; /* Assure que le chevron est un bloc propre */
+  margin-left: 43px;
+}
+
+.submenu-indicator-Autres::after {
+  content: '>';
+  display: block; /* Assure que le chevron est un bloc propre */
+  margin-left: 137px;
+}
+
+
+.submenu-indicator-Audit::after {
+  content: '>';
+  display: block; /* Assure que le chevron est un bloc propre */
+  margin-left: 234px;
+}
+
+.p-tieredmenu .p-menuitem.p-highlight > .p-menuitem-content  {
+  color: #ffffff;
+  background: #0b64bd;
 }
